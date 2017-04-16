@@ -146,6 +146,17 @@ This is too sophisticated for a short demo, but here's the code for the scene
 in the first screenshot:
 
 ```py
+from clubsandwich.ui import (
+  LabelView,
+  ButtonView,
+  UIScene,
+)
+LOGO = """
+  _______     __     ____             __       _     __ 
+ / ___/ /_ __/ /    / __/__ ____  ___/ /    __(_)___/ / 
+/ /__/ / // / _ \  _\ \/ _ `/ _ \/ _  / |/|/ / / __/ _ \\
+\___/_/\_,_/_.__/ /___/\_,_/_//_/\_,_/|__,__/_/\__/_//_/
+"""
 class MainMenuScene(UIScene):
     def __init__(self, *args, **kwargs):
         views = [
