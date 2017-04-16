@@ -8,6 +8,7 @@ Features:
 * Geometry data structures
 * Convenience functions
 * UIKit-like interface framework
+* Script runner to help you iterate quickly
 
 ## Installation
 
@@ -174,4 +175,21 @@ class MainMenuScene(UIScene):
 
     def show_settings(self):
         self.director.push_scene(SettingsScene())
+```
+
+### Script runner
+
+When you install clubsandwich, it adds a script called `babysit` to your path.
+This script does one very simple thing: it runs a command, and when that
+command exits, it runs it again. This repeats until you Ctrl+C the `babysit`
+process.
+
+This is useful when writing games because you don't want to have to keep
+switching back to your terminal to run your script. Using `babysit`, you can
+just quit your game whenever you make a change and it'll start back up again.
+
+You can try it with the demo script like this:
+
+```py
+babysit python demo.py
 ```
