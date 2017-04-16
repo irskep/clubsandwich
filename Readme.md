@@ -10,6 +10,8 @@ Features:
 * UIKit-like interface framework
 * Script runner to help you iterate quickly
 
+*Better documentation is being actively worked on, hold tight!*
+
 ## Installation
 
 This package is not yet on PyPI. It is under heavy development. But you can
