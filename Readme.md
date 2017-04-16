@@ -19,8 +19,8 @@ expect reasonable API stability!
 pip install -e git://github.com/irskep/clubsandwich.git@master#egg=clubsandwich
 ```
 
-![screenshot 1][readme_images/screenshot1.png]
-![screenshot 2][readme_images/screenshot2.png]
+![screenshot 1](readme_images/screenshot1.png)
+![screenshot 2](readme_images/screenshot2.png)
 
 ## What is this?
 
