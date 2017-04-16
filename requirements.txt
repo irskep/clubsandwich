@@ -1,0 +1,2 @@
+appdirs=1.4.3
+bearlibterminal==0.15.2
