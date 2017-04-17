@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>clubsandwich.director &#8212; clubsandwich v0.1a1 docs - BearLibTerminal framework for Python</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1a1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="clubsandwich.geom" href="api_geom.html" />
+    <link rel="prev" title="clubsandwich" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-clubsandwich.director">
+<span id="clubsandwich-director"></span><h1><code class="docutils literal"><span class="pre">clubsandwich.director</span></code><a class="headerlink" href="#module-clubsandwich.director" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="clubsandwich.director.DirectorLoop">
+<em class="property">class </em><code class="descclassname">clubsandwich.director.</code><code class="descname">DirectorLoop</code><a class="headerlink" href="#clubsandwich.director.DirectorLoop" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="clubsandwich.director.DirectorLoop.active_scene">
+<code class="descname">active_scene</code><a class="headerlink" href="#clubsandwich.director.DirectorLoop.active_scene" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.DirectorLoop.get_initial_scene">
+<code class="descname">get_initial_scene</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.DirectorLoop.get_initial_scene" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.DirectorLoop.pop_scene">
+<code class="descname">pop_scene</code><span class="sig-paren">(</span><em>may_exit=True</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.DirectorLoop.pop_scene" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.DirectorLoop.push_scene">
+<code class="descname">push_scene</code><span class="sig-paren">(</span><em>new_value</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.DirectorLoop.push_scene" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.DirectorLoop.quit">
+<code class="descname">quit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.DirectorLoop.quit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.DirectorLoop.replace_scene">
+<code class="descname">replace_scene</code><span class="sig-paren">(</span><em>new_value</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.DirectorLoop.replace_scene" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.DirectorLoop.terminal_init">
+<code class="descname">terminal_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.DirectorLoop.terminal_init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.DirectorLoop.terminal_read">
+<code class="descname">terminal_read</code><span class="sig-paren">(</span><em>char</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.DirectorLoop.terminal_read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.DirectorLoop.terminal_update">
+<code class="descname">terminal_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.DirectorLoop.terminal_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="clubsandwich.director.Scene">
+<em class="property">class </em><code class="descclassname">clubsandwich.director.</code><code class="descname">Scene</code><a class="headerlink" href="#clubsandwich.director.Scene" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="clubsandwich.director.Scene.add_terminal_reader">
+<code class="descname">add_terminal_reader</code><span class="sig-paren">(</span><em>reader</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.Scene.add_terminal_reader" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.director.Scene.director">
+<code class="descname">director</code><a class="headerlink" href="#clubsandwich.director.Scene.director" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.Scene.enter">
+<code class="descname">enter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.Scene.enter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.Scene.exit">
+<code class="descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.Scene.exit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.Scene.remove_terminal_reader">
+<code class="descname">remove_terminal_reader</code><span class="sig-paren">(</span><em>reader</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.Scene.remove_terminal_reader" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.Scene.terminal_read">
+<code class="descname">terminal_read</code><span class="sig-paren">(</span><em>char</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.Scene.terminal_read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.Scene.terminal_update">
+<code class="descname">terminal_update</code><span class="sig-paren">(</span><em>is_active=False</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.Scene.terminal_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">clubsandwich</a></li>
+      <li>Next: <a href="api_geom.html" title="next chapter"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/api_director.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 Steve Johnson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/api_director.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

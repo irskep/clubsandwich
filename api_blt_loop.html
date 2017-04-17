@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>clubsandwich.blt.loop &#8212; clubsandwich v0.1a1 docs - BearLibTerminal framework for Python</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1a1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="clubsandwich.blt.nice_terminal" href="api_blt_nice_terminal.html" />
+    <link rel="prev" title="clubsandwich.blt.context" href="api_blt_context.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-clubsandwich.blt.loop">
+<span id="clubsandwich-blt-loop"></span><h1><code class="docutils literal"><span class="pre">clubsandwich.blt.loop</span></code><a class="headerlink" href="#module-clubsandwich.blt.loop" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="clubsandwich.blt.loop.BearLibTerminalEventLoop">
+<em class="property">class </em><code class="descclassname">clubsandwich.blt.loop.</code><code class="descname">BearLibTerminalEventLoop</code><span class="sig-paren">(</span><em>fps=72</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.loop.BearLibTerminalEventLoop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple wrapper around BearLibTerminal and asyncio.</p>
+<p>Subclass terminal_init(), terminal_read(), and terminal_update().
+Instantiate your class and call its run() method.</p>
+<dl class="method">
+<dt id="clubsandwich.blt.loop.BearLibTerminalEventLoop.loop_until_terminal_exits">
+<code class="descname">loop_until_terminal_exits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.loop.BearLibTerminalEventLoop.loop_until_terminal_exits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.blt.loop.BearLibTerminalEventLoop.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.loop.BearLibTerminalEventLoop.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.blt.loop.BearLibTerminalEventLoop.run_loop_iteration">
+<code class="descname">run_loop_iteration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.loop.BearLibTerminalEventLoop.run_loop_iteration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.blt.loop.BearLibTerminalEventLoop.terminal_init">
+<code class="descname">terminal_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.loop.BearLibTerminalEventLoop.terminal_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Terminal has just been opened. You should configure it with 
+terminal.set().</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.blt.loop.BearLibTerminalEventLoop.terminal_read">
+<code class="descname">terminal_read</code><span class="sig-paren">(</span><em>char</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.loop.BearLibTerminalEventLoop.terminal_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle input here</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.blt.loop.BearLibTerminalEventLoop.terminal_update">
+<code class="descname">terminal_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.loop.BearLibTerminalEventLoop.terminal_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the view. Fires once per frame regardless of whether there
+was any input.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="api_blt_context.html" title="previous chapter"><code class="docutils literal"><span class="pre">clubsandwich.blt.context</span></code></a></li>
+      <li>Next: <a href="api_blt_nice_terminal.html" title="next chapter"><code class="docutils literal"><span class="pre">clubsandwich.blt.nice_terminal</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/api_blt_loop.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 Steve Johnson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/api_blt_loop.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

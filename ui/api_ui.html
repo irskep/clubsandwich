@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Concepts and core objects &#8212; clubsandwich v0.1a1 docs - BearLibTerminal framework for Python</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1a1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Components" href="api_ui_components.html" />
+    <link rel="prev" title="clubsandwich.ui" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-clubsandwich.ui">
+<span id="concepts-and-core-objects"></span><h1>Concepts and core objects<a class="headerlink" href="#module-clubsandwich.ui" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="clubsandwich.ui.UIScene">
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">UIScene</code><span class="sig-paren">(</span><em>views</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.UIScene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scene that renders a <a class="reference internal" href="api_ui_components.html#module-clubsandwich.ui" title="clubsandwich.ui"><code class="xref py py-mod docutils literal"><span class="pre">clubsandwich.ui</span></code></a>-based interface.</p>
+<p>The root view of a <a class="reference internal" href="#clubsandwich.ui.UIScene" title="clubsandwich.ui.UIScene"><code class="xref py py-class docutils literal"><span class="pre">UIScene</span></code></a> is always a
+<a class="reference internal" href="#clubsandwich.ui.FirstResponderContainerView" title="clubsandwich.ui.FirstResponderContainerView"><code class="xref py py-class docutils literal"><span class="pre">FirstResponderContainerView</span></code></a>. In simple terms, this means
+that buttons work.</p>
+<p>Log the view hierarchy by pressing the backslash key at any time.</p>
+<dl class="method">
+<dt id="clubsandwich.ui.UIScene.terminal_read">
+<code class="descname">terminal_read</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.UIScene.terminal_read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.UIScene.terminal_update">
+<code class="descname">terminal_update</code><span class="sig-paren">(</span><em>is_active=False</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.UIScene.terminal_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="clubsandwich.ui.View">
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">View</code><span class="sig-paren">(</span><em>frame=None</em>, <em>subviews=None</em>, <em>scene=None</em>, <em>layout_options=None</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="clubsandwich.ui.View.add_subviews">
+<code class="descname">add_subviews</code><span class="sig-paren">(</span><em>subviews</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.add_subviews" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.ui.View.ancestors">
+<code class="descname">ancestors</code><a class="headerlink" href="#clubsandwich.ui.View.ancestors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.ui.View.bounds">
+<code class="descname">bounds</code><a class="headerlink" href="#clubsandwich.ui.View.bounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.ui.View.can_did_become_first_responder">
+<code class="descname">can_did_become_first_responder</code><a class="headerlink" href="#clubsandwich.ui.View.can_did_become_first_responder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.ui.View.can_did_resign_first_responder">
+<code class="descname">can_did_resign_first_responder</code><a class="headerlink" href="#clubsandwich.ui.View.can_did_resign_first_responder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.debug_print">
+<code class="descname">debug_print</code><span class="sig-paren">(</span><em>indent=0</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.debug_print" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.debug_string">
+<code class="descname">debug_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.debug_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.descendant_did_become_first_responder">
+<code class="descname">descendant_did_become_first_responder</code><span class="sig-paren">(</span><em>view</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.descendant_did_become_first_responder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by FirstResponderContainerView when any descendant of this view
+becomes the first responder. This is so list implementations can scroll it
+into view.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.descendant_did_resign_first_responder">
+<code class="descname">descendant_did_resign_first_responder</code><span class="sig-paren">(</span><em>view</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.descendant_did_resign_first_responder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by FirstResponderContainerView when any descendant of this view
+unbecomes the first responder. This is so list implementations can release
+keyboard event handlers.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.did_become_first_responder">
+<code class="descname">did_become_first_responder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.did_become_first_responder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.did_resign_first_responder">
+<code class="descname">did_resign_first_responder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.did_resign_first_responder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.draw">
+<code class="descname">draw</code><span class="sig-paren">(</span><em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.draw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.ui.View.first_responder_container_view">
+<code class="descname">first_responder_container_view</code><a class="headerlink" href="#clubsandwich.ui.View.first_responder_container_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.ui.View.frame">
+<code class="descname">frame</code><a class="headerlink" href="#clubsandwich.ui.View.frame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.get_ancestor_matching">
+<code class="descname">get_ancestor_matching</code><span class="sig-paren">(</span><em>predicate</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.get_ancestor_matching" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.ui.View.intrinsic_size">
+<code class="descname">intrinsic_size</code><a class="headerlink" href="#clubsandwich.ui.View.intrinsic_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.layout_subviews">
+<code class="descname">layout_subviews</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.layout_subviews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the frames of all subviews relative to <code class="docutils literal"><span class="pre">self.bounds</span></code>. By default,
+applies the springs-and-struts algorithm using each view&#8217;s
+<code class="docutils literal"><span class="pre">layout_options</span></code> and <code class="docutils literal"><span class="pre">layout_spec</span></code> properties.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.ui.View.leftmost_leaf">
+<code class="descname">leftmost_leaf</code><a class="headerlink" href="#clubsandwich.ui.View.leftmost_leaf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.perform_draw">
+<code class="descname">perform_draw</code><span class="sig-paren">(</span><em>ctx=None</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.perform_draw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.perform_layout">
+<code class="descname">perform_layout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.perform_layout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.ui.View.postorder_traversal">
+<code class="descname">postorder_traversal</code><a class="headerlink" href="#clubsandwich.ui.View.postorder_traversal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.remove_subviews">
+<code class="descname">remove_subviews</code><span class="sig-paren">(</span><em>subviews</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.remove_subviews" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.ui.View.scene">
+<code class="descname">scene</code><a class="headerlink" href="#clubsandwich.ui.View.scene" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.set_needs_layout">
+<code class="descname">set_needs_layout</code><span class="sig-paren">(</span><em>val=True</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.set_needs_layout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.ui.View.superview">
+<code class="descname">superview</code><a class="headerlink" href="#clubsandwich.ui.View.superview" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.View.terminal_read">
+<code class="descname">terminal_read</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.terminal_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fires when an input event occurs, and either:</p>
+<ul class="simple">
+<li>This view is the first responder</li>
+<li>The first responder is a descendant, and no other descendants have
+already handled this event</li>
+</ul>
+<p>You must return a truthy value if you handled the event so it doesn&#8217;t get
+handled twice.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="clubsandwich.ui.FirstResponderContainerView">
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">FirstResponderContainerView</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Must be registered on the scene as terminal reader to work.</p>
+<dl class="attribute">
+<dt id="clubsandwich.ui.FirstResponderContainerView.can_did_resign_first_responder">
+<code class="descname">can_did_resign_first_responder</code><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.can_did_resign_first_responder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.FirstResponderContainerView.find_next_responder">
+<code class="descname">find_next_responder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.find_next_responder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.FirstResponderContainerView.find_prev_responder">
+<code class="descname">find_prev_responder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.find_prev_responder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.FirstResponderContainerView.remove_subviews">
+<code class="descname">remove_subviews</code><span class="sig-paren">(</span><em>subviews</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.remove_subviews" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.FirstResponderContainerView.set_first_responder">
+<code class="descname">set_first_responder</code><span class="sig-paren">(</span><em>new_value</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.set_first_responder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.FirstResponderContainerView.terminal_read">
+<code class="descname">terminal_read</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.terminal_read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a></li>
+      <li>Next: <a href="api_ui_components.html" title="next chapter">Components</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/ui/api_ui.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 Steve Johnson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/ui/api_ui.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
