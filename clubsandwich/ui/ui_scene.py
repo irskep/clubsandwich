@@ -14,11 +14,8 @@ class UIScene(Scene):
 
   See :class:`~clubsandwich.director.Scene` for the other args.
 
-  Scene that renders a :mod:`clubsandwich.ui`-based interface.
-
-  The root view of a :class:`UIScene` is always a
-  :class:`FirstResponderContainerView`. In simple terms, this means
-  that buttons work.
+  Scene that renders a view hierarchy inside a
+  :py:class:`FirstResponderContainerView`.
 
   Log the view hierarchy by pressing the backslash key at any time.
   """
