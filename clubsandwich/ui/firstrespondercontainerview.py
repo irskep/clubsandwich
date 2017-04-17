@@ -6,7 +6,20 @@ from .view import View
 
 
 class FirstResponderContainerView(View):
-  """Must be registered on the scene as terminal reader to work."""
+  """
+  Manages the "first responder" system. The control that receives
+  BearLibTerminal events at a given time is the first responder.
+
+  This container view listens for the tab key. When it's pressed, the subview
+  tree is walked until another candidate is found, or there are no others.
+  That new subview is the new first responder.
+
+  You don't need to create this class yourself. :py:class:`UIScene` makes it
+  for you.
+
+  If you want to write a control that handles input, read the source of the
+  :py:class:`ButtonView` class.
+  """
   def __init__(self, *args, **kwargs):
     self.first_responder = None
     super().__init__(*args, **kwargs)
@@ -14,7 +27,7 @@ class FirstResponderContainerView(View):
     self.find_next_responder()
 
   @property
-  def can_did_resign_first_responder(self):
+  def can_resign_first_responder(self):
     return False
 
   def remove_subviews(self, subviews):
@@ -39,7 +52,7 @@ class FirstResponderContainerView(View):
 
   def find_next_responder(self):
     existing_responder = self.first_responder or self.leftmost_leaf
-    all_responders = [v for v in self.postorder_traversal if v.can_did_become_first_responder]
+    all_responders = [v for v in self.postorder_traversal if v.can_become_first_responder]
     try:
       i = all_responders.index(existing_responder)
       if i == len(all_responders) - 1:
@@ -54,7 +67,7 @@ class FirstResponderContainerView(View):
 
   def find_prev_responder(self):
     existing_responder = self.first_responder or self.leftmost_leaf
-    all_responders = [v for v in self.postorder_traversal if v.can_did_become_first_responder]
+    all_responders = [v for v in self.postorder_traversal if v.can_become_first_responder]
     try:
       i = all_responders.index(existing_responder)
       if i == 0:
@@ -79,7 +92,7 @@ class FirstResponderContainerView(View):
     if not handled:
       can_tab_away = (
         not self.first_responder
-        or self.first_responder.can_did_resign_first_responder)
+        or self.first_responder.can_resign_first_responder)
       if val == terminal.TK_TAB and can_tab_away:
         if blt_state.shift:
           self.find_prev_responder()

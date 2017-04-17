@@ -1,9 +1,12 @@
 """
-Provides a ``blt_state`` object containing properties for all BearLibTerminal
-state keys. When you access a property, ``terminal_state(THE_CONST)`` is
-called and its value is returned.
+.. py:attribute:: state
 
-For example, ``blt_state.shift`` returns ``True`` iff the Shift key is down.
+    Object with attributes that map to all BearLibTerminal
+    `event and state constants <http://foo.wyrd.name/en:bearlibterminal:reference:input>`_.
+
+    For example, ``blt_state.shift`` returns ``True`` iff the Shift key is
+    down. This is forwarded to
+    ``bearlibterminal.terminal.state(terminal.TK_SHIFT)``.
 """
 from bearlibterminal import terminal
 

@@ -1,11 +1,34 @@
+"""
+.. py:attribute:: terminal
+
+    Exactly like ``bearlibterminal.terminal``, but for any function that takes
+    arguments ``x, y``, ``dx, dy``, or ``x, y, width, height``, you can
+    instead pass a single argument of type :py:class:`Point` (for the first
+    two) or :py:class:`Rect` (for the last).
+
+    This makes interactions betweeen :py:mod:`geom` and ``bearlibterminal``
+    much less verbose.
+
+    Example::
+
+      from clubsandwich.blt.nice_terminal import terminal
+      from clubsandwich.geom import Point
+
+      terminal.open()
+
+      a = Point(10, 10)
+      b = a + Point(1, 1)
+      terminal.put(a, 'a')
+      terminal.put(b, 'b')
+      terminal.refresh()
+      terminal.read()
+      terminal.close()
+"""
+
 from bearlibterminal import terminal as _terminal
 from clubsandwich.geom import Point, Rect
 
 class NiceTerminal:
-  """
-  Like bearlibterminal.terminal, but some functions support geom.py data
-  structures
-  """
   def __getattr__(self, k):
     return getattr(_terminal, k)
 

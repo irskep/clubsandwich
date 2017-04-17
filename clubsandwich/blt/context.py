@@ -4,12 +4,33 @@ from clubsandwich.geom import Point
 
 class BearLibTerminalContext(NiceTerminal):
   """
-  Like ``NiceTerminal``, but you can use ``translate()`` to offset all
-  calls that take a position or rect.
+  A class that acts like :py:attr:`clubsandwich.blt.nice_terminal.terminal`
+  (you can use :py:class:`Point` and :py:class:`Rect` instead of separate
+  ints), except:
+
+    * It's a class, so you have to instantiate it
+    * It includes a context manager, :py:meth:`translate`, that offsets all
+      position-related calls.
+
+  Example::
+
+      from clubsandwich.blt.context import BearLibTerminalContext
+      from clubsandwich.geom import Point
+
+      ctx = BearLibTerminalContext()
+      ctx.open()
+
+      a = Point(10, 10)
+      with ctx.translate(a):
+        terminal.put(Point(0, 0), 'a')
+        terminal.put(Point(1, 1), 'b')
+      terminal.refresh()
+      terminal.read()
+      terminal.close()
   """
 
-  def __init__(self, *args, **kwargs):
-    super().__init__(*args, **kwargs)
+  def __init__(self):
+    super().__init__()
     self.offset = Point(0, 0)
 
   @contextmanager

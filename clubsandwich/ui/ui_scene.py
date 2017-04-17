@@ -10,6 +10,10 @@ from clubsandwich.ui import (
 
 class UIScene(Scene):
   """
+  :param list|View views: One or more subviews of the root view
+
+  See :class:`~clubsandwich.director.Scene` for the other args.
+
   Scene that renders a :mod:`clubsandwich.ui`-based interface.
 
   The root view of a :class:`UIScene` is always a
@@ -20,12 +24,6 @@ class UIScene(Scene):
   """
 
   def __init__(self, views, *args, **kwargs):
-    """
-    :param list|View views: One or more subviews of the root view
-
-    See :class:`~clubsandwich.director.Scene` for the other args.
-    """
-
     super().__init__(*args, **kwargs)
 
     if not isinstance(views, list):

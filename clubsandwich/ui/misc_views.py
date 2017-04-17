@@ -23,6 +23,21 @@ def temporary_color(fg, bg):
 
 
 class RectView(View):
+  """
+  :param str color_fg: Foreground color
+  :param str color_bg: Background color (only applies on terminal layer zero)
+
+  See :py:class:`View` for the rest of the init arguments.
+
+  Draws a rectangle in its bounds using ASCII line art.
+
+  ::
+
+    ┌───────┐
+    │       │
+    │       │
+    └───────┘
+  """
   def __init__(self, color_fg='#aaaaaa', color_bg='#000000', *args, **kwargs):
     super().__init__(*args, **kwargs)
     self.color_fg = color_fg
@@ -46,6 +61,22 @@ class RectView(View):
 
 
 class WindowView(RectView):
+  """
+  :param str title: Window title
+
+  See :py:class:`View` for the rest of the init arguments.
+
+  A rectangle with a centered label on the top containing the text *title*.
+  All given subviews are put in an inner view that's inset by 1 cell so the
+  subview don't overlap the border.
+
+  ::
+
+    ┌───Hello!───┐
+    │            │
+    │            │
+    └────────────┘
+  """
   def __init__(self, title=None, *args, subviews=None, **kwargs):
     super().__init__(*args, **kwargs)
     self.title_view = LabelView(title, layout_options=LayoutOptions.row_top(1))
@@ -56,6 +87,17 @@ class WindowView(RectView):
 
 
 class LabelView(View):
+  """
+  Draws the given string inside its bounds. Multi-line strings work fine.
+
+  :param str text: Text to draw
+  :param str color_fg: Foreground color
+  :param str color_bg: Background color (only applies on terminal layer zero)
+  :param 'center'|'left'|'right' align_horz: Horizontal alignment
+  :param 'center'|'top'|'bottom' align_vert: Vertical alignment
+
+  See :py:class:`View` for the rest of the init arguments.
+  """
   def __init__(
       self, text, color_fg='#ffffff', color_bg=None,
       align_horz='center', align_vert='center',
@@ -87,7 +129,7 @@ class LabelView(View):
       y = 0
       if self.align_vert == 'center':
         y = self.bounds.height / 2 - self.intrinsic_size.height / 2
-      elif self.align_vert == 'right':
+      elif self.align_vert == 'bottom':
         y = self.bounds.height - self.intrinsic_size.height
 
       ctx.print(Point(x, y).floored, self.text)
@@ -97,6 +139,21 @@ class LabelView(View):
 
 
 class ButtonView(View):
+  """
+  :param str text: Button title
+  :param func callback: Function to call when button is activated. Takes no
+                        arguments.
+  :param str align_horz: Horizontal alignment. See :py:class:`LabelView`.
+  :param str align_vert: Vertical alignment. See :py:class:`LabelView`.
+
+  See :py:class:`View` for the rest of the init arguments.
+
+  Contains a label. Can be first responder. When a button is the first
+  responder:
+
+  * The label is drawn black-on-white instead of white-on-black
+  * Pressing the Enter key calls *callback*
+  """
   def __init__(
       self, text, callback, align_horz='center', align_vert='center',
       *args, **kwargs):
@@ -133,7 +190,7 @@ class ButtonView(View):
     self.label_view.frame = self.bounds
 
   @property
-  def can_did_become_first_responder(self):
+  def can_become_first_responder(self):
     return True
 
   def terminal_read(self, val):
@@ -144,9 +201,13 @@ class ButtonView(View):
 
 class CyclingButtonView(ButtonView):
   """
+  :param list options: List of options, which must be strings
+  :param str initial_value: Item from *options* to display first
+  :param func callback: Function taking one argument, the option that is now
+                        selected
+
   Button which, when activated, chooses the "next" value in the given list,
-  calls its ``callback`` function with it (``callback(new_value)``), and
-  updates its text to the new value.
+  calls ``callback(new_value)``, and updates its text to the new value.
 
   All values must be strings. If this bothers you, pull requests are welcome.
   """

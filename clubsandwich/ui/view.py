@@ -125,11 +125,11 @@ class View:
   ### responder chain, input ###
 
   @property
-  def can_did_become_first_responder(self):
+  def can_become_first_responder(self):
     return False
 
   @property
-  def can_did_resign_first_responder(self):
+  def can_resign_first_responder(self):
     return True
 
   def did_become_first_responder(self):
