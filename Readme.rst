@@ -209,7 +209,7 @@ Script runner
 
 When you install clubsandwich, it adds a script called ``babysit`` to your
 path. This script does one very simple thing: it runs a command, and when that
-command exits, it runs it again. This repeats until you Ctrl+C the `babysit`
+command exits, it runs it again. This repeats until you Ctrl+C the ``babysit``
 process.
 
 This is useful when writing games because you don't want to have to keep

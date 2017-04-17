@@ -70,7 +70,7 @@ class CharacterCreationScene(UIScene):
         )
         super().__init__(view, *args, **kwargs)
 
-        self.covers_screen = False
+        self.covers_screen = True
 
 
 class SettingsScene(UIScene):
