@@ -1,5 +1,5 @@
-``clubsandwich.blt.context``
-============================
+``context``
+===========
 
 .. automodule:: clubsandwich.blt.context
   :members:

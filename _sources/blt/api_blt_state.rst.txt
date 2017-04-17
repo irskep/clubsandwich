@@ -1,5 +1,5 @@
-``clubsandwich.blt.state``
-==========================
+``state``
+=========
 
 .. automodule:: clubsandwich.blt.state
   :members:

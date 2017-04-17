@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>clubsandwich.ui &#8212; clubsandwich v0.1a1 docs - BearLibTerminal framework for Python</title>
+    <title>clubsandwich.blt &#8212; clubsandwich v0.1a1 docs - BearLibTerminal framework for Python</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -26,13 +26,13 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Concepts and core objects" href="api_ui.html" />
-    <link rel="prev" title="state" href="../blt/api_blt_state.html" />
+    <link rel="next" title="loop" href="api_blt_loop.html" />
+    <link rel="prev" title="clubsandwich.geom" href="../api_geom.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   
-    <link rel="canonical" href="http://steveasleep.com/clubsandwich/ui/index.html"/>
+    <link rel="canonical" href="http://steveasleep.com/clubsandwich/blt/index.html"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
@@ -64,16 +64,16 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../api_director.html"><code class="docutils literal"><span class="pre">clubsandwich.director</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_geom.html"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blt/index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../blt/api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../blt/api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../blt/api_blt_context.html"><code class="docutils literal"><span class="pre">context</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../blt/api_blt_state.html"><code class="docutils literal"><span class="pre">state</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_blt_context.html"><code class="docutils literal"><span class="pre">context</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_blt_state.html"><code class="docutils literal"><span class="pre">state</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api_ui.html">Concepts and core objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_ui_components.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/index.html"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ui/api_ui.html">Concepts and core objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/api_ui_components.html">Components</a></li>
 </ul>
 </li>
 </ul>
@@ -82,8 +82,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../blt/api_blt_state.html" title="previous chapter"><code class="docutils literal"><span class="pre">state</span></code></a></li>
-      <li>Next: <a href="api_ui.html" title="next chapter">Concepts and core objects</a></li>
+      <li>Previous: <a href="../api_geom.html" title="previous chapter"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
+      <li>Next: <a href="api_blt_loop.html" title="next chapter"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
   </ul></li>
 </ul>
 </div>
@@ -103,12 +103,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="clubsandwich-ui">
-<h1><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code><a class="headerlink" href="#clubsandwich-ui" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="clubsandwich-blt">
+<h1><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code><a class="headerlink" href="#clubsandwich-blt" title="Permalink to this headline">¶</a></h1>
+<p>Lightweight wrappers around
+<a class="reference external" href="http://foo.wyrd.name/en:bearlibterminal">BearLibTerminal</a></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api_ui.html">Concepts and core objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_ui_components.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_blt_context.html"><code class="docutils literal"><span class="pre">context</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_blt_state.html"><code class="docutils literal"><span class="pre">state</span></code></a></li>
 </ul>
 </div>
 </div>
@@ -127,7 +131,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/ui/index.rst.txt"
+      <a href="../_sources/blt/index.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

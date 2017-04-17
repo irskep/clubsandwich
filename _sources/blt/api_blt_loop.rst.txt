@@ -1,5 +1,5 @@
-``clubsandwich.blt.loop``
-=========================
+``loop``
+========
 
 .. automodule:: clubsandwich.blt.loop
   :members:
