@@ -14,7 +14,14 @@ Features:
 * UIKit-like interface framework
 * Script runner to help you iterate quickly
 
+Dependencies:
+
+* Python 3.5+ (Probably works on 3.4, and on 3.3 if you install ``asyncio``)
+
 The table of contents is organized in the recommended reading order.
+
+Before you dive in, you should probably read the overview of BearLibTerminal
+`on its web site. <http://foo.wyrd.name/en:bearlibterminal>`_
 
 .. toctree::
     :maxdepth: 3
