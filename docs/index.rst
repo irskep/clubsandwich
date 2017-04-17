@@ -16,14 +16,16 @@ Features:
 
 *Better documentation is being actively worked on, hold tight!*
 
+The table of contents is organized in the recommended reading order.
+
 .. toctree::
     :maxdepth: 3
 
     api_director.rst
     api_geom.rst
-    api_blt_context.rst
     api_blt_loop.rst
     api_blt_nice_terminal.rst
+    api_blt_context.rst
     api_blt_state.rst
     ui/index.rst
 

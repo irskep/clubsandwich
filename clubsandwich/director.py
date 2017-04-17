@@ -59,6 +59,9 @@ class DirectorLoop(BearLibTerminalEventLoop):
     :py:meth:`~DirectorLoop.get_initial_scene` to return the initial scene.
     Override :py:meth:`~DirectorLoop.terminal_init` to do any initial setup.
 
+    This is a subclass of :py:class:`BearLibTerminalEventLoop`, so after
+    subclassing it, instantiate it and call ``.run()`` to run your game.
+
     .. py:attribute:: scene_stack
 
         List of scenes. Topmost is active.
@@ -249,8 +252,7 @@ class Scene():
 
     def terminal_read(self, char):
         """
-        :param str char: Return value of ``terminal_read()`` in
-                         BearLibTerminal.
+        :param str char: Return value of ``BearLibTerminal.terminal.read()``.
 
         Called by :py:class:`DirectorLoop` if there is input to be processed.
         """
