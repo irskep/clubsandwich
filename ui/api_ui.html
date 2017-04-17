@@ -129,12 +129,17 @@ that buttons work.</p>
 <dl class="class">
 <dt id="clubsandwich.ui.LayoutOptions">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">LayoutOptions</code><a class="headerlink" href="#clubsandwich.ui.LayoutOptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Each attribute takes a value that can take one of five forms:
-* <code class="docutils literal"><span class="pre">None</span></code>: Do not constrain this value
-* <code class="docutils literal"><span class="pre">'frame'</span></code>: Use a constant value from <code class="docutils literal"><span class="pre">self.layout_spec</span></code>, which is initially a copy of <code class="docutils literal"><span class="pre">self.frame</span></code>
-* <code class="docutils literal"><span class="pre">0.0-1.0</span></code> left-inclusive: Use a fraction of the superview&#8217;s size on the appropriate axis.
-* <code class="docutils literal"><span class="pre">&gt;=1</span></code>: Use a constant integer
-* <code class="docutils literal"><span class="pre">'intrinsic'</span></code>: The view defines an <code class="docutils literal"><span class="pre">intrinsic_size</span></code> property; use this value. Mostly useful for <code class="docutils literal"><span class="pre">LabelView</span></code>.</p>
+<dd><p>Each attribute takes a value that can take one of five forms:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">None</span></code>: Do not constrain this value</li>
+<li><code class="docutils literal"><span class="pre">'frame'</span></code>: Use a constant value from <code class="docutils literal"><span class="pre">self.layout_spec</span></code>, which is
+initially a copy of <code class="docutils literal"><span class="pre">self.frame</span></code></li>
+<li><code class="docutils literal"><span class="pre">0.0-1.0</span></code> left-inclusive: Use a fraction of the superview&#8217;s size on the
+appropriate axis.</li>
+<li><code class="docutils literal"><span class="pre">&gt;=1</span></code>: Use a constant integer</li>
+<li><code class="docutils literal"><span class="pre">'intrinsic'</span></code>: The view defines an <code class="docutils literal"><span class="pre">intrinsic_size</span></code> property; use this
+value. Mostly useful for <code class="docutils literal"><span class="pre">LabelView</span></code>.</li>
+</ul>
 <p>It is possible to define values that conflict. The behavior in these cases
 is undefined.</p>
 <dl class="classmethod">
