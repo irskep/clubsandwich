@@ -6,7 +6,7 @@ Concepts and core objects
 .. autoclass:: clubsandwich.ui.UIScene
   :members:
 
-.. autoclass:: clubsandwich.ui.layout_options.LayoutOptions
+.. autoclass:: clubsandwich.ui.LayoutOptions
   :members:
   :undoc-members:
 
