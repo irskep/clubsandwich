@@ -56,4 +56,5 @@ html_theme_options = {
     'show_related': True,
     'fixed_sidebar': True,
     'page_width': '960px',
+    'analytics_id': 'UA-4517625-6',
 }
