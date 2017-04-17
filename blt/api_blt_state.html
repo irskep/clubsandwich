@@ -107,14 +107,15 @@
             
   <div class="section" id="module-clubsandwich.blt.state">
 <span id="state"></span><h1><code class="docutils literal"><span class="pre">state</span></code><a class="headerlink" href="#module-clubsandwich.blt.state" title="Permalink to this headline">¶</a></h1>
-<p>Provides a <code class="docutils literal"><span class="pre">blt_state</span></code> object containing properties for all BearLibTerminal
-state keys. When you access a property, <code class="docutils literal"><span class="pre">terminal_state(THE_CONST)</span></code> is
-called and its value is returned.</p>
-<p>For example, <code class="docutils literal"><span class="pre">blt_state.shift</span></code> returns <code class="docutils literal"><span class="pre">True</span></code> iff the Shift key is down.</p>
-<dl class="function">
-<dt id="clubsandwich.blt.state.getter">
-<code class="descclassname">clubsandwich.blt.state.</code><code class="descname">getter</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.state.getter" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="attribute">
+<dt id="clubsandwich.blt.state.state">
+<code class="descclassname">clubsandwich.blt.state.</code><code class="descname">state</code><a class="headerlink" href="#clubsandwich.blt.state.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object with attributes that map to all BearLibTerminal
+<a href="#id1"><span class="problematic" id="id2">`</span></a>event and state constants &lt;<a class="reference external" href="http://foo.wyrd.name/en:bearlibterminal:reference:input">http://foo.wyrd.name/en:bearlibterminal:reference:input</a>&gt;_.</p>
+<p>For example, <code class="docutils literal"><span class="pre">blt_state.shift</span></code> returns <code class="docutils literal"><span class="pre">True</span></code> iff the Shift key is
+down. This is forwarded to
+<code class="docutils literal"><span class="pre">bearlibterminal.terminal.state(terminal.TK_SHIFT)</span></code>.</p>
+</dd></dl>
 
 </div>
 

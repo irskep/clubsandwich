@@ -3,4 +3,3 @@
 
 .. automodule:: clubsandwich.blt.state
   :members:
-  :undoc-members:
