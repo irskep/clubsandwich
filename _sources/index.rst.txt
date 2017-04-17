@@ -17,6 +17,7 @@ Features:
 Dependencies:
 
 * Python 3.5+ (Probably works on 3.4, and on 3.3 if you install ``asyncio``)
+* And BearLibTerminal, of course
 
 The table of contents is organized in the recommended reading order.
 
