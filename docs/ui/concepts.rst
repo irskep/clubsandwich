@@ -24,6 +24,8 @@ To render a UI, you need to use a :py:class:`UIScene`::
       def get_initial_scene(self):
           return MainMenuScene()
 
+  GameLoop().run()
+
 .. autoclass:: clubsandwich.ui.UIScene
   :members:
 
