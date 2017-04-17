@@ -1,4 +1,7 @@
-#!/usr/bin/env python
+"""
+If you're using the state management features of clubsandwich, you might want
+to look at :py:class:`DirectorLoop` instead. This is its superclass.
+"""
 import asyncio
 import sys
 from bearlibterminal import terminal

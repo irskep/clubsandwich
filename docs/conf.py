@@ -8,7 +8,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.intersphinx', 'sphinx.ext.ifconfig']
 intersphinx_mapping = {}
 
-#templates_path = ['_templates']
+templates_path = ['_templates']
 exclude_patterns = ['_build']
 source_suffix = '.rst'
 master_doc = 'index'
@@ -29,12 +29,31 @@ html_title = "%(project)s v%(release)s docs - BearLibTerminal framework for Pyth
     'project': project, 'release': release}
 html_short_title = "Home"
 
-#if not READ_THE_DOCS:
-#    html_theme_options['ga_ua'] = 'UA-foo'
-#    html_theme_options['ga_domain'] = 'bar'
-
 # Necessary for best search results
 html_show_sourcelink = True
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'csdoc'
+
+html_sidebars = {
+    '**': [
+        'about.html',
+        'navigation.html',
+        'relations.html',
+        'searchbox.html',
+    ],
+}
+
+html_theme_options = {
+    'github_user': 'irskep',
+    'github_repo': 'clubsandwich',
+    'github_button': True,
+    'github_count': False,
+    'github_banner': True,
+    'canonical_url': 'http://steveasleep.com/clubsandwich/',
+    'description': "A BearLibTerminal framework for Python 3",
+    'sidebar_collapse': False,
+    'show_related': True,
+    'fixed_sidebar': True,
+    'page_width': '960px',
+}

@@ -38,7 +38,7 @@ expect reasonable API stability!
 .. code:: python
 
     pip install -e \
-      git://github.com/irskep/clubsandwich.git@master#egg=clubsandwich
+      'git://github.com/irskep/clubsandwich.git@master#egg=clubsandwich'
 
 
 .. image:: _static/screenshot1.png
