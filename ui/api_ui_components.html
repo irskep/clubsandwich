@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Components &#8212; clubsandwich v0.1a1 docs - BearLibTerminal framework for Python</title>
+    <title>Views &#8212; clubsandwich v0.1a1 docs - BearLibTerminal framework for Python</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -72,7 +72,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="api_ui.html">Concepts and core objects</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Components</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Views</a></li>
 </ul>
 </li>
 </ul>
@@ -103,94 +103,124 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-clubsandwich.ui">
-<span id="components"></span><h1>Components<a class="headerlink" href="#module-clubsandwich.ui" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="views">
+<h1>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="clubsandwich.ui.RectView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">RectView</code><span class="sig-paren">(</span><em>color_fg='#aaaaaa'</em>, <em>color_bg='#000000'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.RectView" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="clubsandwich.ui.RectView.draw">
-<code class="descname">draw</code><span class="sig-paren">(</span><em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.RectView.draw" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>color_fg</strong> (<em>str</em>) &#8211; Foreground color</li>
+<li><strong>color_bg</strong> (<em>str</em>) &#8211; Background color (only applies on terminal layer zero)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="api_ui.html#clubsandwich.ui.View" title="clubsandwich.ui.View"><code class="xref py py-class docutils literal"><span class="pre">View</span></code></a> for the rest of the init arguments.</p>
+<p>Draws a rectangle in its bounds using ASCII line art.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>┌───────┐
+│       │
+│       │
+└───────┘
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="clubsandwich.ui.WindowView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">WindowView</code><span class="sig-paren">(</span><em>title=None</em>, <em>*args</em>, <em>subviews=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.WindowView" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>title</strong> (<em>str</em>) &#8211; Window title</td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="api_ui.html#clubsandwich.ui.View" title="clubsandwich.ui.View"><code class="xref py py-class docutils literal"><span class="pre">View</span></code></a> for the rest of the init arguments.</p>
+<p>A rectangle with a centered label on the top containing the text <em>title</em>.
+All given subviews are put in an inner view that&#8217;s inset by 1 cell so the
+subview don&#8217;t overlap the border.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>┌───Hello!───┐
+│            │
+│            │
+└────────────┘
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="class">
 <dt id="clubsandwich.ui.LabelView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">LabelView</code><span class="sig-paren">(</span><em>text</em>, <em>color_fg='#ffffff'</em>, <em>color_bg=None</em>, <em>align_horz='center'</em>, <em>align_vert='center'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.LabelView" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="clubsandwich.ui.LabelView.debug_string">
-<code class="descname">debug_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.LabelView.debug_string" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="clubsandwich.ui.LabelView.draw">
-<code class="descname">draw</code><span class="sig-paren">(</span><em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.LabelView.draw" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="clubsandwich.ui.LabelView.intrinsic_size">
-<code class="descname">intrinsic_size</code><a class="headerlink" href="#clubsandwich.ui.LabelView.intrinsic_size" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<dd><p>Draws the given string inside its bounds. Multi-line strings work fine.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> (<em>str</em>) &#8211; Text to draw</li>
+<li><strong>color_fg</strong> (<em>str</em>) &#8211; Foreground color</li>
+<li><strong>color_bg</strong> (<em>str</em>) &#8211; Background color (only applies on terminal layer zero)</li>
+<li><strong>align_horz</strong> (<em>'center'|'left'|'right'</em>) &#8211; Horizontal alignment</li>
+<li><strong>align_vert</strong> (<em>'center'|'top'|'bottom'</em>) &#8211; Vertical alignment</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="api_ui.html#clubsandwich.ui.View" title="clubsandwich.ui.View"><code class="xref py py-class docutils literal"><span class="pre">View</span></code></a> for the rest of the init arguments.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="clubsandwich.ui.ButtonView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">ButtonView</code><span class="sig-paren">(</span><em>text</em>, <em>callback</em>, <em>align_horz='center'</em>, <em>align_vert='center'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ButtonView" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
-<dt id="clubsandwich.ui.ButtonView.can_did_become_first_responder">
-<code class="descname">can_did_become_first_responder</code><a class="headerlink" href="#clubsandwich.ui.ButtonView.can_did_become_first_responder" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="clubsandwich.ui.ButtonView.did_become_first_responder">
-<code class="descname">did_become_first_responder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ButtonView.did_become_first_responder" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="clubsandwich.ui.ButtonView.did_resign_first_responder">
-<code class="descname">did_resign_first_responder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ButtonView.did_resign_first_responder" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="clubsandwich.ui.ButtonView.intrinsic_size">
-<code class="descname">intrinsic_size</code><a class="headerlink" href="#clubsandwich.ui.ButtonView.intrinsic_size" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="clubsandwich.ui.ButtonView.layout_subviews">
-<code class="descname">layout_subviews</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ButtonView.layout_subviews" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="clubsandwich.ui.ButtonView.set_needs_layout">
-<code class="descname">set_needs_layout</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ButtonView.set_needs_layout" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="clubsandwich.ui.ButtonView.terminal_read">
-<code class="descname">terminal_read</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ButtonView.terminal_read" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="clubsandwich.ui.ButtonView.text">
-<code class="descname">text</code><a class="headerlink" href="#clubsandwich.ui.ButtonView.text" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> (<em>str</em>) &#8211; Button title</li>
+<li><strong>callback</strong> (<em>func</em>) &#8211; Function to call when button is activated. Takes no
+arguments.</li>
+<li><strong>align_horz</strong> (<em>str</em>) &#8211; Horizontal alignment. See <a class="reference internal" href="#clubsandwich.ui.LabelView" title="clubsandwich.ui.LabelView"><code class="xref py py-class docutils literal"><span class="pre">LabelView</span></code></a>.</li>
+<li><strong>align_vert</strong> (<em>str</em>) &#8211; Vertical alignment. See <a class="reference internal" href="#clubsandwich.ui.LabelView" title="clubsandwich.ui.LabelView"><code class="xref py py-class docutils literal"><span class="pre">LabelView</span></code></a>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="api_ui.html#clubsandwich.ui.View" title="clubsandwich.ui.View"><code class="xref py py-class docutils literal"><span class="pre">View</span></code></a> for the rest of the init arguments.</p>
+<p>Contains a label. Can be first responder. When a button is the first
+responder:</p>
+<ul class="simple">
+<li>The label is drawn black-on-white instead of white-on-black</li>
+<li>Pressing the Enter key calls <em>callback</em></li>
+</ul>
 </dd></dl>
 
 <dl class="class">
 <dt id="clubsandwich.ui.CyclingButtonView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">CyclingButtonView</code><span class="sig-paren">(</span><em>options</em>, <em>initial_value</em>, <em>callback</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.CyclingButtonView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Button which, when activated, chooses the &#8220;next&#8221; value in the given list,
-calls its <code class="docutils literal"><span class="pre">callback</span></code> function with it (<code class="docutils literal"><span class="pre">callback(new_value)</span></code>), and
-updates its text to the new value.</p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>options</strong> (<em>list</em>) &#8211; List of options, which must be strings</li>
+<li><strong>initial_value</strong> (<em>str</em>) &#8211; Item from <em>options</em> to display first</li>
+<li><strong>callback</strong> (<em>func</em>) &#8211; Function taking one argument, the option that is now
+selected</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Button which, when activated, chooses the &#8220;next&#8221; value in the given list,
+calls <code class="docutils literal"><span class="pre">callback(new_value)</span></code>, and updates its text to the new value.</p>
 <p>All values must be strings. If this bothers you, pull requests are welcome.</p>
 </dd></dl>
 

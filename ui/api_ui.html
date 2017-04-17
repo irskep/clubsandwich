@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Components" href="api_ui_components.html" />
+    <link rel="next" title="Views" href="api_ui_components.html" />
     <link rel="prev" title="clubsandwich.ui" href="index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -73,7 +73,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Concepts and core objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_ui_components.html">Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_ui_components.html">Views</a></li>
 </ul>
 </li>
 </ul>
@@ -84,7 +84,7 @@
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a><ul>
       <li>Previous: <a href="index.html" title="previous chapter"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a></li>
-      <li>Next: <a href="api_ui_components.html" title="next chapter">Components</a></li>
+      <li>Next: <a href="api_ui_components.html" title="next chapter">Views</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -105,26 +105,39 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-clubsandwich.ui">
-<span id="concepts-and-core-objects"></span><h1>Concepts and core objects<a class="headerlink" href="#module-clubsandwich.ui" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="concepts-and-core-objects">
+<h1>Concepts and core objects<a class="headerlink" href="#concepts-and-core-objects" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="clubsandwich.ui.UIScene">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">UIScene</code><span class="sig-paren">(</span><em>views</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.UIScene" title="Permalink to this definition">¶</a></dt>
-<dd><p>Scene that renders a <a class="reference internal" href="api_ui_components.html#module-clubsandwich.ui" title="clubsandwich.ui"><code class="xref py py-mod docutils literal"><span class="pre">clubsandwich.ui</span></code></a>-based interface.</p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>views</strong> (<em>list|View</em>) &#8211; One or more subviews of the root view</td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="../api_director.html#clubsandwich.director.Scene" title="clubsandwich.director.Scene"><code class="xref py py-class docutils literal"><span class="pre">Scene</span></code></a> for the other args.</p>
+<p>Scene that renders a <a class="reference internal" href="index.html#module-clubsandwich.ui" title="clubsandwich.ui"><code class="xref py py-mod docutils literal"><span class="pre">clubsandwich.ui</span></code></a>-based interface.</p>
 <p>The root view of a <a class="reference internal" href="#clubsandwich.ui.UIScene" title="clubsandwich.ui.UIScene"><code class="xref py py-class docutils literal"><span class="pre">UIScene</span></code></a> is always a
 <a class="reference internal" href="#clubsandwich.ui.FirstResponderContainerView" title="clubsandwich.ui.FirstResponderContainerView"><code class="xref py py-class docutils literal"><span class="pre">FirstResponderContainerView</span></code></a>. In simple terms, this means
 that buttons work.</p>
 <p>Log the view hierarchy by pressing the backslash key at any time.</p>
-<dl class="method">
-<dt id="clubsandwich.ui.UIScene.terminal_read">
-<code class="descname">terminal_read</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.UIScene.terminal_read" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+</dd></dl>
 
-<dl class="method">
-<dt id="clubsandwich.ui.UIScene.terminal_update">
-<code class="descname">terminal_update</code><span class="sig-paren">(</span><em>is_active=False</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.UIScene.terminal_update" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<dl class="class">
+<dt id="clubsandwich.ui.FirstResponderContainerView">
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">FirstResponderContainerView</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manages the &#8220;first responder&#8221; system. The control that receives
+BearLibTerminal events at a given time is the first responder.</p>
+<p>This container view listens for the tab key. When it&#8217;s pressed, the subview
+tree is walked until another candidate is found, or there are no others.
+That new subview is the new first responder.</p>
+<p>You don&#8217;t need to create this class yourself. <a class="reference internal" href="#clubsandwich.ui.UIScene" title="clubsandwich.ui.UIScene"><code class="xref py py-class docutils literal"><span class="pre">UIScene</span></code></a> makes it
+for you.</p>
+<p>If you want to write a control that handles input, read the source of the
+<a class="reference internal" href="api_ui_components.html#clubsandwich.ui.ButtonView" title="clubsandwich.ui.ButtonView"><code class="xref py py-class docutils literal"><span class="pre">ButtonView</span></code></a> class.</p>
 </dd></dl>
 
 <dl class="class">
@@ -146,13 +159,13 @@ that buttons work.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="clubsandwich.ui.View.can_did_become_first_responder">
-<code class="descname">can_did_become_first_responder</code><a class="headerlink" href="#clubsandwich.ui.View.can_did_become_first_responder" title="Permalink to this definition">¶</a></dt>
+<dt id="clubsandwich.ui.View.can_become_first_responder">
+<code class="descname">can_become_first_responder</code><a class="headerlink" href="#clubsandwich.ui.View.can_become_first_responder" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="clubsandwich.ui.View.can_did_resign_first_responder">
-<code class="descname">can_did_resign_first_responder</code><a class="headerlink" href="#clubsandwich.ui.View.can_did_resign_first_responder" title="Permalink to this definition">¶</a></dt>
+<dt id="clubsandwich.ui.View.can_resign_first_responder">
+<code class="descname">can_resign_first_responder</code><a class="headerlink" href="#clubsandwich.ui.View.can_resign_first_responder" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -276,42 +289,6 @@ already handled this event</li>
 <p>You must return a truthy value if you handled the event so it doesn&#8217;t get
 handled twice.</p>
 </dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="clubsandwich.ui.FirstResponderContainerView">
-<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">FirstResponderContainerView</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Must be registered on the scene as terminal reader to work.</p>
-<dl class="attribute">
-<dt id="clubsandwich.ui.FirstResponderContainerView.can_did_resign_first_responder">
-<code class="descname">can_did_resign_first_responder</code><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.can_did_resign_first_responder" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="clubsandwich.ui.FirstResponderContainerView.find_next_responder">
-<code class="descname">find_next_responder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.find_next_responder" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="clubsandwich.ui.FirstResponderContainerView.find_prev_responder">
-<code class="descname">find_prev_responder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.find_prev_responder" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="clubsandwich.ui.FirstResponderContainerView.remove_subviews">
-<code class="descname">remove_subviews</code><span class="sig-paren">(</span><em>subviews</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.remove_subviews" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="clubsandwich.ui.FirstResponderContainerView.set_first_responder">
-<code class="descname">set_first_responder</code><span class="sig-paren">(</span><em>new_value</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.set_first_responder" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="clubsandwich.ui.FirstResponderContainerView.terminal_read">
-<code class="descname">terminal_read</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.terminal_read" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 

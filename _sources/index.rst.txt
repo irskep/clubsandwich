@@ -14,8 +14,6 @@ Features:
 * UIKit-like interface framework
 * Script runner to help you iterate quickly
 
-*Better documentation is being actively worked on, hold tight!*
-
 The table of contents is organized in the recommended reading order.
 
 .. toctree::

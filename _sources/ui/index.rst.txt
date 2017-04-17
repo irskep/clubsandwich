@@ -1,6 +1,8 @@
 ``clubsandwich.ui``
 ===================
 
+.. automodule:: clubsandwich.ui
+
 .. toctree::
     :maxdepth: 3
 
