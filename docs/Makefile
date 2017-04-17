@@ -40,4 +40,4 @@ singlehtml: rm-crud
 # cp README_build.md $(BUILDDIR)/html/README.md
 deploy: clean html
 	git fetch origin
-	ghp-import -n -p -r origin -b master $(BUILDDIR)/html
+	ghp-import -n -p -r origin -b gh-pages $(BUILDDIR)/html
