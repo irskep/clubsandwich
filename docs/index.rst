@@ -55,14 +55,14 @@ developing your game.
 
 First, fork clubsandwich on GitHub and clone it locally::
 
-      git clone git://github.com/YOURNAME/clubsandwich.git
+    git clone git://github.com/YOURNAME/clubsandwich.git
 
-Then install it with pip's ``--editable`` flag:
+Then install it with pip's ``--editable`` flag::
 
-      cd clubsandwich
-      # assuming you are in a virtualenv! otherwise this will be global, which
-      # you don't want.
-      pip install --editable .
+    cd clubsandwich
+    # assuming you are in a virtualenv! otherwise this will be
+    # global, which you don't want.
+    pip install --editable .
 
 Now any changes you make to the clubsandwich source tree will be reflected in
 your ``$PYTHONPATH``.
