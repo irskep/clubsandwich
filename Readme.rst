@@ -1,9 +1,7 @@
-# clubsandwich
-==============
+clubsandwich
+============
 
-**`A BearLibTerminal`_ framework for Python 3**
-
-.. _A BearLibTerminal: http://foo.wyrd.name/en:bearlibterminal
+**`A BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_ framework for Python 3**
 
 Features:
 
@@ -102,6 +100,7 @@ Basic data structures for ``Rect``, ``Point``, and ``Size``, and a very thin
 wrapper around ``bearlibterminal.terminal`` to support them.
 
 .. code:: python
+
     from clubsandwich.blt.nice_terminal import terminal
     from clubsandwich.geom import Rect, Size, Point
 
@@ -119,6 +118,7 @@ A super simple wrapper around ``terminal.state()`` to conveniently read state
 values.
 
 .. code:: python
+
     from clubsandwich.blt.state import blt_state
     from clubsandwich.blt.nice_terminal import terminal
     from clubsandwich.geom import Rect, Size, Point
@@ -138,6 +138,7 @@ Transform stack
 Easily translate view coordinates between frames of reference.
 
 .. code:: python
+
     from clubsandwich.blt.state import blt_state
     from clubsandwich.blt.context import BearLibTerminalContext
     from clubsandwich.geom import Rect, Size, Point
