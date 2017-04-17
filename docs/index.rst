@@ -14,7 +14,7 @@ Features:
 * UIKit-like interface framework
 * Script runner to help you iterate quickly
 
-[API docs (in progress)](https://steveasleep.com/clubsandwich/)
+*Better documentation is being actively worked on, hold tight!*
 
 .. toctree::
     :maxdepth: 3

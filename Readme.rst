@@ -12,7 +12,7 @@ Features:
 * UIKit-like interface framework
 * Script runner to help you iterate quickly
 
-*Better documentation is being actively worked on, hold tight!*
+[API docs (in progress)](https://steveasleep.com/clubsandwich/)
 
 Installation
 ------------
