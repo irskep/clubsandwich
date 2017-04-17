@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>clubsandwich.geom &#8212; clubsandwich v0.1a1 docs - BearLibTerminal framework for Python</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1a1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="clubsandwich" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-clubsandwich.geom">
+<span id="clubsandwich-geom"></span><h1><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code><a class="headerlink" href="#module-clubsandwich.geom" title="Permalink to this headline">¶</a></h1>
+<p>Simple data structures for working with points, sizes, and rects.</p>
+<dl class="class">
+<dt id="clubsandwich.geom.Point">
+<em class="property">class </em><code class="descclassname">clubsandwich.geom.</code><code class="descname">Point</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Point" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>Real</em>) &#8211; </li>
+<li><strong>y</strong> (<em>Real</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Represents a point in 2D space. Supports arithmetic operations with other
+points, and supports multiplication and division with numbers.</p>
+<p>BearLibTerminal requires ints for all coordinate values, so
+<a class="reference internal" href="#clubsandwich.geom.Point.floored" title="clubsandwich.geom.Point.floored"><code class="xref py py-attr docutils literal"><span class="pre">floored</span></code></a> is your friend.</p>
+<dl class="attribute">
+<dt id="clubsandwich.geom.Point.x">
+<code class="descname">x</code><a class="headerlink" href="#clubsandwich.geom.Point.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>X axis coordinate; may be any number</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Point.y">
+<code class="descname">y</code><a class="headerlink" href="#clubsandwich.geom.Point.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Y coordinate; may be any number</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Point.floored">
+<code class="descname">floored</code><a class="headerlink" href="#clubsandwich.geom.Point.floored" title="Permalink to this definition">¶</a></dt>
+<dd><p>A copy of this point with <code class="docutils literal"><span class="pre">math.floor()</span></code> called on each coordinate.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="clubsandwich.geom.Rect">
+<em class="property">class </em><code class="descclassname">clubsandwich.geom.</code><code class="descname">Rect</code><span class="sig-paren">(</span><em>origin=None</em>, <em>size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Rect" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>origin</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </li>
+<li><strong>size</strong> (<a class="reference internal" href="#clubsandwich.geom.Size" title="clubsandwich.geom.Size"><em>Size</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Represents an rectangle in 2D space.</p>
+<p>BearLibTerminal requires ints for all coordinate values, so
+<a class="reference internal" href="#clubsandwich.geom.Rect.floored" title="clubsandwich.geom.Rect.floored"><code class="xref py py-attr docutils literal"><span class="pre">floored</span></code></a> is your friend.</p>
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.origin">
+<code class="descname">origin</code><a class="headerlink" href="#clubsandwich.geom.Rect.origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Origin of the rectangle</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.size">
+<code class="descname">size</code><a class="headerlink" href="#clubsandwich.geom.Rect.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of the rectangle</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.center">
+<code class="descname">center</code><a class="headerlink" href="#clubsandwich.geom.Rect.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Point at the center of this rect</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.floored">
+<code class="descname">floored</code><a class="headerlink" href="#clubsandwich.geom.Rect.floored" title="Permalink to this definition">¶</a></dt>
+<dd><p>A copy of this rect with the <a class="reference internal" href="#clubsandwich.geom.Point.floored" title="clubsandwich.geom.Point.floored"><code class="xref py py-attr docutils literal"><span class="pre">Point.floored</span></code></a> origin/size
+copies</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.height">
+<code class="descname">height</code><a class="headerlink" href="#clubsandwich.geom.Rect.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forwarded from <code class="docutils literal"><span class="pre">self.size.height</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Rect.moved_by">
+<code class="descname">moved_by</code><span class="sig-paren">(</span><em>delta</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Rect.moved_by" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delta</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+<p>A copy of this rect with the origin moved by <strong>delta</strong></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.point_bottom_left">
+<code class="descname">point_bottom_left</code><a class="headerlink" href="#clubsandwich.geom.Rect.point_bottom_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Point at the bottom left corner of this rect</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.point_bottom_right">
+<code class="descname">point_bottom_right</code><a class="headerlink" href="#clubsandwich.geom.Rect.point_bottom_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Point at the bottom right corner of this rect</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.point_top_right">
+<code class="descname">point_top_right</code><a class="headerlink" href="#clubsandwich.geom.Rect.point_top_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Point at the top right corner of this rect</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.points">
+<code class="descname">points</code><a class="headerlink" href="#clubsandwich.geom.Rect.points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator of all points in this rect</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.points_bottom">
+<code class="descname">points_bottom</code><a class="headerlink" href="#clubsandwich.geom.Rect.points_bottom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator of all points along the bottom edge of this rect</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.points_corners">
+<code class="descname">points_corners</code><a class="headerlink" href="#clubsandwich.geom.Rect.points_corners" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator of all four points in this rect&#8217;s corners</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.points_left">
+<code class="descname">points_left</code><a class="headerlink" href="#clubsandwich.geom.Rect.points_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator of all points along the left edge of this rect</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.points_right">
+<code class="descname">points_right</code><a class="headerlink" href="#clubsandwich.geom.Rect.points_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator of all points along the right edge of this rect</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.points_top">
+<code class="descname">points_top</code><a class="headerlink" href="#clubsandwich.geom.Rect.points_top" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator of all points along the top edge of this rect</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.width">
+<code class="descname">width</code><a class="headerlink" href="#clubsandwich.geom.Rect.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forwarded from <code class="docutils literal"><span class="pre">self.size.width</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Rect.with_inset">
+<code class="descname">with_inset</code><span class="sig-paren">(</span><em>inset</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Rect.with_inset" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>inset</strong> (<em>Point|Real</em>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+<p>A copy of this rect inset by the given amount. If you pass a number, all
+sides will be inset by the same amount. If you pass a <a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><code class="xref py py-class docutils literal"><span class="pre">Point</span></code></a>
+or a <a class="reference internal" href="#clubsandwich.geom.Size" title="clubsandwich.geom.Size"><code class="xref py py-class docutils literal"><span class="pre">Size</span></code></a>, the X and Y axes will be inset by the respective
+amounts specified in each coordinate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Rect.with_origin">
+<code class="descname">with_origin</code><span class="sig-paren">(</span><em>new_origin</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Rect.with_origin" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_origin</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+<p>A copy of this rect with the given origin</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Rect.with_size">
+<code class="descname">with_size</code><span class="sig-paren">(</span><em>new_size</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Rect.with_size" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_size</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+<p>A copy of this rect with the given size</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.x">
+<code class="descname">x</code><a class="headerlink" href="#clubsandwich.geom.Rect.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forwarded from <code class="docutils literal"><span class="pre">self.origin.x</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.x2">
+<code class="descname">x2</code><a class="headerlink" href="#clubsandwich.geom.Rect.x2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max X value of this rect. Read-only.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.y">
+<code class="descname">y</code><a class="headerlink" href="#clubsandwich.geom.Rect.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forwarded from <code class="docutils literal"><span class="pre">self.origin.y</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Rect.y2">
+<code class="descname">y2</code><a class="headerlink" href="#clubsandwich.geom.Rect.y2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max Y value of this rect. Read-only.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="clubsandwich.geom.Size">
+<em class="property">class </em><code class="descclassname">clubsandwich.geom.</code><code class="descname">Size</code><span class="sig-paren">(</span><em>width=0</em>, <em>height=0</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Size" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> (<em>Real</em>) &#8211; </li>
+<li><strong>height</strong> (<em>Real</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Thin wrapper over <a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><code class="xref py py-class docutils literal"><span class="pre">Point</span></code></a> that forwards <a class="reference internal" href="#clubsandwich.geom.Point.x" title="clubsandwich.geom.Point.x"><code class="xref py py-attr docutils literal"><span class="pre">x</span></code></a> to
+<a class="reference internal" href="#clubsandwich.geom.Size.width" title="clubsandwich.geom.Size.width"><code class="xref py py-attr docutils literal"><span class="pre">width</span></code></a> and <a class="reference internal" href="#clubsandwich.geom.Point.y" title="clubsandwich.geom.Point.y"><code class="xref py py-attr docutils literal"><span class="pre">y</span></code></a> to <a class="reference internal" href="#clubsandwich.geom.Size.height" title="clubsandwich.geom.Size.height"><code class="xref py py-attr docutils literal"><span class="pre">height</span></code></a>.</p>
+<dl class="attribute">
+<dt id="clubsandwich.geom.Size.width">
+<code class="descname">width</code><a class="headerlink" href="#clubsandwich.geom.Size.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias for <a class="reference internal" href="#clubsandwich.geom.Point.x" title="clubsandwich.geom.Point.x"><code class="xref py py-attr docutils literal"><span class="pre">x</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Size.height">
+<code class="descname">height</code><a class="headerlink" href="#clubsandwich.geom.Size.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias for <a class="reference internal" href="#clubsandwich.geom.Point.y" title="clubsandwich.geom.Point.y"><code class="xref py py-attr docutils literal"><span class="pre">y</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">clubsandwich</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/api_geom.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 Steve Johnson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/api_geom.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
