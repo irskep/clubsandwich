@@ -3,6 +3,8 @@ clubsandwich
 
 **A** `BearLibTerminal <http://foo.wyrd.name/en%3Ebearlibterminal>`_ **framework for Python 3**
 
+`Source code <https://github.com/irskep/clubsandwich>`_
+
 Features:
 
 * Event loop
