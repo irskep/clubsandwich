@@ -8,72 +8,98 @@ _LayoutOptions = namedtuple(
 
 class LayoutOptions(_LayoutOptions):
   """
-  :param width: Width spec (see below)
-  :param height: height spec (see below)
-  :param top: top spec (see below)
-  :param right: right spec (see below)
-  :param bottom: bottom spec (see below)
-  :param left: left spec (see below)
-
-  Each attribute takes a value that can take one of five forms:
-
-  * ``None``: Do not constrain this value
-  * ``'frame'``: Use a constant value from ``self.layout_spec``, which is
-    initially a copy of ``self.frame``
-  * ``0.0-1.0`` left-inclusive: Use a fraction of the superview's size on the
-    appropriate axis.
-  * ``>=1``: Use a constant integer
-  * ``'intrinsic'``: The view defines an ``intrinsic_size`` property; use this
-    value. Mostly useful for ``LabelView``.
+  :param LayoutOptionValue width: width spec
+  :param LayoutOptionValue height: height spec
+  :param LayoutOptionValue top: top spec
+  :param LayoutOptionValue right: right spec
+  :param LayoutOptionValue bottom: bottom spec
+  :param LayoutOptionValue left: left spec
 
   It is possible to define values that conflict. The behavior in these cases
   is undefined.
 
   .. py:attribute:: width
 
+    A :py:class:`LayoutOptionValue` constraining this view's width (or not).
+
   .. py:attribute:: height
+
+    A :py:class:`LayoutOptionValue` constraining this view's height (or not).
 
   .. py:attribute:: top
 
+    A :py:class:`LayoutOptionValue` constraining this view's distance from the
+    top of its superview (or not).
+
   .. py:attribute:: right
+
+    A :py:class:`LayoutOptionValue` constraining this view's distance from the
+    right of its superview (or not).
 
   .. py:attribute:: bottom
 
+    A :py:class:`LayoutOptionValue` constraining this view's distance from the
+    bottom of its superview (or not).
+
   .. py:attribute:: left
+
+    A :py:class:`LayoutOptionValue` constraining this view's distance from the
+    left of its superview (or not).
   """
 
   def __new__(cls, width=None, height=None, top=0, right=0, bottom=0, left=0):
-    self = super(LayoutOptions, cls).__new__(cls, width, height, top, right, bottom, left)
+    self = super(LayoutOptions, cls).__new__(
+      cls, width, height, top, right, bottom, left)
     return self
 
   ### Convenience initializers ###
 
   @classmethod
   def centered(self, width, height):
+    """
+    Create a :py:class:`LayoutOptions` object that positions the view in the
+    center of the superview with a constant width and height.
+    """
     return LayoutOptions(
       top=None, bottom=None, left=None, right=None,
       width=width, height=height)
 
   @classmethod
   def column_left(self, width):
+    """
+    Create a :py:class:`LayoutOptions` object that positions the view as a
+    full-height left column with a constant width.
+    """
     return LayoutOptions(
       top=0, bottom=0, left=0, right=None,
       width=width, height=None)
 
   @classmethod
   def column_right(self, width):
+    """
+    Create a :py:class:`LayoutOptions` object that positions the view as a
+    full-height right column with a constant width.
+    """
     return LayoutOptions(
       top=0, bottom=0, left=None, right=0,
       width=width, height=None)
 
   @classmethod
   def row_top(self, height):
+    """
+    Create a :py:class:`LayoutOptions` object that positions the view as a
+    full-height top row with a constant height.
+    """
     return LayoutOptions(
       top=0, bottom=None, left=0, right=0,
       width=None, height=height)
 
   @classmethod
   def row_bottom(self, height):
+    """
+    Create a :py:class:`LayoutOptions` object that positions the view as a
+    full-height bottom row with a constant height.
+    """
     return LayoutOptions(
       top=None, bottom=0, left=0, right=0,
       width=None, height=height)
@@ -81,6 +107,14 @@ class LayoutOptions(_LayoutOptions):
   ### Convenience modifiers ###
 
   def with_updates(self, **kwargs):
+    """
+    Returns a new :py:class:`LayoutOptions` object with the given changes to
+    its attributes. For example, here's a view with a constant width, on the
+    right side of its superview, with half the height of its superview::
+
+      # "right column, but only half height"
+      LayoutOptions.column_right(10).with_updates(bottom=0.5)
+    """
     opts = self._asdict()
     opts.update(kwargs)
     return LayoutOptions(**opts)
@@ -88,7 +122,7 @@ class LayoutOptions(_LayoutOptions):
   ### Semi-internal layout API ###
 
   def get_type(self, k):
-    """Return one of ``{'none', 'frame', 'constant', 'fraction'}``"""
+    # Return one of ``{'none', 'frame', 'constant', 'fraction'}``
     val = getattr(self, k)
     if val is None:
       return 'none'

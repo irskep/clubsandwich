@@ -103,7 +103,7 @@ class DirectorLoop(BearLibTerminalEventLoop):
 
     def pop_scene(self, may_exit=True):
         """
-        :param boolean may_exit: If ``False``, the loop will not exit if there
+        :param bool may_exit: If ``False``, the loop will not exit if there
                                  are no more scenes in the stack.
 
         Pop a scene off the stack and make the next topmost one active.
@@ -242,7 +242,7 @@ class Scene():
 
     def terminal_update(self, is_active=False):
         """
-        :param boolean is_active: :py:class:`DirectorLoop` will pass ``True``
+        :param bool is_active: :py:class:`DirectorLoop` will pass ``True``
                                   iff this scene is topmost in the stack.
 
         Called by :py:class:`DirectorLoop` each frame iff no scenes above

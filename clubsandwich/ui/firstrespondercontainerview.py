@@ -28,6 +28,10 @@ class FirstResponderContainerView(View):
 
   @property
   def can_resign_first_responder(self):
+    """
+    If nested in another :py:class:`FirstResponderContainerView`, don't give
+    up first responder status. User probably wants to do it manually.
+    """
     return False
 
   def remove_subviews(self, subviews):
@@ -40,6 +44,9 @@ class FirstResponderContainerView(View):
           return
 
   def set_first_responder(self, new_value):
+    """
+    Resign the active first responder and set a new one.
+    """
     if self.first_responder:
       self.first_responder.did_resign_first_responder()
       for ancestor in self.first_responder.ancestors:
@@ -51,6 +58,9 @@ class FirstResponderContainerView(View):
         ancestor.descendant_did_become_first_responder(self.first_responder)
 
   def find_next_responder(self):
+    """
+    Resign active first responder and switch to the next one.
+    """
     existing_responder = self.first_responder or self.leftmost_leaf
     all_responders = [v for v in self.postorder_traversal if v.can_become_first_responder]
     try:
@@ -66,6 +76,9 @@ class FirstResponderContainerView(View):
         self.set_first_responder(None)
 
   def find_prev_responder(self):
+    """
+    Resign active first responder and switch to the previous one.
+    """
     existing_responder = self.first_responder or self.leftmost_leaf
     all_responders = [v for v in self.postorder_traversal if v.can_become_first_responder]
     try:

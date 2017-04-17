@@ -13,7 +13,7 @@ class BearLibTerminalEventLoop:
     :param Real fps: After each loop iteration,
                      :py:class:`BearLibTerminalEventLoop` waits ``1/fps``
                      seconds before checking for input and updating again.
-    :param boolean ctrl_c_exits: If ``True`` (default), ``Ctrl+C`` exits the
+    :param bool ctrl_c_exits: If ``True`` (default), ``Ctrl+C`` exits the
                                  program. While convenient, you may want to
                                  disable this when you ship your game.
 
