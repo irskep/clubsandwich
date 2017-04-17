@@ -164,9 +164,9 @@ in the first screenshot:
 .. code:: python
 
     from clubsandwich.ui import (
-    LabelView,
-    ButtonView,
-    UIScene,
+        LabelView,
+        ButtonView,
+        UIScene,
     )
     LOGO = """
       _______     __     ____             __       _     __ 
