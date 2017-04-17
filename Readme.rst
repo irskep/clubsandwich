@@ -1,7 +1,7 @@
 clubsandwich
 ============
 
-**`A BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_ framework for Python 3**
+**A `BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_ framework for Python 3**
 
 Features:
 
@@ -169,8 +169,8 @@ in the first screenshot:
     UIScene,
     )
     LOGO = """
-    _______     __     ____             __       _     __ 
-    / ___/ /_ __/ /    / __/__ ____  ___/ /    __(_)___/ / 
+      _______     __     ____             __       _     __ 
+     / ___/ /_ __/ /    / __/__ ____  ___/ /    __(_)___/ / 
     / /__/ / // / _ \  _\ \/ _ `/ _ \/ _  / |/|/ / / __/ _ \\
     \___/_/\_,_/_.__/ /___/\_,_/_//_/\_,_/|__,__/_/\__/_//_/
     """
