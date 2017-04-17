@@ -22,9 +22,6 @@ rm-crud:
 html: rm-crud
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 
-coverage: rm-crud
-	$(SPHINXBUILD) -b coverage $(ALLSPHINXOPTS) $(BUILDDIR)/coverage
-
 livehtml: html
 	livereload $(BUILDDIR)/html -p 33234
 

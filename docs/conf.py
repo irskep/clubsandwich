@@ -4,7 +4,7 @@ READ_THE_DOCS = os.environ.get('READTHEDOCS', None) == 'True'
 
 needs_sphinx = '1.5'
 
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.coverage',
+extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.intersphinx', 'sphinx.ext.ifconfig']
 intersphinx_mapping = {}
 

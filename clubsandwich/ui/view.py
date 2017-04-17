@@ -159,6 +159,7 @@ class View:
   def terminal_read(self, val):
     """
     Fires when an input event occurs, and either:
+
     * This view is the first responder
     * The first responder is a descendant, and no other descendants have
       already handled this event
