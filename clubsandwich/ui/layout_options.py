@@ -10,13 +10,10 @@ class LayoutOptions(_LayoutOptions):
   """
   Each attribute takes a value that can take one of five forms:
   * ``None``: Do not constrain this value
-  * ``'frame'``: Use a constant value from ``self.layout_spec``, which is
-    initially a copy of ``self.frame``
-  * ``0.0-1.0`` left-inclusive: Use a fraction of the superview's size on the
-    appropriate axis.
+  * ``'frame'``: Use a constant value from ``self.layout_spec``, which is initially a copy of ``self.frame``
+  * ``0.0-1.0`` left-inclusive: Use a fraction of the superview's size on the appropriate axis.
   * ``>=1``: Use a constant integer
-  * ``'intrinsic'``: The view defines an ``intrinsic_size`` property; use this
-    value. Mostly useful for ``LabelView``.
+  * ``'intrinsic'``: The view defines an ``intrinsic_size`` property; use this value. Mostly useful for ``LabelView``.
 
   It is possible to define values that conflict. The behavior in these cases
   is undefined.

@@ -6,9 +6,13 @@ Concepts and core objects
 .. autoclass:: clubsandwich.ui.UIScene
   :members:
 
-.. autoclass:: clubsandwich.ui.FirstResponderContainerView
+.. autoclass:: clubsandwich.ui.LayoutOptions
   :members:
+  :undoc-members:
 
 .. autoclass:: clubsandwich.ui.View
   :members:
   :undoc-members:
+
+.. autoclass:: clubsandwich.ui.FirstResponderContainerView
+  :members:
