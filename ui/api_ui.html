@@ -127,17 +127,73 @@ that buttons work.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="clubsandwich.ui.FirstResponderContainerView">
-<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">FirstResponderContainerView</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Manages the &#8220;first responder&#8221; system. The control that receives
-BearLibTerminal events at a given time is the first responder.</p>
-<p>This container view listens for the tab key. When it&#8217;s pressed, the subview
-tree is walked until another candidate is found, or there are no others.
-That new subview is the new first responder.</p>
-<p>You don&#8217;t need to create this class yourself. <a class="reference internal" href="#clubsandwich.ui.UIScene" title="clubsandwich.ui.UIScene"><code class="xref py py-class docutils literal"><span class="pre">UIScene</span></code></a> makes it
-for you.</p>
-<p>If you want to write a control that handles input, read the source of the
-<a class="reference internal" href="api_ui_components.html#clubsandwich.ui.ButtonView" title="clubsandwich.ui.ButtonView"><code class="xref py py-class docutils literal"><span class="pre">ButtonView</span></code></a> class.</p>
+<dt id="clubsandwich.ui.layout_options.LayoutOptions">
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.layout_options.</code><code class="descname">LayoutOptions</code><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each attribute takes a value that can take one of five forms:
+* <code class="docutils literal"><span class="pre">None</span></code>: Do not constrain this value
+* <code class="docutils literal"><span class="pre">'frame'</span></code>: Use a constant value from <code class="docutils literal"><span class="pre">self.layout_spec</span></code>, which is</p>
+<blockquote>
+<div>initially a copy of <code class="docutils literal"><span class="pre">self.frame</span></code></div></blockquote>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">0.0-1.0</span></code> left-inclusive: Use a fraction of the superview&#8217;s size on the
+appropriate axis.</li>
+<li><code class="docutils literal"><span class="pre">&gt;=1</span></code>: Use a constant integer</li>
+<li><code class="docutils literal"><span class="pre">'intrinsic'</span></code>: The view defines an <code class="docutils literal"><span class="pre">intrinsic_size</span></code> property; use this
+value. Mostly useful for <code class="docutils literal"><span class="pre">LabelView</span></code>.</li>
+</ul>
+<p>It is possible to define values that conflict. The behavior in these cases
+is undefined.</p>
+<dl class="classmethod">
+<dt id="clubsandwich.ui.layout_options.LayoutOptions.centered">
+<em class="property">classmethod </em><code class="descname">centered</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions.centered" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="clubsandwich.ui.layout_options.LayoutOptions.column_left">
+<em class="property">classmethod </em><code class="descname">column_left</code><span class="sig-paren">(</span><em>width</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions.column_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="clubsandwich.ui.layout_options.LayoutOptions.column_right">
+<em class="property">classmethod </em><code class="descname">column_right</code><span class="sig-paren">(</span><em>width</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions.column_right" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.layout_options.LayoutOptions.get_debug_string_for_keys">
+<code class="descname">get_debug_string_for_keys</code><span class="sig-paren">(</span><em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions.get_debug_string_for_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.layout_options.LayoutOptions.get_is_defined">
+<code class="descname">get_is_defined</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions.get_is_defined" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.layout_options.LayoutOptions.get_type">
+<code class="descname">get_type</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions.get_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return one of <code class="docutils literal"><span class="pre">{'none',</span> <span class="pre">'frame',</span> <span class="pre">'constant',</span> <span class="pre">'fraction'}</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.layout_options.LayoutOptions.get_value">
+<code class="descname">get_value</code><span class="sig-paren">(</span><em>k</em>, <em>view</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions.get_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="clubsandwich.ui.layout_options.LayoutOptions.row_bottom">
+<em class="property">classmethod </em><code class="descname">row_bottom</code><span class="sig-paren">(</span><em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions.row_bottom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="clubsandwich.ui.layout_options.LayoutOptions.row_top">
+<em class="property">classmethod </em><code class="descname">row_top</code><span class="sig-paren">(</span><em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions.row_top" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.layout_options.LayoutOptions.with_updates">
+<code class="descname">with_updates</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions.with_updates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -290,6 +346,20 @@ already handled this event</li>
 handled twice.</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="clubsandwich.ui.FirstResponderContainerView">
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">FirstResponderContainerView</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manages the &#8220;first responder&#8221; system. The control that receives
+BearLibTerminal events at a given time is the first responder.</p>
+<p>This container view listens for the tab key. When it&#8217;s pressed, the subview
+tree is walked until another candidate is found, or there are no others.
+That new subview is the new first responder.</p>
+<p>You don&#8217;t need to create this class yourself. <a class="reference internal" href="#clubsandwich.ui.UIScene" title="clubsandwich.ui.UIScene"><code class="xref py py-class docutils literal"><span class="pre">UIScene</span></code></a> makes it
+for you.</p>
+<p>If you want to write a control that handles input, read the source of the
+<a class="reference internal" href="api_ui_components.html#clubsandwich.ui.ButtonView" title="clubsandwich.ui.ButtonView"><code class="xref py py-class docutils literal"><span class="pre">ButtonView</span></code></a> class.</p>
 </dd></dl>
 
 </div>
