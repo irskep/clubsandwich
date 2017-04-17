@@ -135,11 +135,17 @@ that buttons work.</p>
 <blockquote>
 <div>initially a copy of <code class="docutils literal"><span class="pre">self.frame</span></code></div></blockquote>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">0.0-1.0</span></code> left-inclusive: Use a fraction of the superview&#8217;s size on the
-appropriate axis.</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">0.0-1.0</span></code> left-inclusive: Use a fraction of the superview&#8217;s size on the</dt>
+<dd>appropriate axis.</dd>
+</dl>
+</li>
 <li><code class="docutils literal"><span class="pre">&gt;=1</span></code>: Use a constant integer</li>
-<li><code class="docutils literal"><span class="pre">'intrinsic'</span></code>: The view defines an <code class="docutils literal"><span class="pre">intrinsic_size</span></code> property; use this
-value. Mostly useful for <code class="docutils literal"><span class="pre">LabelView</span></code>.</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">'intrinsic'</span></code>: The view defines an <code class="docutils literal"><span class="pre">intrinsic_size</span></code> property; use this</dt>
+<dd>value. Mostly useful for <code class="docutils literal"><span class="pre">LabelView</span></code>.</dd>
+</dl>
+</li>
 </ul>
 <p>It is possible to define values that conflict. The behavior in these cases
 is undefined.</p>
