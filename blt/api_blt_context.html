@@ -105,39 +105,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-clubsandwich.blt.context">
-<span id="context"></span><h1><code class="docutils literal"><span class="pre">context</span></code><a class="headerlink" href="#module-clubsandwich.blt.context" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="clubsandwich.blt.context.BearLibTerminalContext">
-<em class="property">class </em><code class="descclassname">clubsandwich.blt.context.</code><code class="descname">BearLibTerminalContext</code><a class="headerlink" href="#clubsandwich.blt.context.BearLibTerminalContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class that acts like <a class="reference internal" href="api_blt_nice_terminal.html#clubsandwich.blt.nice_terminal.terminal" title="clubsandwich.blt.nice_terminal.terminal"><code class="xref py py-attr docutils literal"><span class="pre">clubsandwich.blt.nice_terminal.terminal</span></code></a>
-(you can use <code class="xref py py-class docutils literal"><span class="pre">Point</span></code> and <code class="xref py py-class docutils literal"><span class="pre">Rect</span></code> instead of separate
-ints), except:</p>
-<blockquote>
-<div><ul class="simple">
-<li>It&#8217;s a class, so you have to instantiate it</li>
-<li>It includes a context manager, <code class="xref py py-meth docutils literal"><span class="pre">translate()</span></code>, that offsets all
-position-related calls.</li>
-</ul>
-</div></blockquote>
-<p>Example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">clubsandwich.blt.context</span> <span class="k">import</span> <span class="n">BearLibTerminalContext</span>
-<span class="kn">from</span> <span class="nn">clubsandwich.geom</span> <span class="k">import</span> <span class="n">Point</span>
-
-<span class="n">ctx</span> <span class="o">=</span> <span class="n">BearLibTerminalContext</span><span class="p">()</span>
-<span class="n">ctx</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">ctx</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-  <span class="n">terminal</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
-  <span class="n">terminal</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">terminal</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
-<span class="n">terminal</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">terminal</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd></dl>
-
+  <div class="section" id="context">
+<h1><code class="docutils literal"><span class="pre">context</span></code><a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
