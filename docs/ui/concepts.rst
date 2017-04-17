@@ -30,9 +30,9 @@ To render a UI, you need to use a :py:class:`UIScene`::
 Layout
 ------
 
-Layouts, most of the time, are specified using :py:class:`LayoutOptions`
-objects. These more or less follow the UIKit springs-and-struts model. Here's
-a diagram::
+Layouts, most of the time, are specified using
+:py:class:`~clubsandwich.view.layout_options.LayoutOptions` objects. These more
+or less follow the UIKit springs-and-struts model. Here's a diagram::
 
   +----------------------------+
   |             ^              |
