@@ -14,7 +14,14 @@ Features:
 * UIKit-like interface framework
 * Script runner to help you iterate quickly
 
+Dependencies:
+
+* Python 3.5+ (Probably works on 3.4, and on 3.3 if you install ``asyncio``)
+
 The table of contents is organized in the recommended reading order.
+
+Before you dive in, you should probably read the overview of BearLibTerminal
+`on its web site. <http://foo.wyrd.name/en:bearlibterminal>`_
 
 .. toctree::
     :maxdepth: 3
@@ -39,6 +46,26 @@ expect reasonable API stability!
 .. image:: _static/screenshot1.png
 
 .. image:: _static/screenshot2.png
+
+Developing
+~~~~~~~~~~
+
+If you want to work on clubsandwich, it's really easy to do that while also
+developing your game.
+
+First, fork clubsandwich on GitHub and clone it locally::
+
+      git clone git://github.com/YOURNAME/clubsandwich.git
+
+Then install it with pip's ``--editable`` flag:
+
+      cd clubsandwich
+      # assuming you are in a virtualenv! otherwise this will be global, which
+      # you don't want.
+      pip install --editable .
+
+Now any changes you make to the clubsandwich source tree will be reflected in
+your ``$PYTHONPATH``.
 
 What is this?
 -------------
