@@ -72,8 +72,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ui/index.html"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ui/api_ui.html">Concepts and core objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ui/api_ui_components.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/concepts.html">Concepts and core objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ui/concepts.html#the-scene">The Scene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/concepts.html#layout">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/concepts.html#views">Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/concepts.html#id2">First Responder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/components.html">Views</a></li>
 </ul>
 </li>
 </ul>
@@ -120,7 +126,7 @@ to look at <code class="xref py py-class docutils literal"><span class="pre">Dir
 <li><strong>fps</strong> (<em>Real</em>) &#8211; After each loop iteration,
 <a class="reference internal" href="#clubsandwich.blt.loop.BearLibTerminalEventLoop" title="clubsandwich.blt.loop.BearLibTerminalEventLoop"><code class="xref py py-class docutils literal"><span class="pre">BearLibTerminalEventLoop</span></code></a> waits <code class="docutils literal"><span class="pre">1/fps</span></code>
 seconds before checking for input and updating again.</li>
-<li><strong>ctrl_c_exits</strong> (<em>boolean</em>) &#8211; If <code class="docutils literal"><span class="pre">True</span></code> (default), <code class="docutils literal"><span class="pre">Ctrl+C</span></code> exits the
+<li><strong>ctrl_c_exits</strong> (<em>bool</em>) &#8211; If <code class="docutils literal"><span class="pre">True</span></code> (default), <code class="docutils literal"><span class="pre">Ctrl+C</span></code> exits the
 program. While convenient, you may want to
 disable this when you ship your game.</li>
 </ul>
