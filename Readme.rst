@@ -1,7 +1,7 @@
 clubsandwich
 ============
 
-**A** `BearLibTerminal <http://foo.wyrd.name/en%3Ebearlibterminal>`_ **framework for Python 3**
+**A** `BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_ **framework for Python 3**
 
 Features:
 
