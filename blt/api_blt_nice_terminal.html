@@ -105,8 +105,34 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="nice-terminal">
-<h1><code class="docutils literal"><span class="pre">nice_terminal</span></code><a class="headerlink" href="#nice-terminal" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-clubsandwich.blt.nice_terminal">
+<span id="nice-terminal"></span><h1><code class="docutils literal"><span class="pre">nice_terminal</span></code><a class="headerlink" href="#module-clubsandwich.blt.nice_terminal" title="Permalink to this headline">¶</a></h1>
+<dl class="attribute">
+<dt id="clubsandwich.blt.nice_terminal.terminal">
+<code class="descclassname">clubsandwich.blt.nice_terminal.</code><code class="descname">terminal</code><a class="headerlink" href="#clubsandwich.blt.nice_terminal.terminal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exactly like <code class="docutils literal"><span class="pre">bearlibterminal.terminal</span></code>, but for any function that takes
+arguments <code class="docutils literal"><span class="pre">x,</span> <span class="pre">y</span></code>, <code class="docutils literal"><span class="pre">dx,</span> <span class="pre">dy</span></code>, or <code class="docutils literal"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">width,</span> <span class="pre">height</span></code>, you can
+instead pass a single argument of type <code class="xref py py-class docutils literal"><span class="pre">Point</span></code> (for the first
+two) or <code class="xref py py-class docutils literal"><span class="pre">Rect</span></code> (for the last).</p>
+<p>This makes interactions betweeen <code class="xref py py-mod docutils literal"><span class="pre">geom</span></code> and <code class="docutils literal"><span class="pre">bearlibterminal</span></code>
+much less verbose.</p>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">clubsandwich.blt.nice_terminal</span> <span class="k">import</span> <span class="n">terminal</span>
+<span class="kn">from</span> <span class="nn">clubsandwich.geom</span> <span class="k">import</span> <span class="n">Point</span>
+
+<span class="n">terminal</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">terminal</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">terminal</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">terminal</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+<span class="n">terminal</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">terminal</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 
 
