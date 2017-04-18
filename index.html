@@ -81,6 +81,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ui/components.html">Views</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="api_babysit.html"><code class="docutils literal"><span class="pre">babysit</span></code></a></li>
 </ul>
 
 <div class="relations">
@@ -109,9 +110,28 @@
             
   <div class="section" id="clubsandwich">
 <h1>clubsandwich<a class="headerlink" href="#clubsandwich" title="Permalink to this headline">¶</a></h1>
-<p><strong>A</strong> <a class="reference external" href="http://foo.wyrd.name/en:bearlibterminal">BearLibTerminal</a> <strong>framework for Python 3</strong></p>
+<p><strong>A</strong> <a class="reference external" href="http://foo.wyrd.name/en:bearlibterminal">BearLibTerminal</a>
+<strong>framework for Python 3</strong></p>
 <p><a class="reference external" href="https://github.com/irskep/clubsandwich">Source code</a></p>
-<p>Features:</p>
+<div class="section" id="what-is-this">
+<h2>What is this?<a class="headerlink" href="#what-is-this" title="Permalink to this headline">¶</a></h2>
+<p>Imagine you want to write a roguelike, you don&#8217;t want to roll your own
+framework from scratch, and you want to use Python.</p>
+<p>The most mature option for doing this is
+<a class="reference external" href="https://pypi.python.org/pypi/libtcod-cffi">libtcod-cffi</a>, which is a
+kitchen sink of roguelike development utilities like terminal graphics,
+pathfinding, random numbers, noise generators, config file parsers, and data
+structures. But it&#8217;s pretty heavy, the docs aren&#8217;t great, and it&#8217;s an icky
+C API. And while it covers a lot of things you need for a roguelike, it doesn&#8217;t
+help you much with your UI or state management.</p>
+<p>If that sounds like a decent tradeoff, go try <a href="#id1"><span class="problematic" id="id2">``</span></a>libtcod-cffi` and be happy!
+But there&#8217;s another library,
+<a class="reference external" href="http://foo.wyrd.name/en:bearlibterminal">BearLibTerminal</a>, that only
+handles terminal graphics. It&#8217;s tiny and easy to understand. clubsandwich
+builds on BearLibTerminal (BLT...) to add a nice API, state management, easy
+UI, and some other helpful stuff.</p>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Event loop</li>
 <li>Scene manager</li>
@@ -150,7 +170,10 @@
 <li class="toctree-l2"><a class="reference internal" href="ui/components.html">Views</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="api_babysit.html"><code class="docutils literal"><span class="pre">babysit</span></code></a></li>
 </ul>
+</div>
+</div>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
@@ -181,8 +204,8 @@ developing your game.</p>
 your <code class="docutils literal"><span class="pre">$PYTHONPATH</span></code>.</p>
 </div>
 </div>
-<div class="section" id="what-is-this">
-<h2>What is this?<a class="headerlink" href="#what-is-this" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>Features<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="an-event-loop">
 <h3>An event loop<a class="headerlink" href="#an-event-loop" title="Permalink to this headline">¶</a></h3>
 <p>clubsandwich uses the <a class="reference external" href="https://docs.python.org/3/library/asyncio.html">asyncio</a> library to run an asynchronous update loop.
