@@ -117,7 +117,8 @@
 <dl class="class">
 <dt id="clubsandwich.ui.RectView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">RectView</code><span class="sig-paren">(</span><em>color_fg='#aaaaaa'</em>, <em>color_bg='#000000'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.RectView" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.view.View</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -142,7 +143,8 @@
 <dl class="class">
 <dt id="clubsandwich.ui.WindowView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">WindowView</code><span class="sig-paren">(</span><em>title=None</em>, <em>*args</em>, <em>subviews=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.WindowView" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.misc_views.RectView</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -165,7 +167,8 @@ subview don&#8217;t overlap the border.</p>
 <dl class="class">
 <dt id="clubsandwich.ui.LabelView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">LabelView</code><span class="sig-paren">(</span><em>text</em>, <em>color_fg='#ffffff'</em>, <em>color_bg=None</em>, <em>align_horz='center'</em>, <em>align_vert='center'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.LabelView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draws the given string inside its bounds. Multi-line strings work fine.</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.view.View</span></code></p>
+<p>Draws the given string inside its bounds. Multi-line strings work fine.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -187,7 +190,8 @@ subview don&#8217;t overlap the border.</p>
 <dl class="class">
 <dt id="clubsandwich.ui.ButtonView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">ButtonView</code><span class="sig-paren">(</span><em>text</em>, <em>callback</em>, <em>align_horz='center'</em>, <em>align_vert='center'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ButtonView" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.view.View</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -214,7 +218,8 @@ responder:</p>
 <dl class="class">
 <dt id="clubsandwich.ui.CyclingButtonView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">CyclingButtonView</code><span class="sig-paren">(</span><em>options</em>, <em>initial_value</em>, <em>callback</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.CyclingButtonView" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.misc_views.ButtonView</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -236,7 +241,8 @@ calls <code class="docutils literal"><span class="pre">callback(new_value)</span
 <dl class="class">
 <dt id="clubsandwich.ui.ListView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">ListView</code><span class="sig-paren">(</span><em>label_control_pairs</em>, <em>value_column_width=16</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ListView" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.misc_views.RectView</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -272,7 +278,8 @@ possible.</p>
 <dl class="class">
 <dt id="clubsandwich.ui.SingleLineTextInputView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">SingleLineTextInputView</code><span class="sig-paren">(</span><em>callback</em>, <em>initial_value=''</em>, <em>color_unselected_fg='#ffffff'</em>, <em>color_unselected_bg=None</em>, <em>color_selected_fg='#ffff00'</em>, <em>color_selected_bg=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.SingleLineTextInputView" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.view.View</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
