@@ -10,6 +10,22 @@ from clubsandwich.geom import Rect, Point, Size
 
 
 class ListView(RectView):
+  """
+  :param list label_control_pairs: List like ``[('Label', ButtonView(...)), ...]``
+  :param int value_column_width: Number of characters to use for the value column
+
+  See :py:class:`RectView` for the rest of the constructor args.
+
+  Draws a list of labels and controls with a scrollbar. If an offscreen control
+  becomes the first responder, the list will scroll it into view.
+
+  While a subview of the list is the first responder, arrow keys may be used to
+  change the first responder (go to the previous/next control). This is
+  actually pretty weird in practice since the arrows stop working as soon as
+  you get outside the list, so it will probably be changed soon.
+
+  .. image:: ../_static/screenshot2.png
+  """
   def __init__(self, label_control_pairs, value_column_width=16, *args, **kwargs):
     super().__init__(subviews=[], *args, **kwargs)
     self._min_row = 0
