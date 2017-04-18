@@ -1,11 +1,34 @@
 clubsandwich
 ============
 
-**A** `BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_ **framework for Python 3**
+**A** `BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_
+**framework for Python 3**
 
 `Source code <https://github.com/irskep/clubsandwich>`_
 
-Features:
+What is this?
+-------------
+
+Imagine you want to write a roguelike, you don't want to roll your own
+framework from scratch, and you want to use Python.
+
+The most mature option for doing this is
+`libtcod-cffi <https://pypi.python.org/pypi/libtcod-cffi>`_, which is a
+kitchen sink of roguelike development utilities like terminal graphics,
+pathfinding, random numbers, noise generators, config file parsers, and data
+structures. But it's pretty heavy, the docs aren't great, and it's an icky
+C API. And while it covers a lot of things you need for a roguelike, it doesn't
+help you much with your UI or state management.
+
+If that sounds like a decent tradeoff, go try ``libtcod-cffi` and be happy!
+But there's another library,
+`BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_, that only
+handles terminal graphics. It's tiny and easy to understand. clubsandwich
+builds on BearLibTerminal (BLT...) to add a nice API, state management, easy
+UI, and some other helpful stuff.
+
+Features
+~~~~~~~~
 
 * Event loop
 * Scene manager
@@ -31,6 +54,7 @@ Before you dive in, you should probably read the overview of BearLibTerminal
     api_geom.rst
     blt/index.rst
     ui/index.rst
+    api_babysit.rst
 
 Installation
 ------------
@@ -68,8 +92,8 @@ Then install it with pip's ``--editable`` flag::
 Now any changes you make to the clubsandwich source tree will be reflected in
 your ``$PYTHONPATH``.
 
-What is this?
--------------
+Features
+--------
 
 An event loop
 ~~~~~~~~~~~~~

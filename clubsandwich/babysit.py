@@ -1,12 +1,20 @@
 #!/usr/bin/env python3
 """
-Repeatedly runs the command given until you ctrl+c this program.
+This program is added to your ``$PATH`` when you install clubsandwich.
+It repeatedly runs a command until you ctrl+c the ``babysit`` process.
 
-Example:
+Imagine you're working on a flame effect for your main screen. It takes
+a lot of tweaking. Every time you make a change, you go to run your game::
 
-    # Every time you quit your game, it will be launched again
-    # until you ctrl+c babysit.py
-    babysit python my_game.py
+  python flamegame.py
+
+This is annoying. With ``babysit``, you can make it continuously relaunch
+every time you quit, so as soon as you exit you see the latest code running
+in seconds::
+
+  babysit python flamegame.py
+
+It will keep relaunching until you ctrl+c the ``babysit`` process.
 """
 import sys
 import subprocess
