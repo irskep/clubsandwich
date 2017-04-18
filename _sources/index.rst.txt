@@ -39,10 +39,14 @@ Scroll down for examples.
 * UIKit-like interface framework
 * Script runner to help you iterate quickly
 
-Dependencies:
+Dependencies
+~~~~~~~~~~~~
 
 * Python 3.5+ (Probably works on 3.4, and on 3.3 if you install ``asyncio``)
 * And BearLibTerminal, of course
+
+Table of contents
+~~~~~~~~~~~~~~~~~
 
 The table of contents is organized in the recommended reading order.
 
