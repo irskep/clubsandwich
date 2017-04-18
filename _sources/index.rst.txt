@@ -1,8 +1,8 @@
 clubsandwich
 ============
 
-**A** `BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_
-**framework for Python 3**
+**A roguelike framework for Python 3 using**
+`BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_
 
 `Source code <https://github.com/irskep/clubsandwich>`_
 
