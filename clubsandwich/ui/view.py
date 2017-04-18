@@ -79,8 +79,13 @@ class View:
     """
     :param bool val: If ``True``, view needs to be redrawn. (default ``True``)
 
-    Call this if the view's :py:meth:`~clubsandwich.ui.View.frame` or content changes.
-    :py:meth:`~View.draw` is only called if this was called first.
+    Call this if the view's :py:meth:`~clubsandwich.ui.View.frame` or content
+    changes. :py:meth:`~View.draw` is only called if this was called first.
+
+    Note that if you're changing either :py:attr:`View.layout_options` or
+    changing something that affects the view's springs-and-struts layout
+    metrics, you may need to call ``self.superview.set_needs_layout()`` to
+    have the layout algorithm re-run on your view.
     """
     self.needs_layout = val
 

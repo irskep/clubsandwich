@@ -2,7 +2,6 @@
 # * arrow keys navigate lists but not other things.
 #   I should just make arrow keys work everywhere.
 from math import floor
-from .view import View
 from .misc_views import LabelView, RectView, temporary_color
 from clubsandwich.blt.nice_terminal import terminal
 from clubsandwich.blt.state import blt_state

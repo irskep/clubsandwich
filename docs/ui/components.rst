@@ -20,3 +20,6 @@ Views
 
 .. autoclass:: clubsandwich.ui.ListView
   :members:
+
+.. autoclass:: clubsandwich.ui.SingleLineTextInputView
+  :members:

@@ -14,6 +14,7 @@ from clubsandwich.ui import (
     LayoutOptions,
     UIScene,
     CyclingButtonView,
+    SingleLineTextInputView,
 )
 
 
@@ -62,15 +63,24 @@ class CharacterCreationScene(UIScene):
             'Character',
             layout_options=LayoutOptions(top=7, right=10, bottom=7, left=10),
             subviews=[
-                LabelView('There is no game yet.', layout_options=LayoutOptions.row_top(0.5)),
+                LabelView(
+                    'Enter your name:',
+                    layout_options=LayoutOptions.row_top(3),
+                ),
+                SingleLineTextInputView(
+                    callback=self.print_name,
+                    layout_options=LayoutOptions.centered('intrinsic', 'intrinsic')),
                 ButtonView(
-                    text='Darn', callback=lambda: self.director.pop_scene(),
-                    layout_options=LayoutOptions.row_bottom(0.5)),
+                    text='Cancel', callback=lambda: self.director.pop_scene(),
+                    layout_options=LayoutOptions.row_bottom(3)),
             ]
         )
         super().__init__(view, *args, **kwargs)
 
         self.covers_screen = True
+
+    def print_name(self, text):
+        print("Your name is:", text)
 
 
 class SettingsScene(UIScene):
