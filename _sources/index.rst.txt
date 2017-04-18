@@ -23,7 +23,7 @@ help you much with your UI or state management.
 If that sounds like a decent tradeoff, go try ``libtcod-cffi`` and be happy!
 But there's another library,
 `BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_, that only
-handles terminal graphics. It's tiny and easy to understand. clubsandwich
+handles terminal graphics. It's tiny and easy to understand. Clubsandwich
 builds on BearLibTerminal (BLT...) to add a nice API, state management, easy
 UI, and some other helpful stuff.
 
