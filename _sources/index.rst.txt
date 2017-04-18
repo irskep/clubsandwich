@@ -30,6 +30,8 @@ UI, and some other helpful stuff.
 Features
 ~~~~~~~~
 
+Scroll down for examples.
+
 * Event loop
 * Scene manager
 * Geometry data structures
