@@ -15,6 +15,8 @@ class ListView(RectView):
 
   See :py:class:`RectView` for the rest of the constructor args.
 
+  .. warning:: The name of this class will change before release.
+
   Draws a list of labels and controls with a scrollbar. If an offscreen control
   becomes the first responder, the list will scroll it into view.
 

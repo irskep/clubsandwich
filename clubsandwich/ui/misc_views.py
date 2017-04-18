@@ -64,7 +64,7 @@ class WindowView(RectView):
   """
   :param str title: Window title
 
-  See :py:class:`View` for the rest of the init arguments.
+  See :py:class:`RectView` for the rest of the init arguments.
 
   A rectangle with a centered label on the top containing the text *title*.
   All given subviews are put in an inner view that's inset by 1 cell so the
