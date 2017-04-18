@@ -20,7 +20,7 @@ structures. But it's pretty heavy, the docs aren't great, and it's an icky
 C API. And while it covers a lot of things you need for a roguelike, it doesn't
 help you much with your UI or state management.
 
-If that sounds like a decent tradeoff, go try ``libtcod-cffi`~ and be happy!
+If that sounds like a decent tradeoff, go try ``libtcod-cffi`` and be happy!
 But there's another library,
 `BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_, that only
 handles terminal graphics. It's tiny and easy to understand. clubsandwich
