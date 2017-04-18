@@ -46,7 +46,7 @@ Dependencies
 * And BearLibTerminal, of course
 
 Table of contents
-~~~~~~~~~~~~~~~~~
+-----------------
 
 The table of contents is organized in the recommended reading order.
 
