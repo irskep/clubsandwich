@@ -98,8 +98,8 @@ Then install it with pip's ``--editable`` flag::
 Now any changes you make to the clubsandwich source tree will be reflected in
 your ``$PYTHONPATH``.
 
-Features
---------
+Feature examples
+----------------
 
 An event loop
 ~~~~~~~~~~~~~
