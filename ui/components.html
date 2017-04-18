@@ -233,6 +233,38 @@ calls <code class="docutils literal"><span class="pre">callback(new_value)</span
 <p>All values must be strings. If this bothers you, pull requests are welcome.</p>
 </dd></dl>
 
+<dl class="class">
+<dt id="clubsandwich.ui.ListView">
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">ListView</code><span class="sig-paren">(</span><em>label_control_pairs</em>, <em>value_column_width=16</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ListView" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>label_control_pairs</strong> (<em>list</em>) &#8211; List like <code class="docutils literal"><span class="pre">[('Label',</span> <span class="pre">ButtonView(...)),</span> <span class="pre">...]</span></code></li>
+<li><strong>value_column_width</strong> (<em>int</em>) &#8211; Number of characters to use for the value column</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="#clubsandwich.ui.RectView" title="clubsandwich.ui.RectView"><code class="xref py py-class docutils literal"><span class="pre">RectView</span></code></a> for the rest of the constructor args.</p>
+<p>Draws a list of labels and controls with a scrollbar. If an offscreen control
+becomes the first responder, the list will scroll it into view.</p>
+<p>While a subview of the list is the first responder, arrow keys may be used to
+change the first responder (go to the previous/next control). This is
+actually pretty weird in practice since the arrows stop working as soon as
+you get outside the list, so it will probably be changed soon.</p>
+<img alt="../_images/screenshot21.png" src="../_images/screenshot21.png" />
+<dl class="attribute">
+<dt id="clubsandwich.ui.ListView.scroll_fraction">
+<code class="descname">scroll_fraction</code><a class="headerlink" href="#clubsandwich.ui.ListView.scroll_fraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>How far down the user has scrolled. If a negative value, no scrolling is
+possible.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 

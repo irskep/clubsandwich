@@ -17,3 +17,6 @@ Views
 
 .. autoclass:: clubsandwich.ui.CyclingButtonView
   :members:
+
+.. autoclass:: clubsandwich.ui.ListView
+  :members:
