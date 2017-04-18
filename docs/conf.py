@@ -25,7 +25,7 @@ version = '0.1'
 release = '0.1a1'
 #language = None
 
-html_title = "%(project)s v%(release)s docs - BearLibTerminal framework for Python" % {
+html_title = "%(project)s v%(release)s docs - roguelike framework for Python" % {
     'project': project, 'release': release}
 html_short_title = "Home"
 
@@ -51,7 +51,7 @@ html_theme_options = {
     'github_count': False,
     'github_banner': True,
     'canonical_url': 'http://steveasleep.com/clubsandwich/',
-    'description': "A BearLibTerminal framework for Python 3",
+    'description': "A roguelike framework for Python 3 using BearLibTerminal",
     'sidebar_collapse': False,
     'show_related': True,
     'fixed_sidebar': True,

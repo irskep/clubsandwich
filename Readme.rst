@@ -1,9 +1,38 @@
 clubsandwich
 ============
 
-**A** `BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_ **framework for Python 3**
+**A roguelike framework for Python 3 using**
+`BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_
 
-Features:
+`Source code <https://github.com/irskep/clubsandwich>`_
+
+`API docs <http://steveasleep.com/clubsandwich/>`_
+
+What is this?
+-------------
+
+Imagine you want to write a roguelike, you don't want to roll your own
+framework from scratch, and you want to use Python.
+
+The most mature option for doing this is
+`libtcod-cffi <https://pypi.python.org/pypi/libtcod-cffi>`_, which is a
+kitchen sink of roguelike development utilities like terminal graphics,
+pathfinding, random numbers, noise generators, config file parsers, and data
+structures. But it's pretty heavy, the docs aren't great, and it's an icky
+C API. And while it covers a lot of things you need for a roguelike, it doesn't
+help you much with your UI or state management.
+
+If that sounds like a decent tradeoff, go try ``libtcod-cffi`` and be happy!
+But there's another library,
+`BearLibTerminal <http://foo.wyrd.name/en:bearlibterminal>`_, that only
+handles terminal graphics. It's tiny and understandable. Clubsandwich
+builds on BearLibTerminal (BLT...) to add a nice API, state management, easy
+UI, and some other helpful stuff.
+
+Features
+~~~~~~~~
+
+Scroll down for examples.
 
 * Event loop
 * Scene manager
@@ -12,7 +41,11 @@ Features:
 * UIKit-like interface framework
 * Script runner to help you iterate quickly
 
-`API docs <http://steveasleep.com/clubsandwich/>`_
+Dependencies
+~~~~~~~~~~~~
+
+* Python 3.5+ (Probably works on 3.4, and on 3.3 if you install ``asyncio``)
+* And BearLibTerminal, of course
 
 Installation
 ------------
@@ -29,7 +62,7 @@ expect reasonable API stability!
 
 .. image:: readme_images/screenshot2.png
 
-What is this?
+Feature examples
 ----------------
 
 An event loop
