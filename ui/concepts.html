@@ -452,8 +452,12 @@ responder.</li>
 </tr>
 </tbody>
 </table>
-<p>Call this if the view&#8217;s <a class="reference internal" href="#clubsandwich.ui.View.frame" title="clubsandwich.ui.View.frame"><code class="xref py py-meth docutils literal"><span class="pre">frame()</span></code></a> or content changes.
-<a class="reference internal" href="#clubsandwich.ui.View.draw" title="clubsandwich.ui.View.draw"><code class="xref py py-meth docutils literal"><span class="pre">draw()</span></code></a> is only called if this was called first.</p>
+<p>Call this if the view&#8217;s <a class="reference internal" href="#clubsandwich.ui.View.frame" title="clubsandwich.ui.View.frame"><code class="xref py py-meth docutils literal"><span class="pre">frame()</span></code></a> or content
+changes. <a class="reference internal" href="#clubsandwich.ui.View.draw" title="clubsandwich.ui.View.draw"><code class="xref py py-meth docutils literal"><span class="pre">draw()</span></code></a> is only called if this was called first.</p>
+<p>Note that if you&#8217;re changing either <code class="xref py py-attr docutils literal"><span class="pre">View.layout_options</span></code> or
+changing something that affects the view&#8217;s springs-and-struts layout
+metrics, you may need to call <code class="docutils literal"><span class="pre">self.superview.set_needs_layout()</span></code> to
+have the layout algorithm re-run on your view.</p>
 </dd></dl>
 
 <dl class="method">
