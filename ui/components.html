@@ -267,6 +267,17 @@ kept visible via scrolling.</p>
 <p>The list itself both <em>becomes</em> the first responder (you switch to/from it with
 <code class="docutils literal"><span class="pre">tab</span></code>/<code class="docutils literal"><span class="pre">shift+tab</span></code>) and <em>contains</em> its own first responder, which you
 switch using the arrow keys.</p>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">SettingsListView</span><span class="p">(</span>
+    <span class="p">[</span>
+      <span class="p">(</span><span class="s2">&quot;Advanced water effects&quot;</span><span class="p">,</span>
+       <span class="n">CyclingButtonView</span><span class="p">(</span>
+         <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">],</span> <span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">update_water_effects</span><span class="p">,</span>
+         <span class="n">align_horz</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">value_column_width</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
 <img alt="../_images/screenshot21.png" src="../_images/screenshot21.png" />
 <dl class="attribute">
 <dt id="clubsandwich.ui.SettingsListView.scroll_fraction">
