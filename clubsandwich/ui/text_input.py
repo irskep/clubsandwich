@@ -37,7 +37,7 @@ class SingleLineTextInputView(View):
 
   @property
   def intrinsic_size(self):
-    return Size(len(self.text), 1)
+    return Size(len(self.text) + 1, 1)
 
   def draw(self, ctx):
     color_fg = self.color_selected_fg if self.is_first_responder else self.color_unselected_fg

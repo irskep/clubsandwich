@@ -28,6 +28,18 @@ class SettingsListView(FirstResponderContainerView):
   ``tab``/``shift+tab``) and *contains* its own first responder, which you
   switch using the arrow keys.
 
+  Example::
+
+      SettingsListView(
+          [
+            ("Advanced water effects",
+             CyclingButtonView(
+               ["Yes", "No"], "Yes",
+               callback=self.update_water_effects,
+               align_horz='left'),
+          ],
+          value_column_width=20)
+
   .. image:: ../_static/screenshot2.png
   """
   def __init__(self, label_control_pairs, value_column_width=16, *args, **kwargs):

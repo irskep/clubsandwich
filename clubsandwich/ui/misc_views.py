@@ -232,6 +232,78 @@ class ButtonView(View):
       return True
 
 
+class IntStepperView(View):
+  """
+  :param int value: Initial value
+  :param func callback: Called with updated values
+  :param int|None min_value: Min value or ``None``
+  :param int|None max_value: Max value or ``None``
+
+  See :py:class:`View` for the rest of the init arguments.
+  """
+  def __init__(
+      self, value, callback, min_value=None, max_value=None, *args, **kwargs):
+    self.min_value = min_value
+    self.max_value = max_value
+    self.label_view = LabelView(
+      str(value), align_horz='left', align_vert='top',
+      layout_options=LayoutOptions().with_updates(left=2, right=2))
+    self.value = value
+    super().__init__(subviews=[self.label_view], *args, **kwargs)
+    self.callback = callback
+
+  @property
+  def can_become_first_responder(self):
+    return True
+
+  @property
+  def value(self):
+    return int(self.label_view.text)
+
+  @value.setter
+  def value(self, new_value):
+    self.label_view.text = str(new_value)
+    if self.superview:
+      self.superview.set_needs_layout()
+
+  @property
+  def intrinsic_size(self):
+    return self.label_view.intrinsic_size + Size(4, 0)  # add space for arrows
+
+  def set_needs_layout(self, val=True):
+    super().set_needs_layout(val)
+    self.label_view.set_needs_layout(val)
+
+  def did_become_first_responder(self):
+      self.label_view.color_fg = '#000000'
+      self.label_view.color_bg = '#ffffff'
+
+  def did_resign_first_responder(self):
+      self.label_view.color_fg = '#ffffff'
+      self.label_view.color_bg = '#000000'
+
+  def draw(self, ctx):
+    color_fg = '#ffffff'
+    color_bg = '#000000'
+    if self.is_first_responder:
+      color_fg = '#000000'
+      color_bg = '#ffffff'
+    with temporary_color(color_fg, color_bg):
+      ctx.print(Point(0, 0), '← ')
+      ctx.print(Point(self.bounds.width - 2, 0), ' →')
+
+  def terminal_read(self, val):
+    if val == terminal.TK_LEFT and (self.min_value is None or self.value > self.min_value):
+      self.value -= 1
+      self.callback(self.value)
+      return True
+
+    if val == terminal.TK_RIGHT and (self.max_value is None or self.value < self.max_value):
+      self.value += 1
+      self.callback(self.value)
+      return True
+
+
 class CyclingButtonView(ButtonView):
   """
   :param list options: List of options, which must be strings

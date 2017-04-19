@@ -75,7 +75,10 @@ class View:
     """
     Weak reference to the view this view is a child of, or ``None``.
     """
-    return self._superview_weakref()
+    try:
+      return self._superview_weakref()
+    except AttributeError:
+      return None  # it may be super early in init time
 
   @superview.setter
   def superview(self, new_value):

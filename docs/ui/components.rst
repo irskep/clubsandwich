@@ -30,3 +30,7 @@ Views
 .. autoclass:: clubsandwich.ui.SingleLineTextInputView
   :show-inheritance:
   :members:
+
+.. autoclass:: clubsandwich.ui.IntStepperView
+  :show-inheritance:
+  :members:
