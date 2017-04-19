@@ -2,18 +2,21 @@
 # * arrow keys navigate lists but not other things.
 #   I should just make arrow keys work everywhere.
 from math import floor
+from .firstrespondercontainerview import FirstResponderContainerView
 from .misc_views import LabelView, RectView, temporary_color
 from clubsandwich.blt.nice_terminal import terminal
 from clubsandwich.blt.state import blt_state
 from clubsandwich.geom import Rect, Point, Size
 
 
-class SettingsListView(RectView):
+class SettingsListView(FirstResponderContainerView):
   """
   :param list label_control_pairs: List like ``[('Label', ButtonView(...)), ...]``
-  :param int value_column_width: Number of characters to use for the value column
+  :param int value_column_width: Number of characters to use for the value
+                                 column
 
-  See :py:class:`RectView` for the rest of the constructor args.
+  See :py:class:`FirstResponderContainerView` for the rest of the constructor
+  args.
 
   Presents a list with labels on the left and controls on the right. Intended
   to be used for "settings" of various kinds.
@@ -28,7 +31,9 @@ class SettingsListView(RectView):
   .. image:: ../_static/screenshot2.png
   """
   def __init__(self, label_control_pairs, value_column_width=16, *args, **kwargs):
-    super().__init__(subviews=[], *args, **kwargs)
+    self.rect_view = RectView()
+    self.rect_view.fill = False
+    super().__init__(subviews=[self.rect_view], *args, **kwargs)
     self._min_row = 0
     self.value_column_width = value_column_width
     self.first_responder_index = None
@@ -37,6 +42,19 @@ class SettingsListView(RectView):
     self.values = [c for _, c in label_control_pairs]
     self.add_subviews(self.labels)
     self.add_subviews(self.values)
+    self.find_next_responder()
+
+  @property
+  def can_become_first_responder(self):
+    return True
+
+  def did_become_first_responder(self):
+    super().did_become_first_responder()
+    self.rect_view.style = 'double'
+
+  def did_resign_first_responder(self):
+    super().did_resign_first_responder()
+    self.rect_view.style = 'single'
 
   @property
   def min_row(self):
@@ -80,6 +98,7 @@ class SettingsListView(RectView):
       self.values[self.min_row])
 
   def layout_subviews(self):
+    self.rect_view.apply_springs_and_struts_layout_in_superview()
     for i in range(len(self.labels)):
       is_in_view = self.get_is_in_view(i)
       if is_in_view:
@@ -94,7 +113,6 @@ class SettingsListView(RectView):
       self.values[i].is_hidden = not is_in_view
 
   def draw(self, ctx):
-    super().draw(ctx)
     if self.scroll_fraction < 0:
       return
     with temporary_color('#ffffff', None):
@@ -115,12 +133,12 @@ class SettingsListView(RectView):
   def descendant_did_resign_first_responder(self, control):
     self.first_responder_index = None
 
-  def terminal_read(self, val):
+  def terminal_read_after_first_responder(self, val, can_resign):
     if val == terminal.TK_UP:
-      self.first_responder_container_view.find_prev_responder()
+      self.find_prev_responder()
       return True
     elif val == terminal.TK_DOWN:
-      self.first_responder_container_view.find_next_responder()
+      self.find_next_responder()
       return True
     # pageup/<
     elif val == terminal.TK_PAGEUP or val == terminal.TK_COMMA and blt_state.shift:

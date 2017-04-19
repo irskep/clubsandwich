@@ -23,22 +23,37 @@ class FirstResponderContainerView(View):
   def __init__(self, *args, **kwargs):
     self.first_responder = None
     super().__init__(*args, **kwargs)
-    self.contains_first_responders = True
     self.first_responder = None
     self.find_next_responder()
 
   @property
-  def can_resign_first_responder(self):
-    """
-    If nested in another :py:class:`FirstResponderContainerView`, don't give
-    up first responder status. User probably wants to do it manually.
-    """
-    return False
+  def contains_first_responders(self):
+    return True
+
+  def first_responder_traversal(self):
+    for subview in self.subviews:
+      yield from self._first_responder_traversal(subview)
+
+  def _first_responder_traversal(self, v):
+    if v.contains_first_responders:
+      # this view may always become the first responder because it will manage
+      # inner first responders, but do not try to look inside it.
+      yield v
+      return
+    for subview in v.subviews:
+      yield from self._first_responder_traversal(subview)
+    yield v
+
+  @property
+  def _eligible_first_responders(self):
+    return [
+      v for v in self.first_responder_traversal()
+      if v != self and v.can_become_first_responder]
 
   def remove_subviews(self, subviews):
     super().remove_subviews(subviews)
     for v in subviews:
-      for sv in v.postorder_traversal:
+      for sv in self.first_responder_traversal(v):
         if sv == self.first_responder:
           self.set_first_responder(None)
           self.find_next_responder()
@@ -63,7 +78,7 @@ class FirstResponderContainerView(View):
     Resign active first responder and switch to the next one.
     """
     existing_responder = self.first_responder or self.leftmost_leaf
-    all_responders = [v for v in self.postorder_traversal if v.can_become_first_responder]
+    all_responders = self._eligible_first_responders
     try:
       i = all_responders.index(existing_responder)
       if i == len(all_responders) - 1:
@@ -81,7 +96,7 @@ class FirstResponderContainerView(View):
     Resign active first responder and switch to the previous one.
     """
     existing_responder = self.first_responder or self.leftmost_leaf
-    all_responders = [v for v in self.postorder_traversal if v.can_become_first_responder]
+    all_responders = self._eligible_first_responders
     try:
       i = all_responders.index(existing_responder)
       if i == 0:
@@ -100,18 +115,29 @@ class FirstResponderContainerView(View):
       for v in self.first_responder.ancestors:
         if v == self:
           break
-        handled = v.terminal_read(val)
-        if handled:
-          break
-    if not handled:
-      can_tab_away = (
-        not self.first_responder
-        or self.first_responder.can_resign_first_responder)
-      if val == terminal.TK_TAB and can_tab_away:
-        if blt_state.shift:
-          self.find_prev_responder()
-        else:
-          self.find_next_responder()
-      elif self.first_responder:
-        self.first_responder.terminal_read(val)
-    return True
+        if v.terminal_read(val):
+          return True
+
+    can_resign = (
+      not self.first_responder
+      or self.first_responder.can_resign_first_responder)
+    return self.terminal_read_after_first_responder(val, can_resign)
+
+  def terminal_read_after_first_responder(self, val, can_resign):
+    """
+    :param int val: Return value of ``terminal_read()``
+    :param bool can_resign: ``True`` iff there is an active first responder
+                            that can resign
+
+    If writing a custom first responder container view, override this to
+    customize input behavior. For example, if writing a list view, you might
+    want to use the arrows to change the first responder.
+    """
+    if can_resign and val == terminal.TK_TAB:
+      if blt_state.shift:
+        self.find_prev_responder()
+        return True
+      else:
+        self.find_next_responder()
+        return True
+    return False

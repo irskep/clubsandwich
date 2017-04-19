@@ -10,6 +10,15 @@ from .layout_options import LayoutOptions
 ZERO_RECT = Rect(Point(0, 0), Size(0, 0)) 
 
 
+def _option_field_to_id(val):
+    if val == 'frame':
+      value_start = 'frame'
+    elif isinstance(val, Real):
+      value_start = 'fraction'
+    else:
+      value_start = 'derive'
+
+
 class View:
   """
   :param Rect frame: Rect relative to superview's :py:attr:`View.bounds`
@@ -45,7 +54,6 @@ class View:
     self.add_subviews(subviews or [])
     self.is_first_responder = False
     self.is_hidden = False
-    self.contains_first_responders = False
 
     self.layout_spec = frame
     self.layout_options = layout_options or LayoutOptions()
@@ -156,7 +164,7 @@ class View:
     expressive enough for you.
     """
     for view in self.subviews:
-      _apply_springs_and_struts_layout_to_view(view)
+      view.apply_springs_and_struts_layout_in_superview()
 
   ### bounds, frame ###
 
@@ -209,6 +217,10 @@ class View:
     View subclasses should return ``True`` iff they want to be selectable and
     handle user input.
     """
+    return False
+
+  @property
+  def contains_first_responders(self):
     return False
 
   @property
@@ -343,85 +355,81 @@ class View:
     for sv in self.subviews:
       sv.debug_print(indent + 2)
 
+  def __str__(self):
+    return self.debug_string
 
-def _option_field_to_id(val):
-    if val == 'frame':
-      value_start = 'frame'
-    elif isinstance(val, Real):
-      value_start = 'fraction'
-    else:
-      value_start = 'derive'
+  def __repr__(self):
+    return self.debug_string
 
+  def apply_springs_and_struts_layout_in_superview(self):
+    options = self.layout_options
+    spec = self.layout_spec
+    superview_bounds = self.superview.bounds
 
-def _apply_springs_and_struts_layout_to_view(view):
-  options = view.layout_options
-  spec = view.layout_spec
-  superview_bounds = view.superview.bounds
+    fields = [
+      ('left', 'right', 'x', 'width'),
+      ('top', 'bottom', 'y', 'height'),
+    ]
 
-  fields = [
-    ('left', 'right', 'x', 'width'),
-    ('top', 'bottom', 'y', 'height'),
-  ]
+    final_frame = Rect(Point(-1000, -1000), Size(-1000, -1000))
 
-  final_frame = Rect(Point(-1000, -1000), Size(-1000, -1000))
+    for field_start, field_end, field_coord, field_size in fields:
+      debug_string = options.get_debug_string_for_keys(
+          [field_start, field_size, field_end])
+      matches = (
+        options.get_is_defined(field_start),
+        options.get_is_defined(field_size),
+        options.get_is_defined(field_end))
+      if matches == (True, True, True):
+        raise ValueError("Invalid spring/strut definition: {}".format(debug_string))
+      if matches == (False, False, False):
+        raise ValueError("Invalid spring/strut definition: {}".format(debug_string))
+      elif matches == (True, False, False):
+        setattr(
+          final_frame, field_coord,
+          options.get_value(field_start, self))
+        # pretend that size is constant from frame
+        setattr(
+          final_frame, field_size,
+          getattr(spec, field_size))
+      elif matches == (True, True, False):
+        setattr(
+          final_frame, field_coord,
+          options.get_value(field_start, self))
+        setattr(
+          final_frame, field_size,
+          options.get_value(field_size, self))
+      elif matches == (False, True, False):  # magical centering!
+        size_val = options.get_value(field_size, self)
+        setattr(final_frame, field_size, size_val)
+        setattr(
+          final_frame, field_coord,
+          getattr(superview_bounds, field_size) / 2 - size_val / 2)
+      elif matches == (False, True, True):
+        size_val = options.get_value(field_size, self)
+        setattr(
+          final_frame, field_coord,
+          getattr(superview_bounds, field_size) - options.get_value(field_end, self) - size_val)
+        setattr(final_frame, field_size, size_val)
+      elif matches == (False, False, True):
+        setattr(
+          final_frame, field_coord,
+          getattr(superview_bounds, field_size) - options.get_value(field_end, self))
+        # pretend that size is constant from frame
+        setattr(final_frame, field_size, getattr(spec, field_size))
+      elif matches == (True, False, True):
+        start_val = options.get_value(field_start, self) 
+        end_val = options.get_value(field_end, self) 
+        setattr(
+          final_frame, field_coord, start_val)
+        setattr(
+          final_frame, field_size,
+          getattr(superview_bounds, field_size) - start_val - end_val)
+      else:
+        raise ValueError("Unhandled case: {}".format(debug_string))
 
-  for field_start, field_end, field_coord, field_size in fields:
-    debug_string = options.get_debug_string_for_keys(
-        [field_start, field_size, field_end])
-    matches = (
-      options.get_is_defined(field_start),
-      options.get_is_defined(field_size),
-      options.get_is_defined(field_end))
-    if matches == (True, True, True):
-      raise ValueError("Invalid spring/strut definition: {}".format(debug_string))
-    if matches == (False, False, False):
-      raise ValueError("Invalid spring/strut definition: {}".format(debug_string))
-    elif matches == (True, False, False):
-      setattr(
-        final_frame, field_coord,
-        options.get_value(field_start, view))
-      # pretend that size is constant from frame
-      setattr(
-        final_frame, field_size,
-        getattr(spec, field_size))
-    elif matches == (True, True, False):
-      setattr(
-        final_frame, field_coord,
-        options.get_value(field_start, view))
-      setattr(
-        final_frame, field_size,
-        options.get_value(field_size, view))
-    elif matches == (False, True, False):  # magical centering!
-      size_val = options.get_value(field_size, view)
-      setattr(final_frame, field_size, size_val)
-      setattr(
-        final_frame, field_coord,
-        getattr(superview_bounds, field_size) / 2 - size_val / 2)
-    elif matches == (False, True, True):
-      size_val = options.get_value(field_size, view)
-      setattr(
-        final_frame, field_coord,
-        getattr(superview_bounds, field_size) - options.get_value(field_end, view) - size_val)
-      setattr(final_frame, field_size, size_val)
-    elif matches == (False, False, True):
-      setattr(
-        final_frame, field_coord,
-        getattr(superview_bounds, field_size) - options.get_value(field_end, view))
-      # pretend that size is constant from frame
-      setattr(final_frame, field_size, getattr(spec, field_size))
-    elif matches == (True, False, True):
-      start_val = options.get_value(field_start, view) 
-      end_val = options.get_value(field_end, view) 
-      setattr(
-        final_frame, field_coord, start_val)
-      setattr(
-        final_frame, field_size,
-        getattr(superview_bounds, field_size) - start_val - end_val)
-    else:
-      raise ValueError("Unhandled case: {}".format(debug_string))
-
-  assert(final_frame.x != -1000)
-  assert(final_frame.y != -1000)
-  assert(final_frame.width != -1000)
-  assert(final_frame.height != -1000)
-  view.frame = final_frame.floored
+    assert(final_frame.x != -1000)
+    assert(final_frame.y != -1000)
+    assert(final_frame.width != -1000)
+    assert(final_frame.height != -1000)
+    self.frame = final_frame.floored

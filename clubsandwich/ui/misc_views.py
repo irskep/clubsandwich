@@ -26,6 +26,9 @@ class RectView(View):
   """
   :param str color_fg: Foreground color
   :param str color_bg: Background color (only applies on terminal layer zero)
+  :param bool fill: If ``True`` (default ``False``), fill not just the border
+                    but also the middle.
+  :param str style: ``'single'`` or ``'double'``
 
   See :py:class:`View` for the rest of the init arguments.
 
@@ -38,26 +41,56 @@ class RectView(View):
     │       │
     └───────┘
   """
-  def __init__(self, color_fg='#aaaaaa', color_bg='#000000', *args, **kwargs):
+
+  STYLES = {
+    'single':  {
+      'T': '─',
+      'B': '─',
+      'L': '│',
+      'R': '│',
+      'TL': '┌',
+      'TR': '┐',
+      'BL': '└',
+      'BR': '┘',
+    },
+    'double':  {
+      'T': '═',
+      'B': '═',
+      'L': '║',
+      'R': '║',
+      'TL': '╔',
+      'TR': '╗',
+      'BL': '╚',
+      'BR': '╝',
+    },
+  }
+
+  def __init__(
+        self, color_fg='#aaaaaa', color_bg='#000000', fill=False,
+        style='single', *args, **kwargs):
     super().__init__(*args, **kwargs)
     self.color_fg = color_fg
     self.color_bg = color_bg
+    self.fill = fill
+    self.style = style
 
   def draw(self, ctx):
+    style = RectView.STYLES[self.style]
     with temporary_color(self.color_fg, self.color_bg):
-      ctx.clear_area(self.bounds)
+      if self.fill:
+        ctx.clear_area(self.bounds)
       for point in self.bounds.points_top:
-        ctx.put(point, '─')
+        ctx.put(point, style['T'])
       for point in self.bounds.points_bottom:
-        ctx.put(point, '─')
+        ctx.put(point, style['B'])
       for point in self.bounds.points_left:
-        ctx.put(point, '│')
+        ctx.put(point, style['L'])
       for point in self.bounds.points_right:
-        ctx.put(point, '│')
-      ctx.put(self.bounds.origin, '┌')
-      ctx.put(self.bounds.point_top_right, '┐')
-      ctx.put(self.bounds.point_bottom_left, '└')
-      ctx.put(self.bounds.point_bottom_right, '┘')
+        ctx.put(point, style['R'])
+      ctx.put(self.bounds.origin, style['TL'])
+      ctx.put(self.bounds.point_top_right, style['TR'])
+      ctx.put(self.bounds.point_bottom_left, style['BL'])
+      ctx.put(self.bounds.point_bottom_right, style['BR'])
 
 
 class WindowView(RectView):
@@ -78,7 +111,7 @@ class WindowView(RectView):
     └────────────┘
   """
   def __init__(self, title=None, *args, subviews=None, **kwargs):
-    super().__init__(*args, **kwargs)
+    super().__init__(*args, **kwargs, fill=True)
     self.title_view = LabelView(title, layout_options=LayoutOptions.row_top(1))
     self.content_view = View(
       subviews=subviews,
