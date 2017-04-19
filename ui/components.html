@@ -116,7 +116,7 @@
 <h1>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="clubsandwich.ui.RectView">
-<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">RectView</code><span class="sig-paren">(</span><em>color_fg='#aaaaaa'</em>, <em>color_bg='#000000'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.RectView" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">RectView</code><span class="sig-paren">(</span><em>color_fg='#aaaaaa'</em>, <em>color_bg='#000000'</em>, <em>fill=False</em>, <em>style='single'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.RectView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.view.View</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -125,6 +125,9 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>color_fg</strong> (<em>str</em>) &#8211; Foreground color</li>
 <li><strong>color_bg</strong> (<em>str</em>) &#8211; Background color (only applies on terminal layer zero)</li>
+<li><strong>fill</strong> (<em>bool</em>) &#8211; If <code class="docutils literal"><span class="pre">True</span></code> (default <code class="docutils literal"><span class="pre">False</span></code>), fill not just the border
+but also the middle.</li>
+<li><strong>style</strong> (<em>str</em>) &#8211; <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
 </ul>
 </td>
 </tr>
@@ -239,36 +242,35 @@ calls <code class="docutils literal"><span class="pre">callback(new_value)</span
 </dd></dl>
 
 <dl class="class">
-<dt id="clubsandwich.ui.ListView">
-<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">ListView</code><span class="sig-paren">(</span><em>label_control_pairs</em>, <em>value_column_width=16</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ListView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.misc_views.RectView</span></code></p>
+<dt id="clubsandwich.ui.SettingsListView">
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">SettingsListView</code><span class="sig-paren">(</span><em>label_control_pairs</em>, <em>value_column_width=16</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.SettingsListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.firstrespondercontainerview.FirstResponderContainerView</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>label_control_pairs</strong> (<em>list</em>) &#8211; List like <code class="docutils literal"><span class="pre">[('Label',</span> <span class="pre">ButtonView(...)),</span> <span class="pre">...]</span></code></li>
-<li><strong>value_column_width</strong> (<em>int</em>) &#8211; Number of characters to use for the value column</li>
+<li><strong>value_column_width</strong> (<em>int</em>) &#8211; Number of characters to use for the value
+column</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>See <a class="reference internal" href="#clubsandwich.ui.RectView" title="clubsandwich.ui.RectView"><code class="xref py py-class docutils literal"><span class="pre">RectView</span></code></a> for the rest of the constructor args.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">The name of this class will change before release.</p>
-</div>
-<p>Draws a list of labels and controls with a scrollbar. If an offscreen control
-becomes the first responder, the list will scroll it into view.</p>
-<p>While a subview of the list is the first responder, arrow keys may be used to
-change the first responder (go to the previous/next control). This is
-actually pretty weird in practice since the arrows stop working as soon as
-you get outside the list, so it will probably be changed soon.</p>
+<p>See <a class="reference internal" href="concepts.html#clubsandwich.ui.FirstResponderContainerView" title="clubsandwich.ui.FirstResponderContainerView"><code class="xref py py-class docutils literal"><span class="pre">FirstResponderContainerView</span></code></a> for the rest of the constructor
+args.</p>
+<p>Presents a list with labels on the left and controls on the right. Intended
+to be used for &#8220;settings&#8221; of various kinds.</p>
+<p>The list is surrounded by a border with a scroll bar. The active element is
+kept visible via scrolling.</p>
+<p>The list itself both <em>becomes</em> the first responder (you switch to/from it with
+<code class="docutils literal"><span class="pre">tab</span></code>/<code class="docutils literal"><span class="pre">shift+tab</span></code>) and <em>contains</em> its own first responder, which you
+switch using the arrow keys.</p>
 <img alt="../_images/screenshot21.png" src="../_images/screenshot21.png" />
 <dl class="attribute">
-<dt id="clubsandwich.ui.ListView.scroll_fraction">
-<code class="descname">scroll_fraction</code><a class="headerlink" href="#clubsandwich.ui.ListView.scroll_fraction" title="Permalink to this definition">¶</a></dt>
+<dt id="clubsandwich.ui.SettingsListView.scroll_fraction">
+<code class="descname">scroll_fraction</code><a class="headerlink" href="#clubsandwich.ui.SettingsListView.scroll_fraction" title="Permalink to this definition">¶</a></dt>
 <dd><p>How far down the user has scrolled. If a negative value, no scrolling is
 possible.</p>
 </dd></dl>

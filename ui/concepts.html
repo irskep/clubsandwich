@@ -656,13 +656,6 @@ That new subview is the new first responder.</p>
 for you.</p>
 <p>If you want to write a control that handles input, read the source of the
 <a class="reference internal" href="components.html#clubsandwich.ui.ButtonView" title="clubsandwich.ui.ButtonView"><code class="xref py py-class docutils literal"><span class="pre">ButtonView</span></code></a> class.</p>
-<dl class="attribute">
-<dt id="clubsandwich.ui.FirstResponderContainerView.can_resign_first_responder">
-<code class="descname">can_resign_first_responder</code><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.can_resign_first_responder" title="Permalink to this definition">¶</a></dt>
-<dd><p>If nested in another <a class="reference internal" href="#clubsandwich.ui.FirstResponderContainerView" title="clubsandwich.ui.FirstResponderContainerView"><code class="xref py py-class docutils literal"><span class="pre">FirstResponderContainerView</span></code></a>, don&#8217;t give
-up first responder status. User probably wants to do it manually.</p>
-</dd></dl>
-
 <dl class="method">
 <dt id="clubsandwich.ui.FirstResponderContainerView.find_next_responder">
 <code class="descname">find_next_responder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.find_next_responder" title="Permalink to this definition">¶</a></dt>
@@ -679,6 +672,27 @@ up first responder status. User probably wants to do it manually.</p>
 <dt id="clubsandwich.ui.FirstResponderContainerView.set_first_responder">
 <code class="descname">set_first_responder</code><span class="sig-paren">(</span><em>new_value</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.set_first_responder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resign the active first responder and set a new one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.ui.FirstResponderContainerView.terminal_read_after_first_responder">
+<code class="descname">terminal_read_after_first_responder</code><span class="sig-paren">(</span><em>val</em>, <em>can_resign</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView.terminal_read_after_first_responder" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>val</strong> (<em>int</em>) &#8211; Return value of <code class="docutils literal"><span class="pre">terminal_read()</span></code></li>
+<li><strong>can_resign</strong> (<em>bool</em>) &#8211; <code class="docutils literal"><span class="pre">True</span></code> iff there is an active first responder
+that can resign</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If writing a custom first responder container view, override this to
+customize input behavior. For example, if writing a list view, you might
+want to use the arrows to change the first responder.</p>
 </dd></dl>
 
 </dd></dl>
