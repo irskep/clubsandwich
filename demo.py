@@ -105,20 +105,19 @@ class SettingsScene(UIScene):
             'Settings',
             layout_options=LayoutOptions.centered(60, 20),
             subviews=[
-                LabelView('Sorry about the weird tab/arrow behavior.\nWill fix soon.', layout_options=LayoutOptions.row_top(2)),
                 SettingsListView(
                     [
                         (k, CyclingButtonView(v, v[0], callback=lambda _: None, align_horz='left'))
                         for k, v in sorted(SettingsScene.OPTIONS.items())
                     ],
                     value_column_width=20,
-                    layout_options=LayoutOptions(bottom=3).with_updates(top=2)),
+                    layout_options=LayoutOptions(bottom=5)),
                 ButtonView(
                     text='Apply', callback=self.apply,
-                    layout_options=LayoutOptions.row_bottom(3).with_updates(right=0.5)),
+                    layout_options=LayoutOptions.row_bottom(5).with_updates(right=0.5)),
                 ButtonView(
                     text='Cancel', callback=lambda: self.director.pop_scene(),
-                    layout_options=LayoutOptions.row_bottom(3).with_updates(left=0.5)),
+                    layout_options=LayoutOptions.row_bottom(5).with_updates(left=0.5)),
             ])
         super().__init__(view, *args, **kwargs)
 

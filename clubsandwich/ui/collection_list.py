@@ -33,7 +33,8 @@ class SettingsListView(FirstResponderContainerView):
   def __init__(self, label_control_pairs, value_column_width=16, *args, **kwargs):
     self.rect_view = RectView()
     self.rect_view.fill = False
-    super().__init__(subviews=[self.rect_view], *args, **kwargs)
+    self.scroll_indicator_view = LabelView(text='█')
+    super().__init__(subviews=[self.rect_view, self.scroll_indicator_view], *args, **kwargs)
     self._min_row = 0
     self.value_column_width = value_column_width
     self.first_responder_index = None
@@ -80,7 +81,10 @@ class SettingsListView(FirstResponderContainerView):
     How far down the user has scrolled. If a negative value, no scrolling is
     possible.
     """
-    return self.min_row / (len(self.labels) - self.inner_height - 1)
+    try:
+      return self.min_row / (len(self.labels) - self.inner_height - 1)
+    except ZeroDivisionError:
+      return -1
 
   def scroll_to(self, y):
     if self.inner_height <= 0:
@@ -99,6 +103,11 @@ class SettingsListView(FirstResponderContainerView):
 
   def layout_subviews(self):
     self.rect_view.apply_springs_and_struts_layout_in_superview()
+    if self.scroll_fraction >= 0:
+      self.scroll_indicator_view.frame = Rect(
+        Point(self.bounds.width - 1, 1 + floor(self.inner_height * self.scroll_fraction)),
+        Size(1, 1))
+
     for i in range(len(self.labels)):
       is_in_view = self.get_is_in_view(i)
       if is_in_view:
@@ -111,16 +120,6 @@ class SettingsListView(FirstResponderContainerView):
           Size(self.value_column_width, 1))
       self.labels[i].is_hidden = not is_in_view
       self.values[i].is_hidden = not is_in_view
-
-  def draw(self, ctx):
-    if self.scroll_fraction < 0:
-      return
-    with temporary_color('#ffffff', None):
-      ctx.put(
-        Point(
-          self.bounds.width - 1,
-          1 + floor(self.inner_height * self.scroll_fraction)),
-        '█')
 
   def descendant_did_become_first_responder(self, control):
     for i in range(len(self.labels)):
