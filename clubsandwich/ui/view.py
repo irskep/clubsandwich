@@ -45,6 +45,7 @@ class View:
     self.add_subviews(subviews or [])
     self.is_first_responder = False
     self.is_hidden = False
+    self.contains_first_responders = False
 
     self.layout_spec = frame
     self.layout_options = layout_options or LayoutOptions()

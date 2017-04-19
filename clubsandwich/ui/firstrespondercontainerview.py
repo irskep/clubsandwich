@@ -23,6 +23,7 @@ class FirstResponderContainerView(View):
   def __init__(self, *args, **kwargs):
     self.first_responder = None
     super().__init__(*args, **kwargs)
+    self.contains_first_responders = True
     self.first_responder = None
     self.find_next_responder()
 

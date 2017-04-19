@@ -8,22 +8,22 @@ from clubsandwich.blt.state import blt_state
 from clubsandwich.geom import Rect, Point, Size
 
 
-class ListView(RectView):
+class SettingsListView(RectView):
   """
   :param list label_control_pairs: List like ``[('Label', ButtonView(...)), ...]``
   :param int value_column_width: Number of characters to use for the value column
 
   See :py:class:`RectView` for the rest of the constructor args.
 
-  .. warning:: The name of this class will change before release.
+  Presents a list with labels on the left and controls on the right. Intended
+  to be used for "settings" of various kinds.
 
-  Draws a list of labels and controls with a scrollbar. If an offscreen control
-  becomes the first responder, the list will scroll it into view.
+  The list is surrounded by a border with a scroll bar. The active element is
+  kept visible via scrolling.
 
-  While a subview of the list is the first responder, arrow keys may be used to
-  change the first responder (go to the previous/next control). This is
-  actually pretty weird in practice since the arrows stop working as soon as
-  you get outside the list, so it will probably be changed soon.
+  The list itself both *becomes* the first responder (you switch to/from it with
+  ``tab``/``shift+tab``) and *contains* its own first responder, which you
+  switch using the arrow keys.
 
   .. image:: ../_static/screenshot2.png
   """

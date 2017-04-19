@@ -10,7 +10,7 @@ from clubsandwich.ui import (
     ButtonView,
     FirstResponderContainerView,
     WindowView,
-    ListView,
+    SettingsListView,
     LayoutOptions,
     UIScene,
     CyclingButtonView,
@@ -106,7 +106,7 @@ class SettingsScene(UIScene):
             layout_options=LayoutOptions.centered(60, 20),
             subviews=[
                 LabelView('Sorry about the weird tab/arrow behavior.\nWill fix soon.', layout_options=LayoutOptions.row_top(2)),
-                ListView(
+                SettingsListView(
                     [
                         (k, CyclingButtonView(v, v[0], callback=lambda _: None, align_horz='left'))
                         for k, v in sorted(SettingsScene.OPTIONS.items())

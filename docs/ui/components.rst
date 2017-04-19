@@ -23,7 +23,7 @@ Views
   :show-inheritance:
   :members:
 
-.. autoclass:: clubsandwich.ui.ListView
+.. autoclass:: clubsandwich.ui.SettingsListView
   :show-inheritance:
   :members:
 
