@@ -1,5 +1,5 @@
 from math import floor
-from random import randrange
+from random import randrange, choice
 
 from .blt.nice_terminal import terminal
 from .geom import Point, Rect, Size
@@ -7,8 +7,9 @@ from .draw import draw_rect
 
 
 class BSPNode:
-  def __init__(self, rect, is_horz=True, value=None):
+  def __init__(self, rect, is_horz=True, value=None, level=0):
     self.rect = rect
+    self.level = level
     self.is_horz = is_horz
     self.value = value
     self.child_a = None
@@ -70,29 +71,37 @@ class BSPNode:
     else:
       return self
 
+  @property
+  def random_leaf(self):
+    if self.child_a or self.child_b:
+      return choice((self.child_a, self.child_b)).random_leaf
+    else:
+      return self
 
+
+DEFAULT_RANDRANGE_FUNC = lambda _, a, b: randrange(a, b)
 class RandomBSPTree:
-  def __init__(self, size, min_leaf_size, randrange_func=randrange):
-    self.randrange_func = randrange
+  def __init__(self, size, min_leaf_size, randrange_func=DEFAULT_RANDRANGE_FUNC):
+    self.randrange_func = randrange_func
     self.min_leaf_size = min_leaf_size
     self.root = BSPNode(Rect(Point(0, 0), size))
     self.subdivide(self.root)
 
-  def subdivide(self, node, iterations_left=4):
+  def subdivide(self, node, iterations_left=8):
     if iterations_left < 1:
       return
     if self.add_children(node):
-      self.subdivide(node.child_a, iterations_left - 1)
-      self.subdivide(node.child_b, iterations_left - 1)
+      self.subdivide(node.child_a, iterations_left=iterations_left - 1)
+      self.subdivide(node.child_b, iterations_left=iterations_left - 1)
 
   def add_children(self, node):
     a = self.min_leaf_size
     b = node.get_size_coord(node.rect.size) - self.min_leaf_size * 2 - 1
     if b - a < 1:
       return False
-    node.value = self.randrange_func(a, b)
-    node.child_a = BSPNode(node.get_next_rect(True), not node.is_horz)
-    node.child_b = BSPNode(node.get_next_rect(False), not node.is_horz)
+    node.value = self.randrange_func(node.level, a, b)
+    node.child_a = BSPNode(node.get_next_rect(True), not node.is_horz, level=node.level+1)
+    node.child_b = BSPNode(node.get_next_rect(False), not node.is_horz, level=node.level+1)
     return True
 
   def draw(self, n=None, color_so_far='#f'):

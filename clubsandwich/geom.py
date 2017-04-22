@@ -56,6 +56,9 @@ class Point:
       p = p - Point(0, 1)
       yield p
 
+  def manhattan_distance_to(self, target):
+    return abs(self.x - target.x) + abs(self.y - target.y)
+
   @property
   def neighbors(self):
     yield self - Point(-1, 0)
