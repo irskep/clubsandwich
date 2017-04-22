@@ -212,34 +212,34 @@ class Rect:
         yield Point(x, y)
 
   @property
-  def points_top(self, corners=False):
+  def points_top(self):
     """Iterator of all points along the top edge of this rect"""
-    start = self.origin.x if corners else self.origin.x + 1
-    end = self.origin.x + self.size.width if corners else self.origin.x + self.size.width - 1
+    start = self.origin.x + 1
+    end = self.origin.x + self.size.width - 1
     for x in range(start, end):
       yield Point(x, self.origin.y)
 
   @property
-  def points_bottom(self, corners=False):
+  def points_bottom(self):
     """Iterator of all points along the bottom edge of this rect"""
-    start = self.origin.x if corners else self.origin.x + 1
-    end = self.origin.x + self.size.width if corners else self.origin.x + self.size.width - 1
+    start = self.origin.x + 1
+    end = self.origin.x + self.size.width - 1
     for x in range(start, end):
       yield Point(x, self.origin.y + self.size.height - 1)
 
   @property
-  def points_left(self, corners=False):
+  def points_left(self):
     """Iterator of all points along the left edge of this rect"""
-    start = self.origin.y if corners else self.origin.y + 1
-    end = self.origin.y + self.size.height if corners else self.origin.y + self.size.height - 1
+    start = self.origin.y + 1
+    end = self.origin.y + self.size.height - 1
     for y in range(start, end):
       yield Point(self.origin.x, y)
 
   @property
-  def points_right(self, corners=False):
+  def points_right(self):
     """Iterator of all points along the right edge of this rect"""
-    start = self.origin.y if corners else self.origin.y + 1
-    end = self.origin.y + self.size.height if corners else self.origin.y + self.size.height - 1
+    start = self.origin.y + 1
+    end = self.origin.y + self.size.height - 1
     for y in range(start, end):
       yield Point(self.origin.x + self.size.width - 1, y)
 
@@ -314,4 +314,6 @@ class Rect:
     or a :py:class:`Size`, the X and Y axes will be inset by the respective
     amounts specified in each coordinate.
     """
+    if not isinstance(inset, Point):
+      inset = Point(inset, inset)
     return Rect(self.origin + inset, self.size - inset * 2)

@@ -42,8 +42,10 @@ class BSPNode:
   @property
   def leaves(self):
     if self.child_a and self.child_b:
-      return
-    yield self
+      yield from self.child_a.leaves
+      yield from self.child_b.leaves
+    else:
+      yield self
 
   @property
   def sibling_pairs(self):
@@ -57,7 +59,7 @@ class BSPNode:
 class RandomBSPTree:
   def __init__(self, size, min_leaf_size, randrange_func=randrange):
     self.randrange_func = randrange
-    self.min_leaf_size
+    self.min_leaf_size = min_leaf_size
     self.root = BSPNode(Rect(Point(0, 0), size))
     self.subdivide(self.root)
 
