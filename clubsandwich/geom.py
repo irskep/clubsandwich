@@ -29,11 +29,6 @@ class Point:
     self.x = x
     self.y = y
 
-  def __eq__(self, other):
-    if not isinstance(other, Point):
-        return False
-    return self.x == other.x and self.y == other.y
-
   def __repr__(self):
     return 'Point({}, {})'.format(self.x, self.y)
 
@@ -41,6 +36,29 @@ class Point:
   def floored(self):
     """A copy of this point with ``math.floor()`` called on each coordinate."""
     return self.__class__(floor(self.x), floor(self.y))
+
+  def path_L_to(self, target):
+    p = self
+    while p.x < target.x:
+      p = p + Point(1, 0)
+      yield p
+    while p.x > target.x:
+      p = p - Point(1, 0)
+      yield p
+    while p.y < target.y:
+      p = p + Point(0, 1)
+      yield p
+    while p.y > target.y:
+      p = p - Point(0, 1)
+      yield p
+
+
+  ### operators ###
+
+  def __eq__(self, other):
+    if not isinstance(other, Point):
+        return False
+    return self.x == other.x and self.y == other.y
 
   def __add__(self, other):
     return self.__class__(self.x + other.x, self.y + other.y)

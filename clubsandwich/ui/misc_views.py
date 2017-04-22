@@ -1,25 +1,12 @@
 from .view import View
-from contextlib import contextmanager
 from math import floor
 
 from clubsandwich.blt.nice_terminal import terminal
 from clubsandwich.blt.state import blt_state
 from clubsandwich.geom import Point, Rect, Size
+from clubsandwich.draw import temporary_color, draw_rect
 from .view import View
 from .layout_options import LayoutOptions
-
-
-@contextmanager
-def temporary_color(fg, bg):
-  old_fg = blt_state.color
-  old_bg = blt_state.bkcolor
-  if fg:
-    terminal.color(fg)
-  if bg:
-    terminal.bkcolor(bg)
-  yield
-  terminal.color(old_fg)
-  terminal.bkcolor(old_bg)
 
 
 class RectView(View):
@@ -42,29 +29,6 @@ class RectView(View):
     └───────┘
   """
 
-  STYLES = {
-    'single':  {
-      'T': '─',
-      'B': '─',
-      'L': '│',
-      'R': '│',
-      'TL': '┌',
-      'TR': '┐',
-      'BL': '└',
-      'BR': '┘',
-    },
-    'double':  {
-      'T': '═',
-      'B': '═',
-      'L': '║',
-      'R': '║',
-      'TL': '╔',
-      'TR': '╗',
-      'BL': '╚',
-      'BR': '╝',
-    },
-  }
-
   def __init__(
         self, color_fg='#aaaaaa', color_bg='#000000', fill=False,
         style='single', *args, **kwargs):
@@ -75,22 +39,10 @@ class RectView(View):
     self.style = style
 
   def draw(self, ctx):
-    style = RectView.STYLES[self.style]
     with temporary_color(self.color_fg, self.color_bg):
       if self.fill:
         ctx.clear_area(self.bounds)
-      for point in self.bounds.points_top:
-        ctx.put(point, style['T'])
-      for point in self.bounds.points_bottom:
-        ctx.put(point, style['B'])
-      for point in self.bounds.points_left:
-        ctx.put(point, style['L'])
-      for point in self.bounds.points_right:
-        ctx.put(point, style['R'])
-      ctx.put(self.bounds.origin, style['TL'])
-      ctx.put(self.bounds.point_top_right, style['TR'])
-      ctx.put(self.bounds.point_bottom_left, style['BL'])
-      ctx.put(self.bounds.point_bottom_right, style['BR'])
+      draw_rect(self.bounds, self.style, ctx=ctx)
 
 
 class WindowView(RectView):
