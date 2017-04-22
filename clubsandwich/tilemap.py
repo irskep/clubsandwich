@@ -1,6 +1,10 @@
 from .geom import Point, Rect
 
 
+class CellOutOfBoundsError(Exception):
+  pass
+
+
 class Cell:
   def __init__(self, point):
     self.point = point
@@ -8,6 +12,7 @@ class Cell:
     self.feature = None
     self.items = []
     self.annotations = set()
+    self.debug_character = None
 
 
 class TileMap:
@@ -17,7 +22,10 @@ class TileMap:
       [Cell(Point(x, y)) for y in range(size.height)] for x in range(size.width)]
 
   def cell(self, point):
-    return self._cells[point.x][point.y]
+    try:
+      return self._cells[point.x][point.y]
+    except IndexError:
+      raise CellOutOfBoundsError("Cell index out of range: {!r}".format(point))
 
   @property
   def cells(self):

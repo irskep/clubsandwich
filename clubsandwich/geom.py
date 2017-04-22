@@ -2,6 +2,7 @@
 Simple data structures for working with points, sizes, and rects.
 """
 from math import floor
+from random import randint
 
 class Point:
   """
@@ -29,6 +30,9 @@ class Point:
     self.x = x
     self.y = y
 
+  def __hash__(self):
+    return hash(repr(self))
+
   def __repr__(self):
     return 'Point({}, {})'.format(self.x, self.y)
 
@@ -52,6 +56,12 @@ class Point:
       p = p - Point(0, 1)
       yield p
 
+  @property
+  def neighbors(self):
+    yield self - Point(-1, 0)
+    yield self - Point(0, -1)
+    yield self - Point(1, 0)
+    yield self - Point(0, 1)
 
   ### operators ###
 
@@ -317,3 +327,23 @@ class Rect:
     if not isinstance(inset, Point):
       inset = Point(inset, inset)
     return Rect(self.origin + inset, self.size - inset * 2)
+
+  ### random stuff ###
+
+  def get_random_point(self):
+    return Point(
+      randint(self.origin.x, self.origin.x + self.size.width),
+      randint(self.origin.y, self.origin.y + self.size.height))
+
+  def get_random_rect(self, min_size=Size(1, 1)):
+    if self.width <= min_size.width:
+      return self
+    if self.height <= min_size.height:
+      return self
+    width = randint(min_size.width, self.width)
+    height = randint(min_size.height, self.height)
+    x = self.origin.x + randint(0, self.size.width - width)
+    y = self.origin.y + randint(0, self.size.height - height)
+    if width == 0 or height == 0:
+      raise ValueError((x, y, width, height, self))
+    return Rect(Point(x, y), Size(width, height))

@@ -13,6 +13,7 @@ class BSPNode:
     self.value = value
     self.child_a = None
     self.child_b = None
+    self.data = {}  # put whatever you want in here
 
   def get_size_coord(self, size):
     if self.is_horz:
@@ -54,6 +55,20 @@ class BSPNode:
     yield from self.child_a.sibling_pairs
     yield from self.child_b.sibling_pairs
     yield (self.child_a, self.child_b)
+
+  @property
+  def leftmost_leaf(self):
+    if self.child_a:
+      return self.child_a.leftmost_leaf
+    else:
+      return self
+
+  @property
+  def rightmost_leaf(self):
+    if self.child_b:
+      return self.child_b.leftmost_leaf
+    else:
+      return self
 
 
 class RandomBSPTree:
