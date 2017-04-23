@@ -66,6 +66,37 @@ class Point:
     yield self - Point(1, 0)
     yield self - Point(0, 1)
 
+  @property
+  def diagonal_neighbors(self):
+    yield self - Point(-1, -1)
+    yield self - Point(1, -1)
+    yield self - Point(1, 1)
+    yield self - Point(-1, 1)
+
+  def points_bresenham_to(self, other):
+    delta = other - self
+    xsign = 1 if delta.x > 0 else -1
+    ysign = 1 if delta.y > 0 else -1
+
+    delta.x = abs(delta.x)
+    delta.y = abs(delta.y)
+
+    if delta.x > delta.y:
+        xx, xy, yx, yy = xsign, 0, 0, ysign
+    else:
+        delta.x, delta.y = delta.y, delta.x
+        xx, xy, yx, yy = 0, ysign, xsign, 0
+
+    D = 2*delta.y - delta.x
+    y = 0
+
+    for x in range(delta.x + 1):
+        yield Point(self.x + x*xx + y*yx, self.y + x*xy + y*yy)
+        if D > 0:
+            y += 1
+            D -= delta.x
+        D += delta.y
+
   ### operators ###
 
   def __eq__(self, other):
@@ -330,6 +361,30 @@ class Rect:
     if not isinstance(inset, Point):
       inset = Point(inset, inset)
     return Rect(self.origin + inset, self.size - inset * 2)
+
+  ### tests ###
+
+  def intersects(self, other):
+    if self.x > other.x2:
+      return False
+    if other.x2 > self.x:
+      return False
+    if self.y > other.y2:
+      return False
+    if other.y2 > self.y:
+      return False
+    return True
+
+  def contains(self, point):
+    if self.x > point.x:
+      return False
+    if self.x2 < point.x:
+      return False
+    if self.y > point.y:
+      return False
+    if self.y2 < point.y:
+      return False
+    return True
 
   ### random stuff ###
 

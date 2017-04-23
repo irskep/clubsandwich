@@ -16,10 +16,14 @@ class Cell:
 
 
 class TileMap:
-  def __init__(self, size):
+  def __init__(self, size, cell_class=Cell):
     self.size = size
+    self.points_of_interest = {}
     self._cells = [
-      [Cell(Point(x, y)) for y in range(size.height)] for x in range(size.width)]
+      [cell_class(Point(x, y)) for y in range(size.height)] for x in range(size.width)]
+
+  def contains_point(self, point):
+    return point.x >= 0 and point.y >= 0 and point.x < self.size.width and point.y < self.size.height
 
   def cell(self, point):
     try:

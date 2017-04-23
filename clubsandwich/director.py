@@ -122,6 +122,13 @@ class DirectorLoop(BearLibTerminalEventLoop):
         while self.scene_stack:
             self.pop_scene()
 
+    def pop_to_first_scene(self):
+        """
+        Pop all scenes off the stack and exit the loop.
+        """
+        while len(self.scene_stack) > 1:
+            self.pop_scene()
+
     def get_initial_scene(self):
         """
         :return: :py:class:`Scene`

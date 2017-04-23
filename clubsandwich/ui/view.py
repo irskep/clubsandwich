@@ -25,6 +25,8 @@ class View:
   :param list subviews: List of subviews
   :param UIScene scene: Scene that's handling this view
   :param LayoutOptions layout_options: How to position this view
+  :param bool clear: If ``True``, clear bounds each render. (Each individual
+                     view implements this because it depends on color.)
 
   Renders itself and its subviews in an area of 2D space relative to its
   superview.
@@ -40,11 +42,12 @@ class View:
                                  responder.
   """
 
-  def __init__(self, frame=None, subviews=None, scene=None, layout_options=None):
+  def __init__(self, frame=None, subviews=None, scene=None, layout_options=None, clear=False):
     if isinstance(layout_options, dict):  # have pity on the user's imports
       opts = LayoutOptions()._asdict()
       opts.update(layout_options)
       layout_options = LayoutOptions(**opts)
+    self.clear = clear
     self._scene = scene
     self._superview_weakref = lambda: None
     self.needs_layout = True
@@ -121,6 +124,12 @@ class View:
       v.superview = None
     self.subviews = [v for v in self.subviews if v not in subviews]
 
+  def add_subview(self, subview):
+    self.add_subviews([subview])
+
+  def remove_subview(self, subview):
+    self.remove_subviews([subview])
+
   def perform_draw(self, ctx=None):
     """
     Internal. Recursively draw all dirty views. Do not call or subclass this
@@ -144,7 +153,8 @@ class View:
 
     This method will not be called if :py:attr:`View.is_hidden` is ``True``.
     """
-    pass
+    if self.clear:
+      ctx.clear_area(self.bounds)
 
   def perform_layout(self):
     """

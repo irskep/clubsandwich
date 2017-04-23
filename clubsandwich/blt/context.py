@@ -1,5 +1,9 @@
 from contextlib import contextmanager
+
+from bearlibterminal import terminal as _terminal
+
 from .nice_terminal import NiceTerminal
+from .state import blt_state
 from clubsandwich.geom import Point
 
 class BearLibTerminalContext(NiceTerminal):
@@ -32,6 +36,9 @@ class BearLibTerminalContext(NiceTerminal):
   def __init__(self):
     super().__init__()
     self.offset = Point(0, 0)
+    self._crop_rect = None
+    self._fg = blt_state.color
+    self._bg = blt_state.bkcolor
 
   @contextmanager
   def translate(self, offset_delta):
@@ -40,33 +47,96 @@ class BearLibTerminalContext(NiceTerminal):
     yield
     self.offset = old_offset
 
+  @contextmanager
+  def crop_before_send(self, crop_rect):
+    old_rect = self._crop_rect
+    self._crop_rect = crop_rect.moved_by(self.offset * -1)
+    yield
+    self._crop_rect = old_rect
+
+  @contextmanager
+  def temporary_fg(self, fg):
+    old_fg = self._fg
+    if fg != self._fg:
+      _terminal.color(fg)
+    yield
+    if old_fg != self._fg:
+      _terminal.color(_old_fg)
+
+  @contextmanager
+  def temporary_bg(self, bg):
+    old_bg = self._bg
+    if bg != self._bg:
+      _terminal.bkcolor(bg)
+    yield
+    if old_bg != self._bg:
+      _terminal.bkcolor(_old_bg)
+
+  def color(self, c):
+    self._fg = c
+    return super().color(c)
+
+  def bkcolor(self, c):
+    self._bg = c
+    return super().bkcolor(c)
+
   def clear_area(self, rect, *args):
-    return super().clear_area(rect.moved_by(self.offset), *args)
+    computed_rect = rect.moved_by(self.offset)
+    if self._crop_rect and not self._crop_rect.intersects(computed_rect):
+      return
+    return super().clear_area(computed_rect, *args)
 
   def crop(self, rect, *args):
-    return super().crop(rect.moved_by(self.offset), *args)
+    computed_rect = rect.moved_by(self.offset)
+    if self._crop_rect and not self._crop_rect.intersects(rect):
+      return
+    return super().crop(computed_rect, *args)
 
   def print(self, point, *args):
-    return super().print(point + self.offset, *args)
+    computed_point = point + self.offset
+    if self._crop_rect and not self._crop_rect.contains(computed_point):
+      return
+    return super().print(computed_point, *args)
 
   def printf(self, point, *args):
-    return super().printf(point + self.offset, *args)
+    computed_point = point + self.offset
+    if self._crop_rect and not self._crop_rect.contains(computed_point):
+      return
+    return super().printf(computed_point, *args)
 
   def put(self, point, *args):
-    return super().put(point + self.offset, *args)
+    computed_point = point + self.offset
+    if self._crop_rect and not self._crop_rect.contains(computed_point):
+      return
+    return super().put(computed_point, *args)
 
   def pick(self, point, *args):
-    return super().pick(point + self.offset, *args)
+    computed_point = point + self.offset
+    if self._crop_rect and not self._crop_rect.contains(computed_point):
+      return
+    return super().pick(computed_point, *args)
 
   def pick_color(self, point, *args):
-    return super().pick_color(point + self.offset, *args)
+    computed_point = point + self.offset
+    if self._crop_rect and not self._crop_rect.contains(computed_point):
+      return
+    return super().pick_color(computed_point, *args)
 
   def pick_bkcolor(self, point, *args):
-    return super().pick_bkcolor(point + self.offset, *args)
+    computed_point = point + self.offset
+    if self._crop_rect and not self._crop_rect.contains(computed_point):
+      return
+    return super().pick_bkcolor(computed_point, *args)
 
   def put_ext(self, point, *args):
-    return super().put_ext(point + self.offset, *args)
+    computed_point = point + self.offset
+    if self._crop_rect and not self._crop_rect.contains(computed_point):
+      return
+    return super().put_ext(computed_point, *args)
 
   def read_str(self, point, *args):
-    return super().read_str(point + self.offset, *args)
+    computed_point = point + self.offset
+    if self._crop_rect and not self._crop_rect.contains(computed_point):
+      return
+    return super().read_str(computed_point, *args)
   

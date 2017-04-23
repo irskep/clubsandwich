@@ -3,7 +3,7 @@
 #   I should just make arrow keys work everywhere.
 from math import floor
 from .firstrespondercontainerview import FirstResponderContainerView
-from .misc_views import LabelView, RectView, temporary_color
+from .misc_views import LabelView, RectView
 from clubsandwich.blt.nice_terminal import terminal
 from clubsandwich.blt.state import blt_state
 from clubsandwich.geom import Rect, Point, Size

@@ -38,6 +38,17 @@ class BSPNode:
           self.rect.origin + Point(0, self.value + 1),
           Size(self.rect.width , self.rect.height - self.value - 1))
 
+  def get_node_at_path(self, spec=''):
+    if spec:
+      if spec[0] == 'a':
+        return self.child_a.get_node_at_path(spec[1:])
+      elif spec[0] == 'b':
+        return self.child_b.get_node_at_path(spec[1:])
+      else:
+        raise ValueError("Invalid character: {}".format(spec[0]))
+    else:
+      return self
+
   def __repr__(self):
     return 'BSPNode(is_horz={}, value={})'.format(self.is_horz, self.value)
 

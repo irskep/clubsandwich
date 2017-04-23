@@ -1,10 +1,9 @@
-from .view import View
 from math import floor
 
 from clubsandwich.blt.nice_terminal import terminal
 from clubsandwich.blt.state import blt_state
 from clubsandwich.geom import Point, Rect, Size
-from clubsandwich.draw import temporary_color, draw_rect
+from clubsandwich.draw import draw_rect
 from .view import View
 from .layout_options import LayoutOptions
 
@@ -39,10 +38,11 @@ class RectView(View):
     self.style = style
 
   def draw(self, ctx):
-    with temporary_color(self.color_fg, self.color_bg):
-      if self.fill:
-        ctx.clear_area(self.bounds)
-      draw_rect(self.bounds, self.style, ctx=ctx)
+    with ctx.temporary_fg(self.color_fg):
+      with ctx.temporary_bg(self.color_bg):
+        if self.fill or self.clear:
+          ctx.clear_area(self.bounds)
+        draw_rect(self.bounds, self.style, ctx=ctx)
 
 
 class WindowView(RectView):
@@ -84,7 +84,7 @@ class LabelView(View):
   See :py:class:`View` for the rest of the init arguments.
   """
   def __init__(
-      self, text, color_fg='#ffffff', color_bg=None,
+      self, text, color_fg='#ffffff', color_bg='#000000',
       align_horz='center', align_vert='center',
       *args, **kwargs):
     super().__init__(*args, **kwargs)
@@ -104,20 +104,23 @@ class LabelView(View):
     return Size(width, height)
 
   def draw(self, ctx):
-    with temporary_color(self.color_fg, self.color_bg):
-      x = 0
-      if self.align_horz == 'center':
-        x = self.bounds.width / 2 - self.intrinsic_size.width / 2
-      elif self.align_horz == 'right':
-        x = self.bounds.width - self.intrinsic_size.width
+    with ctx.temporary_fg(self.color_fg):
+      with ctx.temporary_bg(self.color_bg):
+        if self.clear:
+          ctx.clear_area(self.bounds)
+        x = 0
+        if self.align_horz == 'center':
+          x = self.bounds.width / 2 - self.intrinsic_size.width / 2
+        elif self.align_horz == 'right':
+          x = self.bounds.width - self.intrinsic_size.width
 
-      y = 0
-      if self.align_vert == 'center':
-        y = self.bounds.height / 2 - self.intrinsic_size.height / 2
-      elif self.align_vert == 'bottom':
-        y = self.bounds.height - self.intrinsic_size.height
+        y = 0
+        if self.align_vert == 'center':
+          y = self.bounds.height / 2 - self.intrinsic_size.height / 2
+        elif self.align_vert == 'bottom':
+          y = self.bounds.height - self.intrinsic_size.height
 
-      ctx.print(Point(x, y).floored, self.text)
+        ctx.print(Point(x, y).floored, self.text)
 
   def debug_string(self):
     return super().debug_string() + ' ' + repr(self.text)
@@ -157,6 +160,12 @@ class ButtonView(View):
   def did_resign_first_responder(self):
       self.label_view.color_fg = '#ffffff'
       self.label_view.color_bg = '#000000'
+
+  def draw(self, ctx):
+    if self.clear:
+      with ctx.temporary_fg(self.label_view.color_fg):
+        with ctx.temporary_bg(self.label_view.color_bg):
+          ctx.clear_area(self.bounds)
 
   @property
   def text(self):
@@ -240,9 +249,10 @@ class IntStepperView(View):
     if self.is_first_responder:
       color_fg = '#000000'
       color_bg = '#ffffff'
-    with temporary_color(color_fg, color_bg):
-      ctx.print(Point(0, 0), '← ')
-      ctx.print(Point(self.bounds.width - 2, 0), ' →')
+    with ctx.temporary_fg(color_fg):
+      with ctx.temporary_bg(color_bg):
+        ctx.print(Point(0, 0), '← ')
+        ctx.print(Point(self.bounds.width - 2, 0), ' →')
 
   def terminal_read(self, val):
     if val == terminal.TK_LEFT and (self.min_value is None or self.value > self.min_value):

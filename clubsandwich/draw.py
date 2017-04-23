@@ -1,6 +1,8 @@
 from contextlib import contextmanager
 
 from .blt.nice_terminal import terminal
+from .geom import Point
+from .blt.state import blt_state
 
 
 LINE_STYLES = {
@@ -27,26 +29,13 @@ LINE_STYLES = {
 }
 
 
-@contextmanager
-def temporary_color(fg, bg, ctx=terminal):
-  old_fg = blt_state.color
-  old_bg = blt_state.bkcolor
-  if fg:
-    ctx.color(fg)
-  if ctx:
-    ctx.bkcolor(bg)
-  yield
-  ctx.color(old_fg)
-  ctx.bkcolor(old_bg)
-
-
-def draw_line_horz(origin, length, ctx=terminal):
+def draw_line_horz(origin, length, ctx=terminal, style='single'):
   char = LINE_STYLES[style]['T']
   for i in range(length):
     ctx.put(origin + Point(i, 0), char)
 
 
-def draw_line_vert(origin, length, ctx=terminal):
+def draw_line_vert(origin, length, ctx=terminal, style='single'):
   char = LINE_STYLES[style]['L']
   for i in range(length):
     ctx.put(origin + Point(0, i), char)
