@@ -61,6 +61,28 @@ class Point:
   def manhattan_distance_to(self, target):
     return abs(self.x - target.x) + abs(self.y - target.y)
 
+  def get_closest_point(self, candidates):
+    best_point = candidates[0]
+    best_distance = best_point.manhattan_distance_to(self)
+    for point in candidates:
+      if point == self:
+        return point
+      distance = point.manhattan_distance_to(self)
+      if distance < best_distance:
+        best_distance = distance
+        best_point = point
+    return best_point
+
+  def get_farthest_point(self, candidates):
+    best_point = candidates[0]
+    best_distance = best_point.manhattan_distance_to(self)
+    for point in candidates:
+      distance = point.manhattan_distance_to(self)
+      if distance > best_distance:
+        best_distance = distance
+        best_point = point
+    return best_point
+
   @property
   def neighbors(self):
     yield self - Point(-1, 0)
@@ -247,6 +269,10 @@ class Rect:
   def y2(self):
     """Max Y value of this rect. Read-only."""
     return self.origin.y + self.size.height - 1
+
+  @property
+  def area(self):
+    return self.width * self.height
 
   ### handy iterators ###
 

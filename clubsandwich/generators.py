@@ -1,3 +1,4 @@
+import weakref
 from math import floor
 from random import randrange, choice
 
@@ -8,6 +9,7 @@ from .draw import draw_rect
 
 class BSPNode:
   def __init__(self, rect, is_horz=True, value=None, level=0):
+    self.parent_weakref = lambda: None
     self.rect = rect
     self.level = level
     self.is_horz = is_horz
@@ -89,6 +91,13 @@ class BSPNode:
     else:
       return self
 
+  @property
+  def ancestors(self):
+    yield self
+    parent = self.parent_weakref()
+    if parent:
+      yield from parent.ancestors
+
 
 DEFAULT_RANDRANGE_FUNC = lambda _, a, b: randrange(a, b)
 class RandomBSPTree:
@@ -112,7 +121,9 @@ class RandomBSPTree:
       return False
     node.value = self.randrange_func(node.level, a, b)
     node.child_a = BSPNode(node.get_next_rect(True), not node.is_horz, level=node.level+1)
+    node.child_a.parent_weakref = weakref.ref(node)
     node.child_b = BSPNode(node.get_next_rect(False), not node.is_horz, level=node.level+1)
+    node.child_b.parent_weakref = weakref.ref(node)
     return True
 
   def draw(self, n=None, color_so_far='#f'):
