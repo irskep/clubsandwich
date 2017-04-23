@@ -418,8 +418,8 @@ class Rect:
 
   def get_random_point(self):
     return Point(
-      randint(self.origin.x, self.origin.x + self.size.width),
-      randint(self.origin.y, self.origin.y + self.size.height))
+      randint(self.origin.x, self.origin.x + self.size.width - 1),
+      randint(self.origin.y, self.origin.y + self.size.height - 1))
 
   def get_random_rect(self, min_size=Size(1, 1)):
     if self.width <= min_size.width:
