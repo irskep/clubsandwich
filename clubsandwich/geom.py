@@ -23,15 +23,16 @@ class Point:
 
     Y coordinate; may be any number
   """
-  __slots__ = ('x', 'y')
+  __slots__ = ('x', 'y', '_hash')
 
   def __init__(self, x=0, y=0):
     super().__init__()
     self.x = x
     self.y = y
+    self._hash = hash(str(self.x) + ',' + str(self.y))
 
   def __hash__(self):
-    return hash(repr(self))
+    return self._hash
 
   def __repr__(self):
     return 'Point({}, {})'.format(self.x, self.y)
@@ -43,6 +44,7 @@ class Point:
 
   def path_L_to(self, target):
     p = self
+    yield p
     while p.x < target.x:
       p = p + Point(1, 0)
       yield p
