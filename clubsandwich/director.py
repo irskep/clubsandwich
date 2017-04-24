@@ -47,6 +47,7 @@ import weakref
 from bearlibterminal import terminal
 
 from clubsandwich.blt.loop import BearLibTerminalEventLoop
+from clubsandwich.blt.state import blt_state
 
 
 class DirectorLoop(BearLibTerminalEventLoop):
@@ -176,6 +177,12 @@ class DirectorLoop(BearLibTerminalEventLoop):
 
         You don't need to call or subclass this method.
         """
+        if char == terminal.TK_CLOSE:
+            self.quit()
+            return True
+        if char == terminal.TK_C and blt_state.control:
+            self.quit()
+            return True
         if self.scene_stack:
             return self.active_scene.terminal_read(char)
 

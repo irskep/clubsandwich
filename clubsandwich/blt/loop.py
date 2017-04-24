@@ -2,8 +2,8 @@
 If you're using the state management features of clubsandwich, you might want
 to look at :py:class:`DirectorLoop` instead. This is its superclass.
 """
-import asyncio
 import sys
+import time
 from bearlibterminal import terminal
 from .state import blt_state
 
@@ -13,9 +13,6 @@ class BearLibTerminalEventLoop:
     :param Real fps: After each loop iteration,
                      :py:class:`BearLibTerminalEventLoop` waits ``1/fps``
                      seconds before checking for input and updating again.
-    :param bool ctrl_c_exits: If ``True`` (default), ``Ctrl+C`` exits the
-                                 program. While convenient, you may want to
-                                 disable this when you ship your game.
 
     Simple wrapper around BearLibTerminal and ``asyncio``.
 
@@ -38,13 +35,12 @@ class BearLibTerminalEventLoop:
                 j = (j + 1) % 11
                 return True  # this is important!
 
-        MyDemo(ctrl_c_exits=False).run()
+        MyDemo().run()
     """
 
-    def __init__(self, fps=72, ctrl_c_exits=True):
+    def __init__(self, fps=72):
         super().__init__()
         self.fps = fps
-        self.ctrl_c_exits = ctrl_c_exits
 
     def terminal_init(self):
         """
@@ -82,19 +78,18 @@ class BearLibTerminalEventLoop:
         terminal.refresh()
 
         try:
-            asyncio_loop = asyncio.get_event_loop()
-            asyncio_loop.run_until_complete(self.loop_until_terminal_exits())
+            self.loop_until_terminal_exits()
         except KeyboardInterrupt:
             pass
         finally:
             terminal.close()
 
-    async def loop_until_terminal_exits(self):
+    def loop_until_terminal_exits(self):
         try:
             has_run_one_loop = False
             while self.run_loop_iteration():
                 has_run_one_loop = True
-                await asyncio.sleep(1/80)
+                time.sleep(1/80)
             if not has_run_one_loop:
                 print(
                     "Exited after only one loop iteration. Did you forget to" +
@@ -106,10 +101,6 @@ class BearLibTerminalEventLoop:
     def run_loop_iteration(self):
         while terminal.has_input():
             char = terminal.read()
-            if char == terminal.TK_CLOSE:
-                return False
-            if self.ctrl_c_exits and char == terminal.TK_C and blt_state.control:
-                return False
             self.terminal_read(char)
         should_continue = self.terminal_update()
         terminal.refresh()
