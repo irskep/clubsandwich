@@ -63,7 +63,7 @@ class WindowView(RectView):
     └────────────┘
   """
   def __init__(self, title=None, *args, subviews=None, **kwargs):
-    super().__init__(*args, **kwargs, fill=True)
+    super().__init__(*args, fill=True, **kwargs)
     self.title_view = LabelView(title, layout_options=LayoutOptions.row_top(1))
     self.content_view = View(
       subviews=subviews,
