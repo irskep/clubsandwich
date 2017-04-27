@@ -39,5 +39,5 @@ class UIScene(Scene):
     self.view.frame = self.view.frame.with_size(
         Size(blt_state.width, blt_state.height))
     self.view.perform_layout()
-    self.view.perform_draw()
+    self.view.perform_draw(self.ctx)
     terminal.bkcolor('#000000')

@@ -130,12 +130,11 @@ class View:
   def remove_subview(self, subview):
     self.remove_subviews([subview])
 
-  def perform_draw(self, ctx=None):
+  def perform_draw(self, ctx):
     """
     Internal. Recursively draw all dirty views. Do not call or subclass this
     unless you are avoiding :py:class:`UIScene` for some reason.
     """
-    ctx = ctx or BearLibTerminalContext()
     if self.is_hidden:
       return
     self.draw(ctx)

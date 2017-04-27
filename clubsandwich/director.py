@@ -47,6 +47,7 @@ import weakref
 from bearlibterminal import terminal
 
 from clubsandwich.blt.loop import BearLibTerminalEventLoop
+from clubsandwich.blt.context import BearLibTerminalContext
 from clubsandwich.blt.state import blt_state
 
 
@@ -76,6 +77,7 @@ class DirectorLoop(BearLibTerminalEventLoop):
         super().__init__()
         self.should_exit = False
         self.scene_stack = []
+        self.ctx = BearLibTerminalContext()
 
     @property
     def active_scene(self):
@@ -100,7 +102,7 @@ class DirectorLoop(BearLibTerminalEventLoop):
         """
         self.scene_stack.append(new_value)
         new_value.director = self
-        new_value.enter()
+        new_value.enter(self.ctx)
 
     def pop_scene(self, may_exit=True):
         """
@@ -160,7 +162,6 @@ class DirectorLoop(BearLibTerminalEventLoop):
 
         You don't need to call or subclass this method.
         """
-        terminal.clear()
         i = 0
         for j, scene in enumerate(self.scene_stack):
             if scene.covers_screen:
@@ -244,10 +245,11 @@ class Scene():
         """
         self._terminal_readers.remove(reader)
 
-    def enter(self):
+    def enter(self, ctx):
         """
         Called by :py:class:`DirectorLoop` when added to the stack.
         """
+        self.ctx = ctx
 
     def exit(self):
         """

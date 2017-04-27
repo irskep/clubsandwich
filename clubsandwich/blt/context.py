@@ -74,11 +74,11 @@ class BearLibTerminalContext(NiceTerminal):
 
   def color(self, c):
     self._fg = c
-    return super().color(c)
+    return _terminal.color(c)
 
   def bkcolor(self, c):
     self._bg = c
-    return super().bkcolor(c)
+    return _terminal.bkcolor(c)
 
   def clear_area(self, rect, *args):
     computed_rect = rect.moved_by(self.offset)
@@ -104,11 +104,11 @@ class BearLibTerminalContext(NiceTerminal):
       return
     return super().printf(computed_point, *args)
 
-  def put(self, point, *args):
+  def put(self, point, char):
     computed_point = point + self.offset
     if self._crop_rect and not self._crop_rect.contains(computed_point):
       return
-    return super().put(computed_point, *args)
+    return super().put(computed_point, char)
 
   def pick(self, point, *args):
     computed_point = point + self.offset
