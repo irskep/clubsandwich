@@ -100,6 +100,8 @@ class TileMap:
 
       cell = tilemap[Point(x, y)]
     """
+    if not self.contains_point(point):
+      raise CellOutOfBoundsError("Cell index out of range: {!r}".format(point))
     try:
       return self._cells[point.x][point.y]
     except IndexError:
