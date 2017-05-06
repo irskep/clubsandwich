@@ -192,6 +192,12 @@ object.</li>
 </tr>
 </tbody>
 </table>
+<p>Store <code class="docutils literal"><span class="pre">(obj,</span> <span class="pre">entity)</span></code> as a subscriber for the event <em>name</em>. When
+<a class="reference internal" href="#clubsandwich.event_dispatcher.EventDispatcher.fire" title="clubsandwich.event_dispatcher.EventDispatcher.fire"><code class="xref py py-meth docutils literal"><span class="pre">fire()</span></code></a> is called with a pattern that matches <code class="docutils literal"><span class="pre">(obj,</span> <span class="pre">entity)</span></code>,
+call <code class="docutils literal"><span class="pre">obj.on_[name](Event(name,</span> <span class="pre">entity,</span> <span class="pre">data))</span></code>.</p>
+<p>An event is said to &#8220;match&#8221; a subscription if the subscription has the same
+event name, and either the subscriber&#8217;s entity is <code class="docutils literal"><span class="pre">None</span></code>, or the
+subscriber&#8217;s entity <code class="docutils literal"><span class="pre">is</span></code> the event&#8217;s entity.</p>
 <p>You may subscribe more than once to receive the event multiple times.</p>
 </dd></dl>
 
