@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="clubsandwich.blt" href="blt/index.html" />
+    <link rel="next" title="clubsandwich.draw" href="api_draw.html" />
     <link rel="prev" title="clubsandwich.director" href="api_director.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -64,6 +64,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api_director.html"><code class="docutils literal"><span class="pre">clubsandwich.director</span></code></a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_draw.html"><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_generators.html"><code class="docutils literal"><span class="pre">clubsandwich.generators</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="blt/index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
@@ -90,7 +92,7 @@
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="api_director.html" title="previous chapter"><code class="docutils literal"><span class="pre">clubsandwich.director</span></code></a></li>
-      <li>Next: <a href="blt/index.html" title="next chapter"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a></li>
+      <li>Next: <a href="api_draw.html" title="next chapter"><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code></a></li>
   </ul></li>
 </ul>
 </div>
@@ -145,9 +147,89 @@ points, and supports multiplication and division with numbers.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="clubsandwich.geom.Point.diagonal_neighbors">
+<code class="descname">diagonal_neighbors</code><a class="headerlink" href="#clubsandwich.geom.Point.diagonal_neighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator of all points that share a corner with this one.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="clubsandwich.geom.Point.floored">
 <code class="descname">floored</code><a class="headerlink" href="#clubsandwich.geom.Point.floored" title="Permalink to this definition">¶</a></dt>
 <dd><p>A copy of this point with <code class="docutils literal"><span class="pre">math.floor()</span></code> called on each coordinate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Point.get_closest_point">
+<code class="descname">get_closest_point</code><span class="sig-paren">(</span><em>candidates</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Point.get_closest_point" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>candidates</strong> (<em></em><em>[</em><a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a><em>]</em><em></em>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><code class="xref py py-class docutils literal"><span class="pre">Point</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Of all the point in <em>candidates</em>, return the one closest to <code class="docutils literal"><span class="pre">self</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Point.get_farthest_point">
+<code class="descname">get_farthest_point</code><span class="sig-paren">(</span><em>candidates</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Point.get_farthest_point" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>candidates</strong> (<em></em><em>[</em><a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a><em>]</em><em></em>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><code class="xref py py-class docutils literal"><span class="pre">Point</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Of all the point in <em>candidates</em>, return the one farthest from <code class="docutils literal"><span class="pre">self</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Point.manhattan_distance_to">
+<code class="descname">manhattan_distance_to</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Point.manhattan_distance_to" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Manhattan distance between <code class="docutils literal"><span class="pre">self</span></code> and <code class="docutils literal"><span class="pre">target</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.geom.Point.neighbors">
+<code class="descname">neighbors</code><a class="headerlink" href="#clubsandwich.geom.Point.neighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator of all points that share a horizontal or vertical edge with
+this one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Point.path_L_to">
+<code class="descname">path_L_to</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Point.path_L_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator of all points on an L-shaped path between <code class="docutils literal"><span class="pre">self</span></code> and
+<code class="docutils literal"><span class="pre">target</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Point.points_bresenham_to">
+<code class="descname">points_bresenham_to</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Point.points_bresenham_to" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+<p>Generator of all points on a Bresenham algorithm line between <code class="docutils literal"><span class="pre">self</span></code>
+and <code class="docutils literal"><span class="pre">other</span></code>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -183,9 +265,28 @@ points, and supports multiplication and division with numbers.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="clubsandwich.geom.Rect.area">
+<code class="descname">area</code><a class="headerlink" href="#clubsandwich.geom.Rect.area" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">int (area of <code class="docutils literal"><span class="pre">self</span></code>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="clubsandwich.geom.Rect.center">
 <code class="descname">center</code><a class="headerlink" href="#clubsandwich.geom.Rect.center" title="Permalink to this definition">¶</a></dt>
 <dd><p>Point at the center of this rect</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Rect.contains">
+<code class="descname">contains</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Rect.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal"><span class="pre">True</span></code> iff <code class="docutils literal"><span class="pre">self</span></code> contains all of <code class="docutils literal"><span class="pre">other</span></code>&#8216;s points</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -195,10 +296,39 @@ points, and supports multiplication and division with numbers.</p>
 copies</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="clubsandwich.geom.Rect.get_random_point">
+<code class="descname">get_random_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Rect.get_random_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a random point inside <code class="docutils literal"><span class="pre">self</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Rect.get_random_rect">
+<code class="descname">get_random_rect</code><span class="sig-paren">(</span><em>min_size=Size(1</em>, <em>1)</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Rect.get_random_rect" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>min_size</strong> (<a class="reference internal" href="#clubsandwich.geom.Size" title="clubsandwich.geom.Size"><em>Size</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#clubsandwich.geom.Rect" title="clubsandwich.geom.Rect"><code class="xref py py-class docutils literal"><span class="pre">Rect</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Returns a random rect inside <code class="docutils literal"><span class="pre">self</span></code> with the given minimum size. Returns
+<code class="docutils literal"><span class="pre">self</span></code> unmodified if size won&#8217;t fit.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="clubsandwich.geom.Rect.height">
 <code class="descname">height</code><a class="headerlink" href="#clubsandwich.geom.Rect.height" title="Permalink to this definition">¶</a></dt>
 <dd><p>Forwarded from <code class="docutils literal"><span class="pre">self.size.height</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.geom.Rect.intersects">
+<code class="descname">intersects</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Rect.intersects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal"><span class="pre">True</span></code> iff <code class="docutils literal"><span class="pre">self</span></code> and <code class="docutils literal"><span class="pre">other</span></code> share any points</p>
 </dd></dl>
 
 <dl class="method">

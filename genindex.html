@@ -63,6 +63,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api_director.html"><code class="docutils literal"><span class="pre">clubsandwich.director</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_geom.html"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_draw.html"><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_generators.html"><code class="docutils literal"><span class="pre">clubsandwich.generators</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="blt/index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
@@ -122,6 +124,7 @@
  | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#Q"><strong>Q</strong></a>
@@ -142,11 +145,17 @@
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.add_subviews">add_subviews() (clubsandwich.ui.View method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_director.html#clubsandwich.director.Scene.add_terminal_reader">add_terminal_reader() (clubsandwich.director.Scene method)</a>
 </li>
-      <li><a href="ui/concepts.html#clubsandwich.ui.View.ancestors">ancestors (clubsandwich.ui.View attribute)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.ancestors">ancestors (clubsandwich.generators.BSPNode attribute)</a>
+
+      <ul>
+        <li><a href="ui/concepts.html#clubsandwich.ui.View.ancestors">(clubsandwich.ui.View attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api_geom.html#clubsandwich.geom.Rect.area">area (clubsandwich.geom.Rect attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -158,11 +167,13 @@
 </li>
       <li><a href="blt/api_blt_loop.html#clubsandwich.blt.loop.BearLibTerminalEventLoop">BearLibTerminalEventLoop (class in clubsandwich.blt.loop)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/concepts.html#clubsandwich.ui.LayoutOptions.bottom">bottom (clubsandwich.ui.LayoutOptions attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.bounds">bounds (clubsandwich.ui.View attribute)</a>
+</li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode">BSPNode (class in clubsandwich.generators)</a>
 </li>
       <li><a href="ui/components.html#clubsandwich.ui.ButtonView">ButtonView (class in clubsandwich.ui)</a>
 </li>
@@ -180,25 +191,35 @@
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.layout_options.LayoutOptions.centered">centered() (clubsandwich.ui.layout_options.LayoutOptions class method)</a>
 </li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.child_a">child_a (clubsandwich.generators.BSPNode attribute)</a>
+</li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.child_b">child_b (clubsandwich.generators.BSPNode attribute)</a>
+</li>
       <li><a href="api_babysit.html#module-clubsandwich.babysit">clubsandwich.babysit (module)</a>
 </li>
       <li><a href="blt/api_blt_context.html#module-clubsandwich.blt.context">clubsandwich.blt.context (module)</a>
 </li>
       <li><a href="blt/api_blt_loop.html#module-clubsandwich.blt.loop">clubsandwich.blt.loop (module)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="blt/api_blt_nice_terminal.html#module-clubsandwich.blt.nice_terminal">clubsandwich.blt.nice_terminal (module)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="blt/api_blt_state.html#module-clubsandwich.blt.state">clubsandwich.blt.state (module)</a>
 </li>
       <li><a href="api_director.html#module-clubsandwich.director">clubsandwich.director (module)</a>
+</li>
+      <li><a href="api_draw.html#module-clubsandwich.draw">clubsandwich.draw (module)</a>
+</li>
+      <li><a href="api_generators.html#module-clubsandwich.generators">clubsandwich.generators (module)</a>
 </li>
       <li><a href="api_geom.html#module-clubsandwich.geom">clubsandwich.geom (module)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.layout_options.LayoutOptions.column_left">column_left() (clubsandwich.ui.layout_options.LayoutOptions class method)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.layout_options.LayoutOptions.column_right">column_right() (clubsandwich.ui.layout_options.LayoutOptions class method)</a>
+</li>
+      <li><a href="api_geom.html#clubsandwich.geom.Rect.contains">contains() (clubsandwich.geom.Rect method)</a>
 </li>
       <li><a href="api_director.html#clubsandwich.director.Scene.covers_screen">covers_screen (clubsandwich.director.Scene attribute)</a>
 </li>
@@ -210,6 +231,8 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.data">data (clubsandwich.generators.BSPNode attribute)</a>
+</li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.debug_print">debug_print() (clubsandwich.ui.View method)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.debug_string">debug_string (clubsandwich.ui.View attribute)</a>
@@ -218,10 +241,12 @@
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.descendant_did_resign_first_responder">descendant_did_resign_first_responder() (clubsandwich.ui.View method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_geom.html#clubsandwich.geom.Point.diagonal_neighbors">diagonal_neighbors (clubsandwich.geom.Point attribute)</a>
+</li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.did_become_first_responder">did_become_first_responder() (clubsandwich.ui.View method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.did_resign_first_responder">did_resign_first_responder() (clubsandwich.ui.View method)</a>
 </li>
       <li><a href="api_director.html#clubsandwich.director.Scene.director">director (clubsandwich.director.Scene attribute)</a>
@@ -229,6 +254,12 @@
       <li><a href="api_director.html#clubsandwich.director.DirectorLoop">DirectorLoop (class in clubsandwich.director)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.draw">draw() (clubsandwich.ui.View method)</a>
+</li>
+      <li><a href="api_draw.html#clubsandwich.draw.draw_line_horz">draw_line_horz() (in module clubsandwich.draw)</a>
+</li>
+      <li><a href="api_draw.html#clubsandwich.draw.draw_line_vert">draw_line_vert() (in module clubsandwich.draw)</a>
+</li>
+      <li><a href="api_draw.html#clubsandwich.draw.draw_rect">draw_rect() (in module clubsandwich.draw)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -274,9 +305,19 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.get_ancestor_matching">get_ancestor_matching() (clubsandwich.ui.View method)</a>
 </li>
+      <li><a href="api_geom.html#clubsandwich.geom.Point.get_closest_point">get_closest_point() (clubsandwich.geom.Point method)</a>
+</li>
+      <li><a href="api_geom.html#clubsandwich.geom.Point.get_farthest_point">get_farthest_point() (clubsandwich.geom.Point method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_director.html#clubsandwich.director.DirectorLoop.get_initial_scene">get_initial_scene() (clubsandwich.director.DirectorLoop method)</a>
+</li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.get_node_at_path">get_node_at_path() (clubsandwich.generators.BSPNode method)</a>
+</li>
+      <li><a href="api_geom.html#clubsandwich.geom.Rect.get_random_point">get_random_point() (clubsandwich.geom.Rect method)</a>
+</li>
+      <li><a href="api_geom.html#clubsandwich.geom.Rect.get_random_rect">get_random_rect() (clubsandwich.geom.Rect method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -298,11 +339,15 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_geom.html#clubsandwich.geom.Rect.intersects">intersects() (clubsandwich.geom.Rect method)</a>
+</li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.intrinsic_size">intrinsic_size (clubsandwich.ui.View attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/components.html#clubsandwich.ui.IntStepperView">IntStepperView (class in clubsandwich.ui)</a>
+</li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.is_horz">is_horz (clubsandwich.generators.BSPNode attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -316,13 +361,21 @@
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.layout_options.LayoutOptions">LayoutOptions (class in clubsandwich.ui.layout_options)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/concepts.html#clubsandwich.ui.LayoutOptionValue">LayoutOptionValue (class in clubsandwich.ui)</a>
 </li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.leaves">leaves (clubsandwich.generators.BSPNode attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/concepts.html#clubsandwich.ui.LayoutOptions.left">left (clubsandwich.ui.LayoutOptions attribute)</a>
 </li>
-      <li><a href="ui/concepts.html#clubsandwich.ui.View.leftmost_leaf">leftmost_leaf (clubsandwich.ui.View attribute)</a>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.leftmost_leaf">leftmost_leaf (clubsandwich.generators.BSPNode attribute)</a>
+
+      <ul>
+        <li><a href="ui/concepts.html#clubsandwich.ui.View.leftmost_leaf">(clubsandwich.ui.View attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.level">level (clubsandwich.generators.BSPNode attribute)</a>
 </li>
       <li><a href="blt/api_blt_loop.html#clubsandwich.blt.loop.BearLibTerminalEventLoop.loop_until_terminal_exits">loop_until_terminal_exits() (clubsandwich.blt.loop.BearLibTerminalEventLoop method)</a>
 </li>
@@ -332,7 +385,21 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_geom.html#clubsandwich.geom.Point.manhattan_distance_to">manhattan_distance_to() (clubsandwich.geom.Point method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.max_value">max_value (clubsandwich.generators.BSPNode attribute)</a>
+</li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.moved_by">moved_by() (clubsandwich.geom.Rect method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_geom.html#clubsandwich.geom.Point.neighbors">neighbors (clubsandwich.geom.Point attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -348,6 +415,8 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_geom.html#clubsandwich.geom.Point.path_L_to">path_L_to() (clubsandwich.geom.Point method)</a>
+</li>
       <li><a href="api_geom.html#clubsandwich.geom.Point">Point (class in clubsandwich.geom)</a>
 </li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.point_bottom_left">point_bottom_left (clubsandwich.geom.Rect attribute)</a>
@@ -360,6 +429,8 @@
 </li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.points_bottom">points_bottom (clubsandwich.geom.Rect attribute)</a>
 </li>
+      <li><a href="api_geom.html#clubsandwich.geom.Point.points_bresenham_to">points_bresenham_to() (clubsandwich.geom.Point method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.points_corners">points_corners (clubsandwich.geom.Rect attribute)</a>
@@ -371,6 +442,8 @@
       <li><a href="api_geom.html#clubsandwich.geom.Rect.points_top">points_top (clubsandwich.geom.Rect attribute)</a>
 </li>
       <li><a href="api_director.html#clubsandwich.director.DirectorLoop.pop_scene">pop_scene() (clubsandwich.director.DirectorLoop method)</a>
+</li>
+      <li><a href="api_director.html#clubsandwich.director.DirectorLoop.pop_to_first_scene">pop_to_first_scene() (clubsandwich.director.DirectorLoop method)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.postorder_traversal">postorder_traversal (clubsandwich.ui.View attribute)</a>
 </li>
@@ -390,19 +463,31 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.random_leaf">random_leaf (clubsandwich.generators.BSPNode attribute)</a>
+</li>
+      <li><a href="api_generators.html#clubsandwich.generators.RandomBSPTree">RandomBSPTree (class in clubsandwich.generators)</a>
+</li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect">Rect (class in clubsandwich.geom)</a>
+</li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.rect">rect (clubsandwich.generators.BSPNode attribute)</a>
+</li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.rect_a">rect_a (clubsandwich.generators.BSPNode attribute)</a>
+</li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.rect_b">rect_b (clubsandwich.generators.BSPNode attribute)</a>
 </li>
       <li><a href="ui/components.html#clubsandwich.ui.RectView">RectView (class in clubsandwich.ui)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.remove_subviews">remove_subviews() (clubsandwich.ui.View method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_director.html#clubsandwich.director.Scene.remove_terminal_reader">remove_terminal_reader() (clubsandwich.director.Scene method)</a>
 </li>
       <li><a href="api_director.html#clubsandwich.director.DirectorLoop.replace_scene">replace_scene() (clubsandwich.director.DirectorLoop method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/concepts.html#clubsandwich.ui.LayoutOptions.right">right (clubsandwich.ui.LayoutOptions attribute)</a>
+</li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.rightmost_leaf">rightmost_leaf (clubsandwich.generators.BSPNode attribute)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.layout_options.LayoutOptions.row_bottom">row_bottom() (clubsandwich.ui.layout_options.LayoutOptions class method)</a>
 </li>
@@ -433,6 +518,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/components.html#clubsandwich.ui.SettingsListView">SettingsListView (class in clubsandwich.ui)</a>
+</li>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.sibling_pairs">sibling_pairs (clubsandwich.generators.BSPNode attribute)</a>
 </li>
       <li><a href="ui/components.html#clubsandwich.ui.SingleLineTextInputView">SingleLineTextInputView (class in clubsandwich.ui)</a>
 </li>
@@ -482,6 +569,8 @@
       </ul></li>
       <li><a href="ui/concepts.html#clubsandwich.ui.LayoutOptions.top">top (clubsandwich.ui.LayoutOptions attribute)</a>
 </li>
+      <li><a href="blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext.translate">translate() (clubsandwich.blt.context.BearLibTerminalContext method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -495,6 +584,10 @@
 
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.value">value (clubsandwich.generators.BSPNode attribute)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/concepts.html#clubsandwich.ui.View">View (class in clubsandwich.ui)</a>
 </li>

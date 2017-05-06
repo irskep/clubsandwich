@@ -64,6 +64,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../api_director.html"><code class="docutils literal"><span class="pre">clubsandwich.director</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_geom.html"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_draw.html"><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_generators.html"><code class="docutils literal"><span class="pre">clubsandwich.generators</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blt/index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../blt/api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../blt/api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
@@ -335,7 +337,7 @@ right side of its superview, with half the height of its superview:</p>
 <h2>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="clubsandwich.ui.View">
-<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">View</code><span class="sig-paren">(</span><em>frame=None</em>, <em>subviews=None</em>, <em>scene=None</em>, <em>layout_options=None</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">View</code><span class="sig-paren">(</span><em>frame=None</em>, <em>subviews=None</em>, <em>scene=None</em>, <em>layout_options=None</em>, <em>clear=False</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -345,6 +347,8 @@ right side of its superview, with half the height of its superview:</p>
 <li><strong>subviews</strong> (<em>list</em>) &#8211; List of subviews</li>
 <li><strong>scene</strong> (<a class="reference internal" href="#clubsandwich.ui.UIScene" title="clubsandwich.ui.UIScene"><em>UIScene</em></a>) &#8211; Scene that&#8217;s handling this view</li>
 <li><strong>layout_options</strong> (<a class="reference internal" href="#clubsandwich.ui.layout_options.LayoutOptions" title="clubsandwich.ui.layout_options.LayoutOptions"><em>LayoutOptions</em></a>) &#8211; How to position this view</li>
+<li><strong>clear</strong> (<em>bool</em>) &#8211; If <code class="docutils literal"><span class="pre">True</span></code>, clear bounds each render. (Each individual
+view implements this because it depends on color.)</li>
 </ul>
 </td>
 </tr>

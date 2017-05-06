@@ -64,6 +64,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../api_director.html"><code class="docutils literal"><span class="pre">clubsandwich.director</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_geom.html"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_draw.html"><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_generators.html"><code class="docutils literal"><span class="pre">clubsandwich.generators</span></code></a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
@@ -123,8 +125,10 @@ ints), except:</p>
 <blockquote>
 <div><ul class="simple">
 <li>It&#8217;s a class, so you have to instantiate it</li>
-<li>It includes a context manager, <code class="xref py py-meth docutils literal"><span class="pre">translate()</span></code>, that offsets all
+<li>It includes a context manager, <a class="reference internal" href="#clubsandwich.blt.context.BearLibTerminalContext.translate" title="clubsandwich.blt.context.BearLibTerminalContext.translate"><code class="xref py py-meth docutils literal"><span class="pre">translate()</span></code></a>, that offsets all
 position-related calls.</li>
+<li>Multiple calls to <code class="xref py py-meth docutils literal"><span class="pre">color()</span></code> and <code class="xref py py-meth docutils literal"><span class="pre">bkcolor()</span></code> with the same
+values are ignored, saving time in the C FFI bridge.</li>
 </ul>
 </div></blockquote>
 <p>Example:</p>
@@ -143,6 +147,13 @@ position-related calls.</li>
 <span class="n">terminal</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
+<dl class="method">
+<dt id="clubsandwich.blt.context.BearLibTerminalContext.translate">
+<code class="descname">translate</code><span class="sig-paren">(</span><em>offset_delta</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.context.BearLibTerminalContext.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inside this context manager, all put/print calls are offset by the given
+amount. If you nest these, they stack.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>

@@ -58,6 +58,8 @@ Before you dive in, you should probably read the overview of BearLibTerminal
 
     api_director.rst
     api_geom.rst
+    api_draw.rst
+    api_generators.rst
     blt/index.rst
     ui/index.rst
     api_babysit.rst

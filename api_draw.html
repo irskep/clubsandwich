@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Python Module Index &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>clubsandwich.draw &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,16 +26,15 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-
+    <link rel="next" title="clubsandwich.generators" href="api_generators.html" />
+    <link rel="prev" title="clubsandwich.geom" href="api_geom.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
   
-    <link rel="canonical" href="http://steveasleep.com/clubsandwich/py-modindex.html"/>
+    <link rel="canonical" href="http://steveasleep.com/clubsandwich/api_draw.html"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-
 
   </head>
   <body role="document">
@@ -62,10 +61,10 @@
 
 
 <h3>Navigation</h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api_director.html"><code class="docutils literal"><span class="pre">clubsandwich.director</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_geom.html"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_draw.html"><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_generators.html"><code class="docutils literal"><span class="pre">clubsandwich.generators</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="blt/index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
@@ -92,6 +91,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="api_geom.html" title="previous chapter"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
+      <li>Next: <a href="api_generators.html" title="next chapter"><code class="docutils literal"><span class="pre">clubsandwich.generators</span></code></a></li>
   </ul></li>
 </ul>
 </div>
@@ -111,69 +112,70 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
+  <div class="section" id="module-clubsandwich.draw">
+<span id="clubsandwich-draw"></span><h1><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code><a class="headerlink" href="#module-clubsandwich.draw" title="Permalink to this headline">¶</a></h1>
+<p>Assorted functions that draw shapes to the terminal. Right now it&#8217;s just lines
+and rectangles.</p>
+<dl class="function">
+<dt id="clubsandwich.draw.draw_line_horz">
+<code class="descclassname">clubsandwich.draw.</code><code class="descname">draw_line_horz</code><span class="sig-paren">(</span><em>origin</em>, <em>length</em>, <em>ctx=&lt;clubsandwich.blt.nice_terminal.NiceTerminal object&gt;</em>, <em>style='single'</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.draw.draw_line_horz" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>origin</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </li>
+<li><strong>length</strong> (<em>int</em>) &#8211; </li>
+<li><strong>ctx</strong> (<a class="reference internal" href="blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><em>BearLibTerminalContext</em></a>) &#8211; </li>
+<li><strong>style</strong> (<em>str</em>) &#8211; Either <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Draw a horizontal line.</p>
+</dd></dl>
 
-   <h1>Python Module Index</h1>
+<dl class="function">
+<dt id="clubsandwich.draw.draw_line_vert">
+<code class="descclassname">clubsandwich.draw.</code><code class="descname">draw_line_vert</code><span class="sig-paren">(</span><em>origin</em>, <em>length</em>, <em>ctx=&lt;clubsandwich.blt.nice_terminal.NiceTerminal object&gt;</em>, <em>style='single'</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.draw.draw_line_vert" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>origin</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </li>
+<li><strong>length</strong> (<em>int</em>) &#8211; </li>
+<li><strong>ctx</strong> (<a class="reference internal" href="blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><em>BearLibTerminalContext</em></a>) &#8211; </li>
+<li><strong>style</strong> (<em>str</em>) &#8211; Either <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Draw a vertical line.</p>
+</dd></dl>
 
-   <div class="modindex-jumpbox">
-   <a href="#cap-c"><strong>c</strong></a>
-   </div>
+<dl class="function">
+<dt id="clubsandwich.draw.draw_rect">
+<code class="descclassname">clubsandwich.draw.</code><code class="descname">draw_rect</code><span class="sig-paren">(</span><em>rect</em>, <em>ctx=&lt;clubsandwich.blt.nice_terminal.NiceTerminal object&gt;</em>, <em>style='single'</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.draw.draw_rect" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rect</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Rect" title="clubsandwich.geom.Rect"><em>Rect</em></a>) &#8211; </li>
+<li><strong>ctx</strong> (<a class="reference internal" href="blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><em>BearLibTerminalContext</em></a>) &#8211; </li>
+<li><strong>style</strong> (<em>str</em>) &#8211; Either <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Draw a rectangle.</p>
+</dd></dl>
 
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-c"><td></td><td>
-       <strong>c</strong></td><td></td></tr>
-     <tr>
-       <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-       <td>
-       <code class="xref">clubsandwich</code></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_babysit.html#module-clubsandwich.babysit"><code class="xref">clubsandwich.babysit</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="blt/api_blt_context.html#module-clubsandwich.blt.context"><code class="xref">clubsandwich.blt.context</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="blt/api_blt_loop.html#module-clubsandwich.blt.loop"><code class="xref">clubsandwich.blt.loop</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="blt/api_blt_nice_terminal.html#module-clubsandwich.blt.nice_terminal"><code class="xref">clubsandwich.blt.nice_terminal</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="blt/api_blt_state.html#module-clubsandwich.blt.state"><code class="xref">clubsandwich.blt.state</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_director.html#module-clubsandwich.director"><code class="xref">clubsandwich.director</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_draw.html#module-clubsandwich.draw"><code class="xref">clubsandwich.draw</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_generators.html#module-clubsandwich.generators"><code class="xref">clubsandwich.generators</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_geom.html#module-clubsandwich.geom"><code class="xref">clubsandwich.geom</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+</div>
 
 
           </div>
@@ -188,6 +190,9 @@
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
+      |
+      <a href="_sources/api_draw.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
 
     
