@@ -15,9 +15,13 @@ in seconds::
   babysit python flamegame.py
 
 It will keep relaunching until you ctrl+c the ``babysit`` process.
+
+Relaunches are never more often than 5 seconds, in case you've got a
+crash-on-launch bug.
 """
 import sys
 import subprocess
+import time
 from math import floor
 
 cmd = sys.argv[1:]
@@ -32,10 +36,13 @@ def cli():
     return
 
   cont = True
+  last_time = time.time()
   while cont:
     print('-' * left_padding + message + '-' * right_padding, file=sys.stderr)
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     try:
       p.wait()
+      time.sleep(max(0, 5 - (time.time() - last_time)))
+      last_time = time.time()
     except KeyboardInterrupt:
       cont = False

@@ -42,7 +42,7 @@ class RectView(View):
     ctx.bkcolor(self.color_bg)
     if self.fill or self.clear:
       ctx.clear_area(self.bounds)
-    draw_rect(self.bounds, self.style, ctx=ctx)
+    draw_rect(self.bounds, style=self.style, ctx=ctx)
 
 
 class WindowView(RectView):

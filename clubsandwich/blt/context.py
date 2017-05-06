@@ -15,6 +15,8 @@ class BearLibTerminalContext(NiceTerminal):
     * It's a class, so you have to instantiate it
     * It includes a context manager, :py:meth:`translate`, that offsets all
       position-related calls.
+    * Multiple calls to :py:meth:`color` and :py:meth:`bkcolor` with the same
+      values are ignored, saving time in the C FFI bridge.
 
   Example::
 
@@ -42,17 +44,14 @@ class BearLibTerminalContext(NiceTerminal):
 
   @contextmanager
   def translate(self, offset_delta):
+    """
+    Inside this context manager, all put/print calls are offset by the given
+    amount. If you nest these, they stack.
+    """
     old_offset = self.offset
     self.offset = self.offset + offset_delta
     yield
     self.offset = old_offset
-
-  @contextmanager
-  def crop_before_send(self, crop_rect):
-    old_rect = self._crop_rect
-    self._crop_rect = crop_rect.moved_by(self.offset * -1)
-    yield
-    self._crop_rect = old_rect
 
   def color(self, c):
     self._fg = c

@@ -53,7 +53,7 @@ class BearLibTerminalEventLoop:
         """
         :param str char: Return value of ``BearLibTerminal.terminal.read()``
 
-        Called whenever new input was read.
+        Called whenever new input is available.
         """
         pass
 

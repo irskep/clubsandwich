@@ -43,6 +43,8 @@ class Point:
     return self.__class__(floor(self.x), floor(self.y))
 
   def path_L_to(self, target):
+    """Generator of all points on an L-shaped path between ``self`` and
+    ``target``."""
     p = self
     yield p
     while p.x < target.x:
@@ -59,9 +61,16 @@ class Point:
       yield p
 
   def manhattan_distance_to(self, target):
+    """:return: Manhattan distance between ``self`` and ``target``"""
     return abs(self.x - target.x) + abs(self.y - target.y)
 
   def get_closest_point(self, candidates):
+    """
+    :param [Point] candidates:
+    :returns: :py:class:`Point`
+
+    Of all the point in *candidates*, return the one closest to ``self``.
+    """
     best_point = candidates[0]
     best_distance = best_point.manhattan_distance_to(self)
     for point in candidates:
@@ -74,6 +83,12 @@ class Point:
     return best_point
 
   def get_farthest_point(self, candidates):
+    """
+    :param [Point] candidates:
+    :returns: :py:class:`Point`
+
+    Of all the point in *candidates*, return the one farthest from ``self``.
+    """
     best_point = candidates[0]
     best_distance = best_point.manhattan_distance_to(self)
     for point in candidates:
@@ -85,6 +100,8 @@ class Point:
 
   @property
   def neighbors(self):
+    """Generator of all points that share a horizontal or vertical edge with
+    this one."""
     yield self - Point(-1, 0)
     yield self - Point(0, -1)
     yield self - Point(1, 0)
@@ -92,12 +109,19 @@ class Point:
 
   @property
   def diagonal_neighbors(self):
+    """Generator of all points that share a corner with this one."""
     yield self - Point(-1, -1)
     yield self - Point(1, -1)
     yield self - Point(1, 1)
     yield self - Point(-1, 1)
 
   def points_bresenham_to(self, other):
+    """
+    :param Point other:
+
+    Generator of all points on a Bresenham algorithm line between ``self``
+    and ``other``.
+    """
     delta = other - self
     xsign = 1 if delta.x > 0 else -1
     ysign = 1 if delta.y > 0 else -1
@@ -272,6 +296,7 @@ class Rect:
 
   @property
   def area(self):
+    """:return: int (area of ``self``)"""
     return self.width * self.height
 
   ### handy iterators ###
@@ -393,6 +418,7 @@ class Rect:
   ### tests ###
 
   def intersects(self, other):
+    """Returns ``True`` iff ``self`` and ``other`` share any points"""
     if self.x > other.x2:
       return False
     if other.x2 > self.x:
@@ -404,6 +430,7 @@ class Rect:
     return True
 
   def contains(self, point):
+    """Returns ``True`` iff ``self`` contains all of ``other``'s points"""
     if self.x > point.x:
       return False
     if self.x2 < point.x:
@@ -417,11 +444,19 @@ class Rect:
   ### random stuff ###
 
   def get_random_point(self):
+    """Returns a random point inside ``self``"""
     return Point(
       randint(self.origin.x, self.origin.x + self.size.width - 1),
       randint(self.origin.y, self.origin.y + self.size.height - 1))
 
   def get_random_rect(self, min_size=Size(1, 1)):
+    """
+    :param Size min_size:
+    :returns: :py:class:`Rect`
+
+    Returns a random rect inside ``self`` with the given minimum size. Returns
+    ``self`` unmodified if size won't fit.
+    """
     if self.width <= min_size.width:
       return self
     if self.height <= min_size.height:
