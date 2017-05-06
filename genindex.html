@@ -65,6 +65,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api_geom.html"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_draw.html"><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_generators.html"><code class="docutils literal"><span class="pre">clubsandwich.generators</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_tilemap.html"><code class="docutils literal"><span class="pre">clubsandwich.tilemap</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="blt/index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
@@ -155,6 +156,8 @@
         <li><a href="ui/concepts.html#clubsandwich.ui.View.ancestors">(clubsandwich.ui.View attribute)</a>
 </li>
       </ul></li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.Cell.annotations">annotations (clubsandwich.tilemap.Cell attribute)</a>
+</li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.area">area (clubsandwich.geom.Rect attribute)</a>
 </li>
   </ul></td>
@@ -187,6 +190,14 @@
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.can_resign_first_responder">can_resign_first_responder (clubsandwich.ui.View attribute)</a>
 </li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.Cell">Cell (class in clubsandwich.tilemap)</a>
+</li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.TileMap.cell">cell() (clubsandwich.tilemap.TileMap method)</a>
+</li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.CellOutOfBoundsError">CellOutOfBoundsError</a>
+</li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.TileMap.cells">cells (clubsandwich.tilemap.TileMap attribute)</a>
+</li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.center">center (clubsandwich.geom.Rect attribute)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.layout_options.LayoutOptions.centered">centered() (clubsandwich.ui.layout_options.LayoutOptions class method)</a>
@@ -201,10 +212,10 @@
 </li>
       <li><a href="blt/api_blt_loop.html#module-clubsandwich.blt.loop">clubsandwich.blt.loop (module)</a>
 </li>
-      <li><a href="blt/api_blt_nice_terminal.html#module-clubsandwich.blt.nice_terminal">clubsandwich.blt.nice_terminal (module)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="blt/api_blt_nice_terminal.html#module-clubsandwich.blt.nice_terminal">clubsandwich.blt.nice_terminal (module)</a>
+</li>
       <li><a href="blt/api_blt_state.html#module-clubsandwich.blt.state">clubsandwich.blt.state (module)</a>
 </li>
       <li><a href="api_director.html#module-clubsandwich.director">clubsandwich.director (module)</a>
@@ -215,11 +226,15 @@
 </li>
       <li><a href="api_geom.html#module-clubsandwich.geom">clubsandwich.geom (module)</a>
 </li>
+      <li><a href="api_tilemap.html#module-clubsandwich.tilemap">clubsandwich.tilemap (module)</a>
+</li>
       <li><a href="ui/concepts.html#clubsandwich.ui.layout_options.LayoutOptions.column_left">column_left() (clubsandwich.ui.layout_options.LayoutOptions class method)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.layout_options.LayoutOptions.column_right">column_right() (clubsandwich.ui.layout_options.LayoutOptions class method)</a>
 </li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.contains">contains() (clubsandwich.geom.Rect method)</a>
+</li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.TileMap.contains_point">contains_point() (clubsandwich.tilemap.TileMap method)</a>
 </li>
       <li><a href="api_director.html#clubsandwich.director.Scene.covers_screen">covers_screen (clubsandwich.director.Scene attribute)</a>
 </li>
@@ -233,6 +248,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_generators.html#clubsandwich.generators.BSPNode.data">data (clubsandwich.generators.BSPNode attribute)</a>
 </li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.Cell.debug_character">debug_character (clubsandwich.tilemap.Cell attribute)</a>
+</li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.debug_print">debug_print() (clubsandwich.ui.View method)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.debug_string">debug_string (clubsandwich.ui.View attribute)</a>
@@ -243,10 +260,10 @@
 </li>
       <li><a href="api_geom.html#clubsandwich.geom.Point.diagonal_neighbors">diagonal_neighbors (clubsandwich.geom.Point attribute)</a>
 </li>
-      <li><a href="ui/concepts.html#clubsandwich.ui.View.did_become_first_responder">did_become_first_responder() (clubsandwich.ui.View method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ui/concepts.html#clubsandwich.ui.View.did_become_first_responder">did_become_first_responder() (clubsandwich.ui.View method)</a>
+</li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.did_resign_first_responder">did_resign_first_responder() (clubsandwich.ui.View method)</a>
 </li>
       <li><a href="api_director.html#clubsandwich.director.Scene.director">director (clubsandwich.director.Scene attribute)</a>
@@ -279,6 +296,8 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.Cell.feature">feature (clubsandwich.tilemap.Cell attribute)</a>
+</li>
       <li><a href="ui/concepts.html#clubsandwich.ui.FirstResponderContainerView.find_next_responder">find_next_responder() (clubsandwich.ui.FirstResponderContainerView method)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.FirstResponderContainerView.find_prev_responder">find_prev_responder() (clubsandwich.ui.FirstResponderContainerView method)</a>
@@ -348,6 +367,8 @@
       <li><a href="ui/components.html#clubsandwich.ui.IntStepperView">IntStepperView (class in clubsandwich.ui)</a>
 </li>
       <li><a href="api_generators.html#clubsandwich.generators.BSPNode.is_horz">is_horz (clubsandwich.generators.BSPNode attribute)</a>
+</li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.Cell.items">items (clubsandwich.tilemap.Cell attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -419,6 +440,8 @@
 </li>
       <li><a href="api_geom.html#clubsandwich.geom.Point">Point (class in clubsandwich.geom)</a>
 </li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.Cell.point">point (clubsandwich.tilemap.Cell attribute)</a>
+</li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.point_bottom_left">point_bottom_left (clubsandwich.geom.Rect attribute)</a>
 </li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.point_bottom_right">point_bottom_right (clubsandwich.geom.Rect attribute)</a>
@@ -436,6 +459,8 @@
       <li><a href="api_geom.html#clubsandwich.geom.Rect.points_corners">points_corners (clubsandwich.geom.Rect attribute)</a>
 </li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.points_left">points_left (clubsandwich.geom.Rect attribute)</a>
+</li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.TileMap.points_of_interest">points_of_interest (clubsandwich.tilemap.TileMap attribute)</a>
 </li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.points_right">points_right (clubsandwich.geom.Rect attribute)</a>
 </li>
@@ -517,10 +542,10 @@
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.set_needs_layout">set_needs_layout() (clubsandwich.ui.View method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/components.html#clubsandwich.ui.SettingsListView">SettingsListView (class in clubsandwich.ui)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_generators.html#clubsandwich.generators.BSPNode.sibling_pairs">sibling_pairs (clubsandwich.generators.BSPNode attribute)</a>
 </li>
       <li><a href="ui/components.html#clubsandwich.ui.SingleLineTextInputView">SingleLineTextInputView (class in clubsandwich.ui)</a>
@@ -528,7 +553,11 @@
       <li><a href="api_geom.html#clubsandwich.geom.Size">Size (class in clubsandwich.geom)</a>
 </li>
       <li><a href="api_geom.html#clubsandwich.geom.Rect.size">size (clubsandwich.geom.Rect attribute)</a>
+
+      <ul>
+        <li><a href="api_tilemap.html#clubsandwich.tilemap.TileMap.size">(clubsandwich.tilemap.TileMap attribute)</a>
 </li>
+      </ul></li>
       <li><a href="blt/api_blt_state.html#clubsandwich.blt.state.state">state (in module clubsandwich.blt.state)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View.superview">superview (clubsandwich.ui.View attribute)</a>
@@ -569,6 +598,10 @@
         <li><a href="api_director.html#clubsandwich.director.Scene.terminal_update">(clubsandwich.director.Scene method)</a>
 </li>
       </ul></li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.Cell.terrain">terrain (clubsandwich.tilemap.Cell attribute)</a>
+</li>
+      <li><a href="api_tilemap.html#clubsandwich.tilemap.TileMap">TileMap (class in clubsandwich.tilemap)</a>
+</li>
       <li><a href="ui/concepts.html#clubsandwich.ui.LayoutOptions.top">top (clubsandwich.ui.LayoutOptions attribute)</a>
 </li>
       <li><a href="blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext.translate">translate() (clubsandwich.blt.context.BearLibTerminalContext method)</a>

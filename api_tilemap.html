@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>clubsandwich.tilemap &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1a1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="clubsandwich.blt" href="blt/index.html" />
+    <link rel="prev" title="clubsandwich.generators" href="api_generators.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+    <link rel="canonical" href="http://steveasleep.com/clubsandwich/api_tilemap.html"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">clubsandwich</a></h1>
+
+
+
+<p class="blurb">A roguelike framework for Python 3 using BearLibTerminal</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=irskep&repo=clubsandwich&type=watch&count=False&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api_director.html"><code class="docutils literal"><span class="pre">clubsandwich.director</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_geom.html"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_draw.html"><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_generators.html"><code class="docutils literal"><span class="pre">clubsandwich.generators</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">clubsandwich.tilemap</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="blt/index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="blt/api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="blt/api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="blt/api_blt_context.html"><code class="docutils literal"><span class="pre">context</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="blt/api_blt_state.html"><code class="docutils literal"><span class="pre">state</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ui/index.html"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ui/concepts.html">Concepts and core objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui/concepts.html#the-scene">The Scene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/concepts.html#layout">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/concepts.html#views">Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/concepts.html#id2">First Responder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ui/components.html">Views</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_babysit.html"><code class="docutils literal"><span class="pre">babysit</span></code></a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="api_generators.html" title="previous chapter"><code class="docutils literal"><span class="pre">clubsandwich.generators</span></code></a></li>
+      <li>Next: <a href="blt/index.html" title="next chapter"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-clubsandwich.tilemap">
+<span id="clubsandwich-tilemap"></span><h1><code class="docutils literal"><span class="pre">clubsandwich.tilemap</span></code><a class="headerlink" href="#module-clubsandwich.tilemap" title="Permalink to this headline">¶</a></h1>
+<p>Tilemap data structures for 2D grids</p>
+<dl class="class">
+<dt id="clubsandwich.tilemap.Cell">
+<em class="property">class </em><code class="descclassname">clubsandwich.tilemap.</code><code class="descname">Cell</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.tilemap.Cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>One cell at a point in 2D space. You&#8217;ll probably want to subclass this to add
+your own data.</p>
+<dl class="attribute">
+<dt id="clubsandwich.tilemap.Cell.point">
+<code class="descname">point</code><a class="headerlink" href="#clubsandwich.tilemap.Cell.point" title="Permalink to this definition">¶</a></dt>
+<dd><p>:py:class::<cite>Point</cite></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.tilemap.Cell.terrain">
+<code class="descname">terrain</code><a class="headerlink" href="#clubsandwich.tilemap.Cell.terrain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arbitrary value representing the type of terrain in this cell, if any</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.tilemap.Cell.feature">
+<code class="descname">feature</code><a class="headerlink" href="#clubsandwich.tilemap.Cell.feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arbitrary value representing the &#8220;feature&#8221; (exit, furniture...) on this
+cell, if any</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.tilemap.Cell.items">
+<code class="descname">items</code><a class="headerlink" href="#clubsandwich.tilemap.Cell.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of arbitrary values representing any items on this cell.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.tilemap.Cell.annotations">
+<code class="descname">annotations</code><a class="headerlink" href="#clubsandwich.tilemap.Cell.annotations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set of arbitrary values. Original use was to let a level generator give a
+hint to the draw function. For example if the generator places a
+rectangular room, it can mark cells as &#8216;corner-top-left&#8217;, &#8216;wall-vert&#8217;,
+etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.tilemap.Cell.debug_character">
+<code class="descname">debug_character</code><a class="headerlink" href="#clubsandwich.tilemap.Cell.debug_character" title="Permalink to this definition">¶</a></dt>
+<dd><p>Another slot for arbitrary debugging data. Intended use is to visually mark
+cells in a map.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="clubsandwich.tilemap.CellOutOfBoundsError">
+<em class="property">exception </em><code class="descclassname">clubsandwich.tilemap.</code><code class="descname">CellOutOfBoundsError</code><a class="headerlink" href="#clubsandwich.tilemap.CellOutOfBoundsError" title="Permalink to this definition">¶</a></dt>
+<dd><p>You have tried to access a cell at a coordinates outside of the tilemap</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="clubsandwich.tilemap.TileMap">
+<em class="property">class </em><code class="descclassname">clubsandwich.tilemap.</code><code class="descname">TileMap</code><span class="sig-paren">(</span><em>size</em>, <em>cell_class=&lt;class 'clubsandwich.tilemap.Cell'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.tilemap.TileMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>A collection of cells within a rectangular 2D area, with various convenience
+methods. You&#8217;ll probably want to subclass this to add your own.</p>
+<dl class="attribute">
+<dt id="clubsandwich.tilemap.TileMap.size">
+<code class="descname">size</code><a class="headerlink" href="#clubsandwich.tilemap.TileMap.size" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal"><span class="pre">Size</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.tilemap.TileMap.points_of_interest">
+<code class="descname">points_of_interest</code><a class="headerlink" href="#clubsandwich.tilemap.TileMap.points_of_interest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dict of arbitrary data. Intended use is for the level generator to pass
+data to game logic, for example to define mob positions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.tilemap.TileMap.cell">
+<code class="descname">cell</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.tilemap.TileMap.cell" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+<p>Returns the cell at the given point, or raises
+<a class="reference internal" href="#clubsandwich.tilemap.CellOutOfBoundsError" title="clubsandwich.tilemap.CellOutOfBoundsError"><code class="xref py py-class docutils literal"><span class="pre">CellOutOfBoundsError</span></code></a>.</p>
+<p>As a shortcut, you can use indexing syntax instead of calling this method:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cell</span> <span class="o">=</span> <span class="n">tilemap</span><span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clubsandwich.tilemap.TileMap.cells">
+<code class="descname">cells</code><a class="headerlink" href="#clubsandwich.tilemap.TileMap.cells" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator of all cells in this tilemap</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.tilemap.TileMap.contains_point">
+<code class="descname">contains_point</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.tilemap.TileMap.contains_point" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+<p>Returns <code class="docutils literal"><span class="pre">True</span></code> iff <em>point</em> is within this tilemap&#8217;s bounds, otherwise
+<code class="docutils literal"><span class="pre">False</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2017 Steve Johnson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/api_tilemap.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/irskep/clubsandwich" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-4517625-6']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>
