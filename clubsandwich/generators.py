@@ -116,7 +116,8 @@ class BSPNode:
       return self
 
   def __repr__(self):
-    return 'BSPNode(is_horz={}, value={})'.format(self.is_horz, self.value)
+    tag = 'horz' if self.is_horz else 'vert'
+    return 'BSPNode({}, {})'.format(tag, self.value)
 
   @property
   def leaves(self):

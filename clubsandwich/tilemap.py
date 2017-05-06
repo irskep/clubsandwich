@@ -111,7 +111,7 @@ class TileMap:
     for point in Rect(Point(0, 0), self.size).points:
       yield self.cell(point)
 
-  def __get__(self, k):
+  def __getitem__(self, k):
     if isinstance(k, Point):
       return self.cell(k)
     return self.cells[k]
