@@ -61,6 +61,7 @@ Before you dive in, you should probably read the overview of BearLibTerminal
     api_draw.rst
     api_generators.rst
     api_tilemap.rst
+    api_event_dispatcher.rst
     blt/index.rst
     ui/index.rst
     api_babysit.rst
