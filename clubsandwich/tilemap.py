@@ -16,7 +16,7 @@ class Cell:
 
   .. py:attribute:: point
 
-    :py:class::`Point`
+    :py:class:`clubsandwich.geom.Point`
 
   .. py:attribute:: terrain
 
@@ -45,7 +45,7 @@ class Cell:
   """
   def __init__(self, point):
     """
-    :param Point point:
+    :param clubsandwich.geom.Point point:
     """
     self.point = point
     self.terrain = 0
@@ -62,7 +62,7 @@ class TileMap:
 
   .. py:attribute:: size
 
-    :py:class:`Size`
+    :py:class:`clubsandwich.geom.Size`
 
   .. py:attribute:: points_of_interest
 
@@ -82,7 +82,8 @@ class TileMap:
 
   def contains_point(self, point):
     """
-    :param Point point:
+    :param clubsandwich.geom.Point point:
+
     Returns ``True`` iff *point* is within this tilemap's bounds, otherwise
     ``False``.
     """
@@ -90,7 +91,8 @@ class TileMap:
 
   def cell(self, point):
     """
-    :param Point point:
+    :param clubsandwich.geom.Point point:
+
     Returns the cell at the given point, or raises
     :py:class:`CellOutOfBoundsError`.
 

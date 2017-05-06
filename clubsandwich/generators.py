@@ -152,9 +152,8 @@ class BSPNode:
     else:
       return self
 
-  @property
   def random_leaf(self):
-    """A random leaf"""
+    """Returns a random leaf"""
     if self.child_a or self.child_b:
       return choice((self.child_a, self.child_b)).random_leaf
     else:
