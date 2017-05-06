@@ -62,7 +62,7 @@ class EventDispatcher:
 
   def __init__(self):
     self.handlers = {}
-    self._force_abandon_current_events = False
+    self._is_halted = False
 
   def register_event_type(self, name):
     """
@@ -129,5 +129,12 @@ class EventDispatcher:
       if required_entity is None or entity is required_entity:
         method = getattr(obj, method_name)
         method(event)
-      if event._is_halted:
+      if event._is_halted or self._is_halted:
         break
+    self._is_halted = False
+
+  def stop_propagation(self):
+    """
+    Prevent any more handlers for the active event from firing
+    """
+    self._is_halted = True
