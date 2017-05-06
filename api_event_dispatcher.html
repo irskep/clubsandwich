@@ -145,7 +145,7 @@
 <dd><dl class="attribute">
 <dt id="clubsandwich.event_dispatcher.Event.name">
 <code class="descname">name</code><a class="headerlink" href="#clubsandwich.event_dispatcher.Event.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Event name as registered in <code class="xref py py-meth docutils literal"><span class="pre">EventDispatcher.register_event_type()</span></code></p>
+<dd><p>Event name as registered in <a class="reference internal" href="#clubsandwich.event_dispatcher.EventDispatcher.register_event_type" title="clubsandwich.event_dispatcher.EventDispatcher.register_event_type"><code class="xref py py-meth docutils literal"><span class="pre">EventDispatcher.register_event_type()</span></code></a></p>
 </dd></dl>
 
 <dl class="attribute">
@@ -157,13 +157,98 @@
 <dl class="attribute">
 <dt id="clubsandwich.event_dispatcher.Event.data">
 <code class="descname">data</code><a class="headerlink" href="#clubsandwich.event_dispatcher.Event.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Arbitrary data passed to <code class="xref py py-meth docutils literal"><span class="pre">EventDispatcher.fire()</span></code>.</p>
+<dd><p>Arbitrary data passed to <a class="reference internal" href="#clubsandwich.event_dispatcher.EventDispatcher.fire" title="clubsandwich.event_dispatcher.EventDispatcher.fire"><code class="xref py py-meth docutils literal"><span class="pre">EventDispatcher.fire()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="clubsandwich.event_dispatcher.Event.stop_propagation">
 <code class="descname">stop_propagation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.event_dispatcher.Event.stop_propagation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prevent any more handlers for this event from firing</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="clubsandwich.event_dispatcher.EventDispatcher">
+<em class="property">class </em><code class="descclassname">clubsandwich.event_dispatcher.</code><code class="descname">EventDispatcher</code><a class="headerlink" href="#clubsandwich.event_dispatcher.EventDispatcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects and calls object methods in response to events.</p>
+<p>For an event <code class="docutils literal"><span class="pre">foo</span></code>, your subscriber should have a method <code class="docutils literal"><span class="pre">on_foo()</span></code>
+and take one argument, an <a class="reference internal" href="#clubsandwich.event_dispatcher.Event" title="clubsandwich.event_dispatcher.Event"><code class="xref py py-class docutils literal"><span class="pre">Event</span></code></a> instance.</p>
+<dl class="method">
+<dt id="clubsandwich.event_dispatcher.EventDispatcher.add_subscriber">
+<code class="descname">add_subscriber</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em>, <em>entity</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.event_dispatcher.EventDispatcher.add_subscriber" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> (<em>object</em>) &#8211; Object to be called when the event fires</li>
+<li><strong>name</strong> (<em>str|Enum</em>) &#8211; Name of the event. May be a string-valued enum.</li>
+<li><strong>entity</strong> &#8211; If <code class="docutils literal"><span class="pre">None</span></code>, receive all events regardless of their entity.
+Otherwise, only receive events whose entity <code class="docutils literal"><span class="pre">is</span></code> this
+object.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You may subscribe more than once to receive the event multiple times.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.event_dispatcher.EventDispatcher.fire">
+<code class="descname">fire</code><span class="sig-paren">(</span><em>name</em>, <em>entity</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.event_dispatcher.EventDispatcher.fire" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> (<em>object</em>) &#8211; Object that is subscribed</li>
+<li><strong>name</strong> (<em>str|Enum</em>) &#8211; Name of the event. May be a string-valued enum.</li>
+<li><strong>entity</strong> &#8211; Entity, or <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>data</strong> &#8211; Arbitrary data to add to the <a class="reference internal" href="#clubsandwich.event_dispatcher.Event" title="clubsandwich.event_dispatcher.Event"><code class="xref py py-class docutils literal"><span class="pre">Event</span></code></a>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Call all event handlers for the given <em>name</em> + <em>entity</em>, and pass <em>data</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.event_dispatcher.EventDispatcher.register_event_type">
+<code class="descname">register_event_type</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.event_dispatcher.EventDispatcher.register_event_type" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>str|Enum</em>) &#8211; Name of the event. May be a string-valued enum.</td>
+</tr>
+</tbody>
+</table>
+<p>Allow events with the given name to be subscribed to and fired.</p>
+<p>The dispatcher requires you to register events before using them to avoid
+typo-related errors.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.event_dispatcher.EventDispatcher.remove_subscriber">
+<code class="descname">remove_subscriber</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em>, <em>entity</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.event_dispatcher.EventDispatcher.remove_subscriber" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> (<em>object</em>) &#8211; Object that is subscribed</li>
+<li><strong>name</strong> (<em>str|Enum</em>) &#8211; Name of the event. May be a string-valued enum.</li>
+<li><strong>entity</strong> &#8211; Entity originally subscribed to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If you subscribed more than once with the same object/entity pair, you will
+need to unsubscribe more than once as well.</p>
 </dd></dl>
 
 </dd></dl>
