@@ -204,7 +204,6 @@ class RandomBSPTree:
       self.subdivide(node.child_b, iterations_left=iterations_left - 1)
 
   def add_children(self, node):
-    print(node)
     a = self.min_leaf_size
     b = node.max_value - self.min_leaf_size * 2
     if b - a < 1:
