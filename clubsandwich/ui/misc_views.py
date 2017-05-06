@@ -38,11 +38,11 @@ class RectView(View):
     self.style = style
 
   def draw(self, ctx):
-    with ctx.temporary_fg(self.color_fg):
-      with ctx.temporary_bg(self.color_bg):
-        if self.fill or self.clear:
-          ctx.clear_area(self.bounds)
-        draw_rect(self.bounds, self.style, ctx=ctx)
+    ctx.color(self.color_fg)
+    ctx.bkcolor(self.color_bg)
+    if self.fill or self.clear:
+      ctx.clear_area(self.bounds)
+    draw_rect(self.bounds, self.style, ctx=ctx)
 
 
 class WindowView(RectView):
@@ -163,9 +163,8 @@ class ButtonView(View):
 
   def draw(self, ctx):
     if self.clear:
-      with ctx.temporary_fg(self.label_view.color_fg):
-        with ctx.temporary_bg(self.label_view.color_bg):
-          ctx.clear_area(self.bounds)
+      ctx.bkcolor(self.color_bg)
+      ctx.clear_area(self.bounds)
 
   @property
   def text(self):
@@ -249,10 +248,10 @@ class IntStepperView(View):
     if self.is_first_responder:
       color_fg = '#000000'
       color_bg = '#ffffff'
-    with ctx.temporary_fg(color_fg):
-      with ctx.temporary_bg(color_bg):
-        ctx.print(Point(0, 0), '← ')
-        ctx.print(Point(self.bounds.width - 2, 0), ' →')
+    ctx.color(self.color_fg)
+    ctx.bkcolor(self.color_bg)
+    ctx.print(Point(0, 0), '← ')
+    ctx.print(Point(self.bounds.width - 2, 0), ' →')
 
   def terminal_read(self, val):
     if val == terminal.TK_LEFT and (self.min_value is None or self.value > self.min_value):

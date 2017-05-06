@@ -54,24 +54,6 @@ class BearLibTerminalContext(NiceTerminal):
     yield
     self._crop_rect = old_rect
 
-  @contextmanager
-  def temporary_fg(self, fg):
-    old_fg = self._fg
-    if fg != self._fg:
-      _terminal.color(fg)
-    yield
-    if old_fg != self._fg:
-      _terminal.color(_old_fg)
-
-  @contextmanager
-  def temporary_bg(self, bg):
-    old_bg = self._bg
-    if bg != self._bg:
-      _terminal.bkcolor(bg)
-    yield
-    if old_bg != self._bg:
-      _terminal.bkcolor(_old_bg)
-
   def color(self, c):
     self._fg = c
     return _terminal.color(c)

@@ -41,16 +41,16 @@ class SingleLineTextInputView(View):
   def draw(self, ctx):
     color_fg = self.color_selected_fg if self.is_first_responder else self.color_unselected_fg
     color_bg = self.color_selected_bg if self.is_first_responder else self.color_unselected_bg
-    with ctx.temporary_fg(color_fg):
-      with ctx.temporary_bg(color_bg):
-        ctx.print(Point(0, 0), self.text)
+    ctx.color(self.color_fg)
+    ctx.bkcolor(self.color_bg)
+    ctx.print(Point(0, 0), self.text)
 
-        text_len = len(self.text)
-        if self.bounds.width > text_len:
-          ctx.print(Point(text_len, 0), '_' * (self.bounds.width - text_len))
+    text_len = len(self.text)
+    if self.bounds.width > text_len:
+      ctx.print(Point(text_len, 0), '_' * (self.bounds.width - text_len))
 
-        if self.is_first_responder and int(time() * 1.2) % 2 == 0:
-          ctx.put(Point(text_len, 0), '▒')
+    if self.is_first_responder and int(time() * 1.2) % 2 == 0:
+      ctx.put(Point(text_len, 0), '▒')
 
   def debug_string(self):
     return super().debug_string() + ' ' + repr(self.text)
