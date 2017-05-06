@@ -109,7 +109,7 @@ class Point:
 
   @property
   def diagonal_neighbors(self):
-    """Generator of all points that share a corner with this one."""
+    """Generator of all points that share *only* a corner with ``self``."""
     yield self - Point(-1, -1)
     yield self - Point(1, -1)
     yield self - Point(1, 1)

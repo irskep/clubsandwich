@@ -176,7 +176,7 @@ class RandomBSPTree:
   After initialization, the root's leaves represent non-overlapping rectangles
   that completely fill the space.
 
-  :py:attribute:: root
+  .. py:attribute:: root
 
     :py:class:`BSPNode` root of all children
   """
@@ -205,11 +205,14 @@ class RandomBSPTree:
       self.subdivide(node.child_b, iterations_left=iterations_left - 1)
 
   def add_children(self, node):
+    print(node)
     a = self.min_leaf_size
     b = node.max_value - self.min_leaf_size * 2
     if b - a < 1:
       return False
     node.value = self.randrange_func(node.level, a, b)
+    node.child_a = BSPNode(node.rect_a, not node.is_horz, level=node.level+1)
+    node.child_a.parent_weakref = weakref.ref(node)
     node.child_b = BSPNode(node.rect_b, not node.is_horz, level=node.level+1)
     node.child_b.parent_weakref = weakref.ref(node)
     return True
