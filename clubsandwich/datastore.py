@@ -19,8 +19,8 @@ Here's a simple example::
   #  gnome_hard,    3,          #ff00ff,  g
   #  gnome_huge,    4,          #880000,  G
 
-  # To read them, create a :py:class:`DataStore`, passing a class name for
-  # items and an ordered mapping of field name to value:
+  # To read them, create a :py:class:`DataStore`, passing a class name
+  # for items and an ordered mapping of field name to value:
   monster_types = DataStore('MonsterType', (
     ('id', str),
     ('strength', int), # int('5') = 5
