@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Python Module Index &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>clubsandwich.line_of_sight &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,16 +26,15 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-
+    <link rel="next" title="clubsandwich.event_dispatcher" href="api_event_dispatcher.html" />
+    <link rel="prev" title="clubsandwich.tilemap" href="api_tilemap.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
   
-    <link rel="canonical" href="http://steveasleep.com/clubsandwich/py-modindex.html"/>
+    <link rel="canonical" href="http://steveasleep.com/clubsandwich/api_line_of_sight.html"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-
 
   </head>
   <body role="document">
@@ -62,13 +61,13 @@
 
 
 <h3>Navigation</h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api_director.html"><code class="docutils literal"><span class="pre">clubsandwich.director</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_geom.html"><code class="docutils literal"><span class="pre">clubsandwich.geom</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_draw.html"><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_generators.html"><code class="docutils literal"><span class="pre">clubsandwich.generators</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_tilemap.html"><code class="docutils literal"><span class="pre">clubsandwich.tilemap</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_line_of_sight.html"><code class="docutils literal"><span class="pre">clubsandwich.line_of_sight</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">clubsandwich.line_of_sight</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_event_dispatcher.html"><code class="docutils literal"><span class="pre">clubsandwich.event_dispatcher</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_datastore.html"><code class="docutils literal"><span class="pre">clubsandwich.datastore</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="blt/index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
@@ -96,6 +95,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="api_tilemap.html" title="previous chapter"><code class="docutils literal"><span class="pre">clubsandwich.tilemap</span></code></a></li>
+      <li>Next: <a href="api_event_dispatcher.html" title="next chapter"><code class="docutils literal"><span class="pre">clubsandwich.event_dispatcher</span></code></a></li>
   </ul></li>
 </ul>
 </div>
@@ -115,89 +116,20 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
+  <div class="section" id="module-clubsandwich.line_of_sight">
+<span id="clubsandwich-line-of-sight"></span><h1><code class="docutils literal"><span class="pre">clubsandwich.line_of_sight</span></code><a class="headerlink" href="#module-clubsandwich.line_of_sight" title="Permalink to this headline">¶</a></h1>
+<p>Functions related to line of sight calculations</p>
+<dl class="function">
+<dt id="clubsandwich.line_of_sight.get_visible_points">
+<code class="descclassname">clubsandwich.line_of_sight.</code><code class="descname">get_visible_points</code><span class="sig-paren">(</span><em>vantage_point</em>, <em>get_allows_light</em>, <em>max_distance=30</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.line_of_sight.get_visible_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>:param <a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><code class="xref py py-class docutils literal"><span class="pre">clubsandwich.geom.Point</span></code></a> vantage_point:
+:param function get_allows_light: <code class="docutils literal"><span class="pre">get_allows_light(point)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code>
+:param int max_distance:</p>
+<p>Returns a set of all points visible from the given vantage point.</p>
+<p>Adapted from <a class="reference external" href="http://www.roguebasin.com/index.php?title=Python_shadowcasting_implementation">this RogueBasin article</a>.</p>
+</dd></dl>
 
-   <h1>Python Module Index</h1>
-
-   <div class="modindex-jumpbox">
-   <a href="#cap-c"><strong>c</strong></a>
-   </div>
-
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-c"><td></td><td>
-       <strong>c</strong></td><td></td></tr>
-     <tr>
-       <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-       <td>
-       <code class="xref">clubsandwich</code></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_babysit.html#module-clubsandwich.babysit"><code class="xref">clubsandwich.babysit</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="blt/api_blt_context.html#module-clubsandwich.blt.context"><code class="xref">clubsandwich.blt.context</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="blt/api_blt_loop.html#module-clubsandwich.blt.loop"><code class="xref">clubsandwich.blt.loop</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="blt/api_blt_nice_terminal.html#module-clubsandwich.blt.nice_terminal"><code class="xref">clubsandwich.blt.nice_terminal</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="blt/api_blt_state.html#module-clubsandwich.blt.state"><code class="xref">clubsandwich.blt.state</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_datastore.html#module-clubsandwich.datastore"><code class="xref">clubsandwich.datastore</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_director.html#module-clubsandwich.director"><code class="xref">clubsandwich.director</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_draw.html#module-clubsandwich.draw"><code class="xref">clubsandwich.draw</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_event_dispatcher.html#module-clubsandwich.event_dispatcher"><code class="xref">clubsandwich.event_dispatcher</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_generators.html#module-clubsandwich.generators"><code class="xref">clubsandwich.generators</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_geom.html#module-clubsandwich.geom"><code class="xref">clubsandwich.geom</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_line_of_sight.html#module-clubsandwich.line_of_sight"><code class="xref">clubsandwich.line_of_sight</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api_tilemap.html#module-clubsandwich.tilemap"><code class="xref">clubsandwich.tilemap</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+</div>
 
 
           </div>
@@ -212,6 +144,9 @@
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
+      |
+      <a href="_sources/api_line_of_sight.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
 
     
