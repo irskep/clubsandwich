@@ -136,8 +136,8 @@ included implementation, but writing new readers is trivial.</p>
 <span class="c1">#  gnome_hard,    3,          #ff00ff,  g</span>
 <span class="c1">#  gnome_huge,    4,          #880000,  G</span>
 
-<span class="c1"># To read them, create a :py:class:`DataStore`, passing a class name for</span>
-<span class="c1"># items and an ordered mapping of field name to value:</span>
+<span class="c1"># To read them, create a :py:class:`DataStore`, passing a class name</span>
+<span class="c1"># for items and an ordered mapping of field name to value:</span>
 <span class="n">monster_types</span> <span class="o">=</span> <span class="n">DataStore</span><span class="p">(</span><span class="s1">&#39;MonsterType&#39;</span><span class="p">,</span> <span class="p">(</span>
   <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
   <span class="p">(</span><span class="s1">&#39;strength&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="c1"># int(&#39;5&#39;) = 5</span>
