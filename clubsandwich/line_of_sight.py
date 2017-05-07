@@ -20,6 +20,7 @@ def get_visible_points(vantage_point, get_allows_light, max_distance=30):
   Adapted from `this RogueBasin article <http://www.roguebasin.com/index.php?title=Python_shadowcasting_implementation>`_.
   """
   los_cache = set()
+  los_cache.add(vantage_point)
   for region in range(8):
     _cast_light(
       los_cache, get_allows_light,
