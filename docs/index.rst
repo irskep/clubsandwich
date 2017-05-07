@@ -63,6 +63,7 @@ Before you dive in, you should probably read the overview of BearLibTerminal
     api_tilemap.rst
     api_line_of_sight.rst
     api_event_dispatcher.rst
+    api_datastore.rst
     blt/index.rst
     ui/index.rst
     api_babysit.rst
