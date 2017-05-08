@@ -6,6 +6,7 @@ from clubsandwich.datastore import (
   DataStore,
   Source,
   CSVReader,
+  ValidationException,
 )
 
 root = pathlib.Path(__file__).parent.parent
@@ -90,7 +91,6 @@ class SourceTestCase(unittest.TestCase):
     source = self._source(r)
     self.assertRaises(ValueError, source.reload)
 
-
 class DataStoreTestCase(unittest.TestCase):
   def _datastore(self):
     return DataStore('Row', (
@@ -121,3 +121,16 @@ class DataStoreTestCase(unittest.TestCase):
     def _add_duplicates():
       ds.add_source(FakeReader([['a', 'b', 'c', 'd'], ['e', 'f', 'g', 'h']]))
     self.assertRaises(ValueError, _add_duplicates)
+
+  def test_interesting_schema(self):
+    ds = DataStore('Row', (
+      ('first', str),
+      ('second', float),
+    ))
+    ds.add_source(FakeReader([['a', '1.5']]))
+    self.assertEqual(ds.a, ds.row_class('a', 1.5))
+
+    def _throw():
+      ds.add_source(FakeReader([['x', 'beepboop']]))
+    self.assertRaises(ValidationException, _throw)
+

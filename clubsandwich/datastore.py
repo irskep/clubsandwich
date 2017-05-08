@@ -62,6 +62,14 @@ from collections import namedtuple
 from uuid import uuid4
 
 
+class ValidationException(Exception):
+  """
+  Thrown when a row does not match the mapping in your :py:class:`DataStore`
+  instance
+  """
+  pass
+
+
 class Reader:
   """
   Abstract base class for a reader. You can subclass this for your own readers
@@ -170,7 +178,12 @@ class Source:
     self._items_by_key = {}
     self.items = []
     for values in self.reader.read():
-      item = _read_row(self.row_class, self.fields, self.defaults, values)
+      try:
+        item = _read_row(self.row_class, self.fields, self.defaults, values)
+      except:
+        raise ValidationException(
+          "Validation error in reader {} for class {}: row does not match schema: {!r}".format(
+            self.reader.identifier, self.row_class.__name__, values))
       self.items.append(item)
       if item[0] in self._items_by_key:
         raise ValueError(
