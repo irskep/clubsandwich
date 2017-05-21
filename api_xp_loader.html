@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>clubsandwich.line_of_sight &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>clubsandwich.xp_loader &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,13 +26,13 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="clubsandwich.event_dispatcher" href="api_event_dispatcher.html" />
-    <link rel="prev" title="clubsandwich.tilemap" href="api_tilemap.html" />
+    <link rel="next" title="clubsandwich.blt" href="blt/index.html" />
+    <link rel="prev" title="clubsandwich.pcg32" href="api_pcg32.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
   
-    <link rel="canonical" href="http://steveasleep.com/clubsandwich/api_line_of_sight.html"/>
+    <link rel="canonical" href="http://steveasleep.com/clubsandwich/api_xp_loader.html"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
@@ -67,11 +67,11 @@
 <li class="toctree-l1"><a class="reference internal" href="api_draw.html"><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_generators.html"><code class="docutils literal"><span class="pre">clubsandwich.generators</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_tilemap.html"><code class="docutils literal"><span class="pre">clubsandwich.tilemap</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">clubsandwich.line_of_sight</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_line_of_sight.html"><code class="docutils literal"><span class="pre">clubsandwich.line_of_sight</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_event_dispatcher.html"><code class="docutils literal"><span class="pre">clubsandwich.event_dispatcher</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_datastore.html"><code class="docutils literal"><span class="pre">clubsandwich.datastore</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_pcg32.html"><code class="docutils literal"><span class="pre">clubsandwich.pcg32</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_xp_loader.html"><code class="docutils literal"><span class="pre">clubsandwich.xp_loader</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">clubsandwich.xp_loader</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="blt/index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
@@ -98,8 +98,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="api_tilemap.html" title="previous chapter"><code class="docutils literal"><span class="pre">clubsandwich.tilemap</span></code></a></li>
-      <li>Next: <a href="api_event_dispatcher.html" title="next chapter"><code class="docutils literal"><span class="pre">clubsandwich.event_dispatcher</span></code></a></li>
+      <li>Previous: <a href="api_pcg32.html" title="previous chapter"><code class="docutils literal"><span class="pre">clubsandwich.pcg32</span></code></a></li>
+      <li>Next: <a href="blt/index.html" title="next chapter"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a></li>
   </ul></li>
 </ul>
 </div>
@@ -119,17 +119,79 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-clubsandwich.line_of_sight">
-<span id="clubsandwich-line-of-sight"></span><h1><code class="docutils literal"><span class="pre">clubsandwich.line_of_sight</span></code><a class="headerlink" href="#module-clubsandwich.line_of_sight" title="Permalink to this headline">¶</a></h1>
-<p>Functions related to line of sight calculations</p>
+  <div class="section" id="module-clubsandwich.xp_loader">
+<span id="clubsandwich-xp-loader"></span><h1><code class="docutils literal"><span class="pre">clubsandwich.xp_loader</span></code><a class="headerlink" href="#module-clubsandwich.xp_loader" title="Permalink to this headline">¶</a></h1>
+<p>Load the <a class="reference external" href="http://www.gridsagegames.com/rexpaint/">REXPaint</a> file format. If
+you&#8217;re using this with the rest of clubsandwich and not just by itself, you
+probably want to check out <a class="reference internal" href="blt/api_blt_rexpaint_image.html#module-clubsandwich.blt.rexpaint_image" title="clubsandwich.blt.rexpaint_image"><code class="xref py py-mod docutils literal"><span class="pre">clubsandwich.blt.rexpaint_image</span></code></a> instead!
+It&#8217;s much nicer.</p>
+<p>In-memory XP format is as follows:</p>
+<p>Returned structure is a dictionary with the keys <code class="docutils literal"><span class="pre">version</span></code>, <code class="docutils literal"><span class="pre">layers</span></code>,
+<code class="docutils literal"><span class="pre">width</span></code>, <code class="docutils literal"><span class="pre">height</span></code>, and <code class="docutils literal"><span class="pre">layer_data</span></code>.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">version</span></code> is stored in case it&#8217;s useful for someone, but as mentioned in the
+format description it probably won&#8217;t be unless format changes happen.</li>
+<li><code class="docutils literal"><span class="pre">layers</span></code> is a full 32 bit int, though right now REXPaint only exports or
+manages up to 4 layers.</li>
+<li><code class="docutils literal"><span class="pre">width</span></code> and <code class="docutils literal"><span class="pre">height</span></code> are extracted from the layer with largest width and
+height - this value will hold true for all layers for now as per the format
+description.</li>
+<li><code class="docutils literal"><span class="pre">layer_data</span></code> is a list of individual layers, which are stored in the
+following format:<ul>
+<li>Each layer is a dictionary with keys <code class="docutils literal"><span class="pre">width</span></code>, <code class="docutils literal"><span class="pre">height</span></code> (see above),
+and <code class="docutils literal"><span class="pre">cells</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">cells</span></code> is a row major 2d array of, again, dictionaries with the values
+<code class="docutils literal"><span class="pre">keycode</span></code> (ascii keycode), <code class="docutils literal"><span class="pre">fore_r/g/b</span></code>, and <code class="docutils literal"><span class="pre">back_r/g/b</span></code>
+(technically ints but in value 0-255)</li>
+</ul>
+</li>
+</ul>
 <dl class="function">
-<dt id="clubsandwich.line_of_sight.get_visible_points">
-<code class="descclassname">clubsandwich.line_of_sight.</code><code class="descname">get_visible_points</code><span class="sig-paren">(</span><em>vantage_point</em>, <em>get_allows_light</em>, <em>max_distance=30</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.line_of_sight.get_visible_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>:param <a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><code class="xref py py-class docutils literal"><span class="pre">clubsandwich.geom.Point</span></code></a> vantage_point:
-:param function get_allows_light: <code class="docutils literal"><span class="pre">get_allows_light(point)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code>
-:param int max_distance:</p>
-<p>Returns a set of all points visible from the given vantage point.</p>
-<p>Adapted from <a class="reference external" href="http://www.roguebasin.com/index.php?title=Python_shadowcasting_implementation">this RogueBasin article</a>.</p>
+<dt id="clubsandwich.xp_loader.load_xp_file">
+<code class="descclassname">clubsandwich.xp_loader.</code><code class="descname">load_xp_file</code><span class="sig-paren">(</span><em>path</em>, <em>reverse_endian=True</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.xp_loader.load_xp_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a REXPaint image from the given <code class="docutils literal"><span class="pre">.xp</span></code> path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<em>str</em>) &#8211; Path to a <code class="docutils literal"><span class="pre">.xp</span></code> file</li>
+<li><strong>reverse_endian</strong> (<em>bool</em>) &#8211; Controls whether the slices containing data for
+things like layer width, height, number of layers,
+etc. is reversed. So far as I can tell Python is
+doing int conversions in big-endian, while the
+<code class="docutils literal"><span class="pre">.xp</span></code> format stores them in little-endian.
+I may just not be aware of it being unneeded, but
+have it there in case.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clubsandwich.xp_loader.load_xp_string">
+<code class="descclassname">clubsandwich.xp_loader.</code><code class="descname">load_xp_string</code><span class="sig-paren">(</span><em>file_string</em>, <em>reverse_endian=True</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.xp_loader.load_xp_string" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>file_string</strong> (<em>str</em>) &#8211; String contents of a <code class="docutils literal"><span class="pre">.xp</span></code> file generated by
+REXPaint</li>
+<li><strong>reverse_endian</strong> (<em>bool</em>) &#8211; Controls whether the slices containing data for
+things like layer width, height, number of layers,
+etc. is reversed. So far as I can tell Python is
+doing int conversions in big-endian, while the
+<code class="docutils literal"><span class="pre">.xp</span></code> format stores them in little-endian.
+I may just not be aware of it being unneeded, but
+have it there in case.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -148,7 +210,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/api_line_of_sight.rst.txt"
+      <a href="_sources/api_xp_loader.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

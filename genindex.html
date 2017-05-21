@@ -69,11 +69,14 @@
 <li class="toctree-l1"><a class="reference internal" href="api_line_of_sight.html"><code class="docutils literal"><span class="pre">clubsandwich.line_of_sight</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_event_dispatcher.html"><code class="docutils literal"><span class="pre">clubsandwich.event_dispatcher</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_datastore.html"><code class="docutils literal"><span class="pre">clubsandwich.datastore</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_pcg32.html"><code class="docutils literal"><span class="pre">clubsandwich.pcg32</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_xp_loader.html"><code class="docutils literal"><span class="pre">clubsandwich.xp_loader</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="blt/index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_context.html"><code class="docutils literal"><span class="pre">context</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="blt/api_blt_state.html"><code class="docutils literal"><span class="pre">state</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="blt/api_blt_rexpaint_image.html"><code class="docutils literal"><span class="pre">rexpaint_image</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ui/index.html"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a><ul>
@@ -224,6 +227,8 @@
 </li>
       <li><a href="blt/api_blt_nice_terminal.html#module-clubsandwich.blt.nice_terminal">clubsandwich.blt.nice_terminal (module)</a>
 </li>
+      <li><a href="blt/api_blt_rexpaint_image.html#module-clubsandwich.blt.rexpaint_image">clubsandwich.blt.rexpaint_image (module)</a>
+</li>
       <li><a href="blt/api_blt_state.html#module-clubsandwich.blt.state">clubsandwich.blt.state (module)</a>
 </li>
   </ul></td>
@@ -242,7 +247,11 @@
 </li>
       <li><a href="api_line_of_sight.html#module-clubsandwich.line_of_sight">clubsandwich.line_of_sight (module)</a>
 </li>
+      <li><a href="api_pcg32.html#module-clubsandwich.pcg32">clubsandwich.pcg32 (module)</a>
+</li>
       <li><a href="api_tilemap.html#module-clubsandwich.tilemap">clubsandwich.tilemap (module)</a>
+</li>
+      <li><a href="api_xp_loader.html#module-clubsandwich.xp_loader">clubsandwich.xp_loader (module)</a>
 </li>
       <li><a href="ui/concepts.html#clubsandwich.ui.layout_options.LayoutOptions.column_left">column_left() (clubsandwich.ui.layout_options.LayoutOptions class method)</a>
 </li>
@@ -296,8 +305,12 @@
 </li>
       <li><a href="api_director.html#clubsandwich.director.DirectorLoop">DirectorLoop (class in clubsandwich.director)</a>
 </li>
-      <li><a href="ui/concepts.html#clubsandwich.ui.View.draw">draw() (clubsandwich.ui.View method)</a>
+      <li><a href="blt/api_blt_rexpaint_image.html#clubsandwich.blt.rexpaint_image.REXPaintImage.draw">draw() (clubsandwich.blt.rexpaint_image.REXPaintImage method)</a>
+
+      <ul>
+        <li><a href="ui/concepts.html#clubsandwich.ui.View.draw">(clubsandwich.ui.View method)</a>
 </li>
+      </ul></li>
       <li><a href="api_draw.html#clubsandwich.draw.draw_line_horz">draw_line_horz() (in module clubsandwich.draw)</a>
 </li>
       <li><a href="api_draw.html#clubsandwich.draw.draw_line_vert">draw_line_vert() (in module clubsandwich.draw)</a>
@@ -448,10 +461,10 @@
 </li>
       <li><a href="api_generators.html#clubsandwich.generators.BSPNode.leaves">leaves (clubsandwich.generators.BSPNode attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ui/concepts.html#clubsandwich.ui.LayoutOptions.left">left (clubsandwich.ui.LayoutOptions attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_generators.html#clubsandwich.generators.BSPNode.leftmost_leaf">leftmost_leaf (clubsandwich.generators.BSPNode attribute)</a>
 
       <ul>
@@ -459,6 +472,10 @@
 </li>
       </ul></li>
       <li><a href="api_generators.html#clubsandwich.generators.BSPNode.level">level (clubsandwich.generators.BSPNode attribute)</a>
+</li>
+      <li><a href="api_xp_loader.html#clubsandwich.xp_loader.load_xp_file">load_xp_file() (in module clubsandwich.xp_loader)</a>
+</li>
+      <li><a href="api_xp_loader.html#clubsandwich.xp_loader.load_xp_string">load_xp_string() (in module clubsandwich.xp_loader)</a>
 </li>
       <li><a href="blt/api_blt_loop.html#clubsandwich.blt.loop.BearLibTerminalEventLoop.loop_until_terminal_exits">loop_until_terminal_exits() (clubsandwich.blt.loop.BearLibTerminalEventLoop method)</a>
 </li>
@@ -598,6 +615,8 @@
 </li>
       <li><a href="api_director.html#clubsandwich.director.DirectorLoop.replace_scene">replace_scene() (clubsandwich.director.DirectorLoop method)</a>
 </li>
+      <li><a href="blt/api_blt_rexpaint_image.html#clubsandwich.blt.rexpaint_image.REXPaintImage">REXPaintImage (class in clubsandwich.blt.rexpaint_image)</a>
+</li>
       <li><a href="ui/concepts.html#clubsandwich.ui.LayoutOptions.right">right (clubsandwich.ui.LayoutOptions attribute)</a>
 </li>
       <li><a href="api_generators.html#clubsandwich.generators.BSPNode.rightmost_leaf">rightmost_leaf (clubsandwich.generators.BSPNode attribute)</a>
@@ -724,10 +743,12 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.value">value (clubsandwich.generators.BSPNode attribute)</a>
+      <li><a href="api_datastore.html#clubsandwich.datastore.ValidationException">ValidationException</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_generators.html#clubsandwich.generators.BSPNode.value">value (clubsandwich.generators.BSPNode attribute)</a>
+</li>
       <li><a href="ui/concepts.html#clubsandwich.ui.View">View (class in clubsandwich.ui)</a>
 </li>
   </ul></td>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>context &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>rexpaint_image &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -26,13 +26,13 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="state" href="api_blt_state.html" />
-    <link rel="prev" title="nice_terminal" href="api_blt_nice_terminal.html" />
+    <link rel="next" title="clubsandwich.ui" href="../ui/index.html" />
+    <link rel="prev" title="state" href="api_blt_state.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   
-    <link rel="canonical" href="http://steveasleep.com/clubsandwich/blt/api_blt_context.html"/>
+    <link rel="canonical" href="http://steveasleep.com/clubsandwich/blt/api_blt_rexpaint_image.html"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
@@ -75,9 +75,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="api_blt_loop.html"><code class="docutils literal"><span class="pre">loop</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_blt_nice_terminal.html"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">context</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_blt_context.html"><code class="docutils literal"><span class="pre">context</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_blt_state.html"><code class="docutils literal"><span class="pre">state</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_blt_rexpaint_image.html"><code class="docutils literal"><span class="pre">rexpaint_image</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">rexpaint_image</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ui/index.html"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a><ul>
@@ -99,8 +99,8 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html"><code class="docutils literal"><span class="pre">clubsandwich.blt</span></code></a><ul>
-      <li>Previous: <a href="api_blt_nice_terminal.html" title="previous chapter"><code class="docutils literal"><span class="pre">nice_terminal</span></code></a></li>
-      <li>Next: <a href="api_blt_state.html" title="next chapter"><code class="docutils literal"><span class="pre">state</span></code></a></li>
+      <li>Previous: <a href="api_blt_state.html" title="previous chapter"><code class="docutils literal"><span class="pre">state</span></code></a></li>
+      <li>Next: <a href="../ui/index.html" title="next chapter"><code class="docutils literal"><span class="pre">clubsandwich.ui</span></code></a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -121,44 +121,44 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-clubsandwich.blt.context">
-<span id="context"></span><h1><code class="docutils literal"><span class="pre">context</span></code><a class="headerlink" href="#module-clubsandwich.blt.context" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-clubsandwich.blt.rexpaint_image">
+<span id="rexpaint-image"></span><h1><code class="docutils literal"><span class="pre">rexpaint_image</span></code><a class="headerlink" href="#module-clubsandwich.blt.rexpaint_image" title="Permalink to this headline">¶</a></h1>
+<p>Exports a class to load <code class="docutils literal"><span class="pre">.xp</span></code> files and draw them to a BearLibTerminal
+console.</p>
 <dl class="class">
-<dt id="clubsandwich.blt.context.BearLibTerminalContext">
-<em class="property">class </em><code class="descclassname">clubsandwich.blt.context.</code><code class="descname">BearLibTerminalContext</code><a class="headerlink" href="#clubsandwich.blt.context.BearLibTerminalContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class that acts like <a class="reference internal" href="api_blt_nice_terminal.html#clubsandwich.blt.nice_terminal.terminal" title="clubsandwich.blt.nice_terminal.terminal"><code class="xref py py-attr docutils literal"><span class="pre">clubsandwich.blt.nice_terminal.terminal</span></code></a>
-(you can use <code class="xref py py-class docutils literal"><span class="pre">Point</span></code> and <code class="xref py py-class docutils literal"><span class="pre">Rect</span></code> instead of separate
-ints), except:</p>
-<blockquote>
-<div><ul class="simple">
-<li>It&#8217;s a class, so you have to instantiate it</li>
-<li>It includes a context manager, <a class="reference internal" href="#clubsandwich.blt.context.BearLibTerminalContext.translate" title="clubsandwich.blt.context.BearLibTerminalContext.translate"><code class="xref py py-meth docutils literal"><span class="pre">translate()</span></code></a>, that offsets all
-position-related calls.</li>
-<li>Multiple calls to <code class="xref py py-meth docutils literal"><span class="pre">color()</span></code> and <code class="xref py py-meth docutils literal"><span class="pre">bkcolor()</span></code> with the same
-values are ignored, saving time in the C FFI bridge.</li>
-</ul>
-</div></blockquote>
-<p>Example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">clubsandwich.blt.context</span> <span class="k">import</span> <span class="n">BearLibTerminalContext</span>
-<span class="kn">from</span> <span class="nn">clubsandwich.geom</span> <span class="k">import</span> <span class="n">Point</span>
-
-<span class="n">ctx</span> <span class="o">=</span> <span class="n">BearLibTerminalContext</span><span class="p">()</span>
-<span class="n">ctx</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">ctx</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-  <span class="n">terminal</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
-  <span class="n">terminal</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">terminal</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
-<span class="n">terminal</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">terminal</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
+<dt id="clubsandwich.blt.rexpaint_image.REXPaintImage">
+<em class="property">class </em><code class="descclassname">clubsandwich.blt.rexpaint_image.</code><code class="descname">REXPaintImage</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.rexpaint_image.REXPaintImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads REXPaint (<code class="docutils literal"><span class="pre">.xp</span></code>) images and draws them to a BearLibTerminal console.</p>
+<p>Note that while REXPaint lets you specify background colors for any layer,
+BearLibTerminal only supports it for layer 0. To work around this, the layer
+0 background colors are overwritten by non-transparent background colors of
+higher layers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to a <code class="docutils literal"><span class="pre">.xp</span></code> file</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
-<dt id="clubsandwich.blt.context.BearLibTerminalContext.translate">
-<code class="descname">translate</code><span class="sig-paren">(</span><em>offset_delta</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.context.BearLibTerminalContext.translate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Inside this context manager, all put/print calls are offset by the given
-amount. If you nest these, they stack.</p>
+<dt id="clubsandwich.blt.rexpaint_image.REXPaintImage.draw">
+<code class="descname">draw</code><span class="sig-paren">(</span><em>point</em>, <em>layer=0</em>, <em>terminal=None</em>, <em>default_bg_color=None</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.blt.rexpaint_image.REXPaintImage.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw the image at the given point. If <em>terminal</em> is provided, it should be
+a <a class="reference internal" href="api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><code class="xref py py-class docutils literal"><span class="pre">BearLibTerminalContext</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>point</strong> (<a class="reference internal" href="../api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>clubsandwich.geom.Point</em></a>) &#8211; origin</li>
+<li><strong>layer</strong> (<em>int</em>) &#8211; Image layer to draw (default 0)</li>
+<li><strong>terminal</strong> &#8211; Terminal to draw to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -179,7 +179,7 @@ amount. If you nest these, they stack.</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/blt/api_blt_context.rst.txt"
+      <a href="../_sources/blt/api_blt_rexpaint_image.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
