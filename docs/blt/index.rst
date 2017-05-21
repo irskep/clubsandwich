@@ -11,3 +11,4 @@ Lightweight wrappers around
     api_blt_nice_terminal.rst
     api_blt_context.rst
     api_blt_state.rst
+    api_blt_rexpaint_image.rst

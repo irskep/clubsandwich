@@ -65,6 +65,7 @@ Before you dive in, you should probably read the overview of BearLibTerminal
     api_event_dispatcher.rst
     api_datastore.rst
     api_pcg32.rst
+    api_xp_loader.rst
     blt/index.rst
     ui/index.rst
     api_babysit.rst
