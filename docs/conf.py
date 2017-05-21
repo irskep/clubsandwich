@@ -19,10 +19,10 @@ master_doc = 'index'
 project = u'clubsandwich'
 copyright = u'2017 Steve Johnson'
 # The short X.Y version. Can refer to in docs with |version|.
-version = '0.1'
+version = '0.1.0'
 # The full version, including alpha/beta/rc tags.
 # Can refer to in docs with |release|.
-release = '0.1a1'
+release = '0.1.0'
 #language = None
 
 html_title = "%(project)s v%(release)s docs - roguelike framework for Python" % {
