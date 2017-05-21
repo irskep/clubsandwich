@@ -1,3 +1,7 @@
+"""
+Demonstrates the ``nice_terminal`` and ``geom`` modules.
+"""
+
 from clubsandwich.blt.nice_terminal import terminal
 from clubsandwich.geom import Point
 

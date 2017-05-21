@@ -22,9 +22,9 @@ class SingleLineTextInputView(View):
       self,
       callback, initial_value="",
       color_unselected_fg='#ffffff',
-      color_unselected_bg=None,
+      color_unselected_bg='#000000',
       color_selected_fg='#ffff00',
-      color_selected_bg=None,
+      color_selected_bg='#000000',
       *args, **kwargs):
     super().__init__(*args, **kwargs)
     self.text = initial_value
@@ -41,11 +41,12 @@ class SingleLineTextInputView(View):
   def draw(self, ctx):
     color_fg = self.color_selected_fg if self.is_first_responder else self.color_unselected_fg
     color_bg = self.color_selected_bg if self.is_first_responder else self.color_unselected_bg
-    ctx.color(self.color_fg)
-    ctx.bkcolor(self.color_bg)
+    ctx.color(color_fg)
+    ctx.bkcolor(color_bg)
     ctx.print(Point(0, 0), self.text)
 
     text_len = len(self.text)
+
     if self.bounds.width > text_len:
       ctx.print(Point(text_len, 0), '_' * (self.bounds.width - text_len))
 

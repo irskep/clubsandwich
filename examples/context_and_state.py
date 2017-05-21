@@ -1,3 +1,6 @@
+"""
+Demonstrates BearLibTerminalContext (more convenient rendering) and blt_state
+"""
 from clubsandwich.blt.state import blt_state
 from clubsandwich.blt.context import BearLibTerminalContext
 from clubsandwich.geom import Rect, Size, Point

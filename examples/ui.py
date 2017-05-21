@@ -51,6 +51,9 @@ class MainMenuScene(UIScene):
         ]
         super().__init__(views, *args, **kwargs)
 
+    def become_active(self):
+        self.ctx.clear()
+
     def play(self):
         self.director.push_scene(CharacterCreationScene())
 

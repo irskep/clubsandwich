@@ -248,8 +248,8 @@ class IntStepperView(View):
     if self.is_first_responder:
       color_fg = '#000000'
       color_bg = '#ffffff'
-    ctx.color(self.color_fg)
-    ctx.bkcolor(self.color_bg)
+    ctx.color(color_fg)
+    ctx.bkcolor(color_bg)
     ctx.print(Point(0, 0), '← ')
     ctx.print(Point(self.bounds.width - 2, 0), ' →')
 

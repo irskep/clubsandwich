@@ -82,7 +82,10 @@ class DirectorLoop(BearLibTerminalEventLoop):
     @property
     def active_scene(self):
         """The scene on top of the stack which is receiving keyboard events."""
-        return self.scene_stack[-1]
+        if self.scene_stack:
+            return self.scene_stack[-1]
+        else:
+            return None
 
     def replace_scene(self, new_value):
         """
@@ -100,9 +103,12 @@ class DirectorLoop(BearLibTerminalEventLoop):
 
         Push a scene onto the stack and make it active.
         """
+        if self.active_scene:
+            self.active_scene.resign_active()
         self.scene_stack.append(new_value)
         new_value.director = self
         new_value.enter(self.ctx)
+        new_value.become_active()
 
     def pop_scene(self, may_exit=True):
         """
@@ -111,11 +117,15 @@ class DirectorLoop(BearLibTerminalEventLoop):
 
         Pop a scene off the stack and make the next topmost one active.
         """
+        if self.active_scene:
+            self.active_scene.resign_active()
         if self.scene_stack:
             last_scene = self.scene_stack.pop()
             last_scene.exit()
             last_scene.director = None
-        if may_exit and not self.scene_stack:
+        if self.active_scene:
+            self.active_scene.become_active()
+        elif may_exit:
             self.should_exit = True
 
     def quit(self):
@@ -123,7 +133,7 @@ class DirectorLoop(BearLibTerminalEventLoop):
         Pop all scenes off the stack and exit the loop.
         """
         while self.scene_stack:
-            self.pop_scene()
+            self.pop_scene(may_exit=True)
 
     def pop_to_first_scene(self):
         """
@@ -179,9 +189,6 @@ class DirectorLoop(BearLibTerminalEventLoop):
         You don't need to call or subclass this method.
         """
         if char == terminal.TK_CLOSE:
-            self.quit()
-            return True
-        if char == terminal.TK_C and blt_state.control:
             self.quit()
             return True
         if self.scene_stack:
@@ -254,6 +261,18 @@ class Scene():
     def exit(self):
         """
         Called by :py:class:`DirectorLoop` when removed from the stack.
+        """
+
+    def become_active(self):
+        """
+        Called by :py:class:`DirectorLoop` when becoming the active scene.
+        Always called after :py:meth:`enter`.
+        """
+
+    def resign_active(self):
+        """
+        Called by :py:class:`DirectorLoop` when this scene is about to stop
+        being the active scene. Always called before :py:meth:`exit`.
         """
 
     def terminal_update(self, is_active=False):
