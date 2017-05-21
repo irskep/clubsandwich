@@ -21,6 +21,11 @@ Simple event dispatch system. It works like this::
 
   dispatcher.fire('foo', None, None)  # prints 'a'
   dispatcher.fire('foo', player, None)  # prints 'a' and 'b'
+
+.. note::
+
+  Having used this in a game, I think I'm going to try something totally
+  different next time. This class will probably be removed in the next release.
 """
 from enum import Enum
 
