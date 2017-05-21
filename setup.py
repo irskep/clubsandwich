@@ -2,14 +2,14 @@ from setuptools import setup, find_packages
 
 setup(
     name='clubsandwich',
-    version='0.1.0a1',
+    version='0.1.0',
     author='Steve Johnson',
     author_email='steve@steveasleep.com',
     license='MIT',
     packages=find_packages(exclude=["docs"]),
-    url='https://github.com/irskep/clubsandwich',
+    url='http://steveasleep.com/clubsandwich',
     install_requires=[
-        'bearlibterminal',
+        'bearlibterminal>=0.15',
     ],
     entry_points='''
         [console_scripts]
@@ -22,5 +22,6 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
 )
