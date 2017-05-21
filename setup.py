@@ -6,7 +6,7 @@ setup(
     author='Steve Johnson',
     author_email='steve@steveasleep.com',
     license='MIT',
-    packages=find_packages(exclude=["docs"]),
+    packages=find_packages(exclude=["docs", "examples"]),
     url='http://steveasleep.com/clubsandwich',
     install_requires=[
         'bearlibterminal>=0.15',
