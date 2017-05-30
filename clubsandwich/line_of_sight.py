@@ -11,7 +11,7 @@ MULT = [
 ]
 def get_visible_points(vantage_point, get_allows_light, max_distance=30):
   """
-  :param :py:class:`clubsandwich.geom.Point` vantage_point:
+  :param clubsandwich.geom.Point vantage_point:
   :param function get_allows_light: ``get_allows_light(point) -> bool``
   :param int max_distance:
 
