@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>clubsandwich.generators &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>clubsandwich.generators &#8212; clubsandwich v0.1.3 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1a1',
+        VERSION:     '0.1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -167,7 +167,7 @@ with the left node taking up 6 cells and the right taking up 4.</p>
 <dl class="attribute">
 <dt id="clubsandwich.generators.BSPNode.data">
 <code class="descname">data</code><a class="headerlink" href="#clubsandwich.generators.BSPNode.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dict of arbitrary data for your game&#8217;s use.</p>
+<dd><p>Dict of arbitrary data for your game’s use.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -178,7 +178,7 @@ with the left node taking up 6 cells and the right taking up 4.</p>
 
 <dl class="method">
 <dt id="clubsandwich.generators.BSPNode.get_node_at_path">
-<code class="descname">get_node_at_path</code><span class="sig-paren">(</span><em>spec=''</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.generators.BSPNode.get_node_at_path" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_node_at_path</code><span class="sig-paren">(</span><em>spec=”</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.generators.BSPNode.get_node_at_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a string containing only the characters <code class="docutils literal"><span class="pre">'a'</span></code> and <code class="docutils literal"><span class="pre">'b'</span></code>, return
 the node matching the given branches. For example, in a tree with 4
 leaves, <code class="docutils literal"><span class="pre">root.get_node_at_path('aa')</span></code> would return the left/top-most
@@ -241,7 +241,7 @@ leaf.</p>
 <dt id="clubsandwich.generators.RandomBSPTree">
 <em class="property">class </em><code class="descclassname">clubsandwich.generators.</code><code class="descname">RandomBSPTree</code><span class="sig-paren">(</span><em>size</em>, <em>min_leaf_size</em>, <em>randrange_func=&lt;function &lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.generators.RandomBSPTree" title="Permalink to this definition">¶</a></dt>
 <dd><p>A randomly generated BSP tree. Pass a dungeon size and minimum leaf size.
-After initialization, the root&#8217;s leaves represent non-overlapping rectangles
+After initialization, the root’s leaves represent non-overlapping rectangles
 that completely fill the space.</p>
 <dl class="attribute">
 <dt id="clubsandwich.generators.RandomBSPTree.root">
@@ -263,7 +263,7 @@ that completely fill the space.</p>
       &copy;2017 Steve Johnson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

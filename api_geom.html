@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>clubsandwich.geom &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>clubsandwich.geom &#8212; clubsandwich v0.1.3 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1a1',
+        VERSION:     '0.1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -130,8 +130,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>Real</em>) &#8211; </li>
-<li><strong>y</strong> (<em>Real</em>) &#8211; </li>
+<li><strong>x</strong> (<em>Real</em>) – </li>
+<li><strong>y</strong> (<em>Real</em>) – </li>
 </ul>
 </td>
 </tr>
@@ -172,7 +172,7 @@ points, and supports multiplication and division with numbers.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>candidates</strong> (<em></em><em>[</em><a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a><em>]</em><em></em>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>candidates</strong> (<em>[</em><a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a><em>]</em>) – </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><code class="xref py py-class docutils literal"><span class="pre">Point</span></code></a></td>
 </tr>
@@ -188,7 +188,7 @@ points, and supports multiplication and division with numbers.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>candidates</strong> (<em></em><em>[</em><a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a><em>]</em><em></em>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>candidates</strong> (<em>[</em><a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a><em>]</em>) – </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><code class="xref py py-class docutils literal"><span class="pre">Point</span></code></a></td>
 </tr>
@@ -231,7 +231,7 @@ this one.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) – </td>
 </tr>
 </tbody>
 </table>
@@ -249,8 +249,8 @@ and <code class="docutils literal"><span class="pre">other</span></code>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>origin</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </li>
-<li><strong>size</strong> (<a class="reference internal" href="#clubsandwich.geom.Size" title="clubsandwich.geom.Size"><em>Size</em></a>) &#8211; </li>
+<li><strong>origin</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) – </li>
+<li><strong>size</strong> (<a class="reference internal" href="#clubsandwich.geom.Size" title="clubsandwich.geom.Size"><em>Size</em></a>) – </li>
 </ul>
 </td>
 </tr>
@@ -293,7 +293,7 @@ and <code class="docutils literal"><span class="pre">other</span></code>.</p>
 <dl class="method">
 <dt id="clubsandwich.geom.Rect.contains">
 <code class="descname">contains</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.geom.Rect.contains" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <code class="docutils literal"><span class="pre">True</span></code> iff <code class="docutils literal"><span class="pre">self</span></code> contains all of <code class="docutils literal"><span class="pre">other</span></code>&#8216;s points</p>
+<dd><p>Returns <code class="docutils literal"><span class="pre">True</span></code> iff <code class="docutils literal"><span class="pre">self</span></code> contains all of <code class="docutils literal"><span class="pre">other</span></code>’s points</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -316,14 +316,14 @@ copies</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>min_size</strong> (<a class="reference internal" href="#clubsandwich.geom.Size" title="clubsandwich.geom.Size"><em>Size</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>min_size</strong> (<a class="reference internal" href="#clubsandwich.geom.Size" title="clubsandwich.geom.Size"><em>Size</em></a>) – </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#clubsandwich.geom.Rect" title="clubsandwich.geom.Rect"><code class="xref py py-class docutils literal"><span class="pre">Rect</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Returns a random rect inside <code class="docutils literal"><span class="pre">self</span></code> with the given minimum size. Returns
-<code class="docutils literal"><span class="pre">self</span></code> unmodified if size won&#8217;t fit.</p>
+<code class="docutils literal"><span class="pre">self</span></code> unmodified if size won’t fit.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -345,7 +345,7 @@ copies</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delta</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delta</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) – </td>
 </tr>
 </tbody>
 </table>
@@ -385,7 +385,7 @@ copies</p>
 <dl class="attribute">
 <dt id="clubsandwich.geom.Rect.points_corners">
 <code class="descname">points_corners</code><a class="headerlink" href="#clubsandwich.geom.Rect.points_corners" title="Permalink to this definition">¶</a></dt>
-<dd><p>Iterator of all four points in this rect&#8217;s corners</p>
+<dd><p>Iterator of all four points in this rect’s corners</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -419,7 +419,7 @@ copies</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>inset</strong> (<em>Point|Real</em>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>inset</strong> (<em>Point|Real</em>) – </td>
 </tr>
 </tbody>
 </table>
@@ -436,7 +436,7 @@ amounts specified in each coordinate.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_origin</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_origin</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) – </td>
 </tr>
 </tbody>
 </table>
@@ -450,7 +450,7 @@ amounts specified in each coordinate.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_size</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_size</strong> (<a class="reference internal" href="#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) – </td>
 </tr>
 </tbody>
 </table>
@@ -491,8 +491,8 @@ amounts specified in each coordinate.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>width</strong> (<em>Real</em>) &#8211; </li>
-<li><strong>height</strong> (<em>Real</em>) &#8211; </li>
+<li><strong>width</strong> (<em>Real</em>) – </li>
+<li><strong>height</strong> (<em>Real</em>) – </li>
 </ul>
 </td>
 </tr>
@@ -526,7 +526,7 @@ amounts specified in each coordinate.</p>
       &copy;2017 Steve Johnson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

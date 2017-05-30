@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>clubsandwich.tilemap &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>clubsandwich.tilemap &#8212; clubsandwich v0.1.3 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1a1',
+        VERSION:     '0.1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -125,7 +125,7 @@
 <dl class="class">
 <dt id="clubsandwich.tilemap.Cell">
 <em class="property">class </em><code class="descclassname">clubsandwich.tilemap.</code><code class="descname">Cell</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.tilemap.Cell" title="Permalink to this definition">¶</a></dt>
-<dd><p>One cell at a point in 2D space. You&#8217;ll probably want to subclass this to add
+<dd><p>One cell at a point in 2D space. You’ll probably want to subclass this to add
 your own data.</p>
 <dl class="attribute">
 <dt id="clubsandwich.tilemap.Cell.point">
@@ -142,7 +142,7 @@ your own data.</p>
 <dl class="attribute">
 <dt id="clubsandwich.tilemap.Cell.feature">
 <code class="descname">feature</code><a class="headerlink" href="#clubsandwich.tilemap.Cell.feature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Arbitrary value representing the &#8220;feature&#8221; (exit, furniture...) on this
+<dd><p>Arbitrary value representing the “feature” (exit, furniture…) on this
 cell, if any</p>
 </dd></dl>
 
@@ -157,7 +157,7 @@ cell, if any</p>
 <code class="descname">annotations</code><a class="headerlink" href="#clubsandwich.tilemap.Cell.annotations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set of arbitrary values. Original use was to let a level generator give a
 hint to the draw function. For example if the generator places a
-rectangular room, it can mark cells as &#8216;corner-top-left&#8217;, &#8216;wall-vert&#8217;,
+rectangular room, it can mark cells as ‘corner-top-left’, ‘wall-vert’,
 etc.</p>
 </dd></dl>
 
@@ -178,9 +178,9 @@ cells in a map.</p>
 
 <dl class="class">
 <dt id="clubsandwich.tilemap.TileMap">
-<em class="property">class </em><code class="descclassname">clubsandwich.tilemap.</code><code class="descname">TileMap</code><span class="sig-paren">(</span><em>size</em>, <em>cell_class=&lt;class 'clubsandwich.tilemap.Cell'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.tilemap.TileMap" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">clubsandwich.tilemap.</code><code class="descname">TileMap</code><span class="sig-paren">(</span><em>size</em>, <em>cell_class=&lt;class ‘clubsandwich.tilemap.Cell’&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.tilemap.TileMap" title="Permalink to this definition">¶</a></dt>
 <dd><p>A collection of cells within a rectangular 2D area, with various convenience
-methods. You&#8217;ll probably want to subclass this to add your own.</p>
+methods. You’ll probably want to subclass this to add your own.</p>
 <dl class="attribute">
 <dt id="clubsandwich.tilemap.TileMap.size">
 <code class="descname">size</code><a class="headerlink" href="#clubsandwich.tilemap.TileMap.size" title="Permalink to this definition">¶</a></dt>
@@ -201,7 +201,7 @@ data to game logic, for example to define mob positions.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>clubsandwich.geom.Point</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>clubsandwich.geom.Point</em></a>) – </td>
 </tr>
 </tbody>
 </table>
@@ -226,11 +226,11 @@ data to game logic, for example to define mob positions.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>clubsandwich.geom.Point</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>clubsandwich.geom.Point</em></a>) – </td>
 </tr>
 </tbody>
 </table>
-<p>Returns <code class="docutils literal"><span class="pre">True</span></code> iff <em>point</em> is within this tilemap&#8217;s bounds, otherwise
+<p>Returns <code class="docutils literal"><span class="pre">True</span></code> iff <em>point</em> is within this tilemap’s bounds, otherwise
 <code class="docutils literal"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
@@ -248,7 +248,7 @@ data to game logic, for example to define mob positions.</p>
       &copy;2017 Steve Johnson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

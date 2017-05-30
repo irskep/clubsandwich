@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>clubsandwich.director &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>clubsandwich.director &#8212; clubsandwich v0.1.3 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1a1',
+        VERSION:     '0.1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -128,7 +128,7 @@ the screen (scene) that the player is seeing and interacting with, and
 lets you switch to another one.</p>
 <p>Scenes are stored in a stack. To go back to the previous scene, you pop
 off the top of the stack. If there are no more scenes, the loop exits.</p>
-<p>Here&#8217;s a simple example:</p>
+<p>Here’s a simple example:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bearlibterminal</span> <span class="k">import</span> <span class="n">terminal</span>
 <span class="kn">from</span> <span class="nn">clubsandwich.director</span> <span class="k">import</span> <span class="n">DirectorLoop</span><span class="p">,</span> <span class="n">Scene</span>
 
@@ -208,7 +208,7 @@ subclassing it, instantiate it and call <code class="docutils literal"><span cla
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>may_exit</strong> (<em>bool</em>) &#8211; If <code class="docutils literal"><span class="pre">False</span></code>, the loop will not exit if there
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>may_exit</strong> (<em>bool</em>) – If <code class="docutils literal"><span class="pre">False</span></code>, the loop will not exit if there
 are no more scenes in the stack.</td>
 </tr>
 </tbody>
@@ -229,7 +229,7 @@ are no more scenes in the stack.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_value</strong> (<a class="reference internal" href="#clubsandwich.director.Scene" title="clubsandwich.director.Scene"><em>Scene</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_value</strong> (<a class="reference internal" href="#clubsandwich.director.Scene" title="clubsandwich.director.Scene"><em>Scene</em></a>) – </td>
 </tr>
 </tbody>
 </table>
@@ -249,7 +249,7 @@ are no more scenes in the stack.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_value</strong> (<a class="reference internal" href="#clubsandwich.director.Scene" title="clubsandwich.director.Scene"><em>Scene</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_value</strong> (<a class="reference internal" href="#clubsandwich.director.Scene" title="clubsandwich.director.Scene"><em>Scene</em></a>) – </td>
 </tr>
 </tbody>
 </table>
@@ -270,19 +270,19 @@ first scene to the stack.</p>
 <dl class="method">
 <dt id="clubsandwich.director.DirectorLoop.terminal_read">
 <code class="descname">terminal_read</code><span class="sig-paren">(</span><em>char</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.DirectorLoop.terminal_read" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="#clubsandwich.director.DirectorLoop" title="clubsandwich.director.DirectorLoop"><code class="xref py py-class docutils literal"><span class="pre">DirectorLoop</span></code></a>&#8216;s implementation of
+<dd><p><a class="reference internal" href="#clubsandwich.director.DirectorLoop" title="clubsandwich.director.DirectorLoop"><code class="xref py py-class docutils literal"><span class="pre">DirectorLoop</span></code></a>’s implementation of
 <code class="xref py py-meth docutils literal"><span class="pre">BearLibTerminalEventLoop.terminal_read()</span></code>. Forwards events to
 the active scene.</p>
-<p>You don&#8217;t need to call or subclass this method.</p>
+<p>You don’t need to call or subclass this method.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="clubsandwich.director.DirectorLoop.terminal_update">
 <code class="descname">terminal_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.DirectorLoop.terminal_update" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="#clubsandwich.director.DirectorLoop" title="clubsandwich.director.DirectorLoop"><code class="xref py py-class docutils literal"><span class="pre">DirectorLoop</span></code></a>&#8216;s implementation of
+<dd><p><a class="reference internal" href="#clubsandwich.director.DirectorLoop" title="clubsandwich.director.DirectorLoop"><code class="xref py py-class docutils literal"><span class="pre">DirectorLoop</span></code></a>’s implementation of
 <code class="xref py py-meth docutils literal"><span class="pre">BearLibTerminalEventLoop.terminal_update()</span></code>. Updates the
 active scene and any visible behind it.</p>
-<p>You don&#8217;t need to call or subclass this method.</p>
+<p>You don’t need to call or subclass this method.</p>
 </dd></dl>
 
 </dd></dl>
@@ -295,7 +295,7 @@ active scene and any visible behind it.</p>
 <dt id="clubsandwich.director.Scene.covers_screen">
 <code class="descname">covers_screen</code><a class="headerlink" href="#clubsandwich.director.Scene.covers_screen" title="Permalink to this definition">¶</a></dt>
 <dd><p>If <code class="docutils literal"><span class="pre">True</span></code>, no scenes under this one in the stack will be drawn by
-<a class="reference internal" href="#clubsandwich.director.DirectorLoop" title="clubsandwich.director.DirectorLoop"><code class="xref py py-class docutils literal"><span class="pre">DirectorLoop</span></code></a>. You&#8217;ll probably want to set this to
+<a class="reference internal" href="#clubsandwich.director.DirectorLoop" title="clubsandwich.director.DirectorLoop"><code class="xref py py-class docutils literal"><span class="pre">DirectorLoop</span></code></a>. You’ll probably want to set this to
 <code class="docutils literal"><span class="pre">True</span></code> in most cases, unless you really want the lower scenes to
 show through (e.g. popups).</p>
 </dd></dl>
@@ -307,7 +307,7 @@ show through (e.g. popups).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reader</strong> (<em>Object</em>) &#8211; An object that has a method <code class="docutils literal"><span class="pre">terminal_read(val)</span></code></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reader</strong> (<em>Object</em>) – An object that has a method <code class="docutils literal"><span class="pre">terminal_read(val)</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -317,12 +317,19 @@ All input is sent to all readers.</p>
 of the details for <code class="xref py py-mod docutils literal"><span class="pre">clubsandwich.ui</span></code>.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="clubsandwich.director.Scene.become_active">
+<code class="descname">become_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.Scene.become_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by <a class="reference internal" href="#clubsandwich.director.DirectorLoop" title="clubsandwich.director.DirectorLoop"><code class="xref py py-class docutils literal"><span class="pre">DirectorLoop</span></code></a> when becoming the active scene.
+Always called after <a class="reference internal" href="#clubsandwich.director.Scene.enter" title="clubsandwich.director.Scene.enter"><code class="xref py py-meth docutils literal"><span class="pre">enter()</span></code></a>.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="clubsandwich.director.Scene.director">
 <code class="descname">director</code><a class="headerlink" href="#clubsandwich.director.Scene.director" title="Permalink to this definition">¶</a></dt>
 <dd><p>Weak reference to the director this scene is managed by. Becomes
 <code class="docutils literal"><span class="pre">None</span></code> if the director is garbage collected, or if this scene is
-removed from the director&#8217;s stack.</p>
+removed from the director’s stack.</p>
 </dd></dl>
 
 <dl class="method">
@@ -344,12 +351,19 @@ removed from the director&#8217;s stack.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reader</strong> (<em>Object</em>) &#8211; An object in the list of terminal readers</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reader</strong> (<em>Object</em>) – An object in the list of terminal readers</td>
 </tr>
 </tbody>
 </table>
 <p>Stop calling <code class="docutils literal"><span class="pre">reader.terminal_read(val)</span></code> when this scene receives
 events.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clubsandwich.director.Scene.resign_active">
+<code class="descname">resign_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.director.Scene.resign_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by <a class="reference internal" href="#clubsandwich.director.DirectorLoop" title="clubsandwich.director.DirectorLoop"><code class="xref py py-class docutils literal"><span class="pre">DirectorLoop</span></code></a> when this scene is about to stop
+being the active scene. Always called before <a class="reference internal" href="#clubsandwich.director.Scene.exit" title="clubsandwich.director.Scene.exit"><code class="xref py py-meth docutils literal"><span class="pre">exit()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -359,7 +373,7 @@ events.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>char</strong> (<em>str</em>) &#8211; Return value of <code class="docutils literal"><span class="pre">BearLibTerminal.terminal.read()</span></code>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>char</strong> (<em>str</em>) – Return value of <code class="docutils literal"><span class="pre">BearLibTerminal.terminal.read()</span></code>.</td>
 </tr>
 </tbody>
 </table>
@@ -373,7 +387,7 @@ events.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>is_active</strong> (<em>bool</em>) &#8211; <a class="reference internal" href="#clubsandwich.director.DirectorLoop" title="clubsandwich.director.DirectorLoop"><code class="xref py py-class docutils literal"><span class="pre">DirectorLoop</span></code></a> will pass <code class="docutils literal"><span class="pre">True</span></code>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>is_active</strong> (<em>bool</em>) – <a class="reference internal" href="#clubsandwich.director.DirectorLoop" title="clubsandwich.director.DirectorLoop"><code class="xref py py-class docutils literal"><span class="pre">DirectorLoop</span></code></a> will pass <code class="docutils literal"><span class="pre">True</span></code>
 iff this scene is topmost in the stack.</td>
 </tr>
 </tbody>
@@ -396,7 +410,7 @@ it in the stack have set <code class="docutils literal"><span class="pre">covers
       &copy;2017 Steve Johnson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

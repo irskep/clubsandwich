@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>clubsandwich &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>clubsandwich &#8212; clubsandwich v0.1.3 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1a1',
+        VERSION:     '0.1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -36,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -124,20 +124,20 @@
 <p><a class="reference external" href="https://github.com/irskep/clubsandwich">Source code</a></p>
 <div class="section" id="what-is-this">
 <h2>What is this?<a class="headerlink" href="#what-is-this" title="Permalink to this headline">¶</a></h2>
-<p>Imagine you want to write a roguelike, you don&#8217;t want to roll your own
+<p>Imagine you want to write a roguelike, you don’t want to roll your own
 framework from scratch, and you want to use Python.</p>
 <p>The most mature option for doing this is
 <a class="reference external" href="https://pypi.python.org/pypi/libtcod-cffi">libtcod-cffi</a>, which is a
 kitchen sink of roguelike development utilities like terminal graphics,
 pathfinding, random numbers, noise generators, config file parsers, and data
-structures. But it&#8217;s pretty heavy, the docs aren&#8217;t great, and it&#8217;s an icky
-C API. And while it covers a lot of things you need for a roguelike, it doesn&#8217;t
+structures. But it’s pretty heavy, the docs aren’t great, and it’s an icky
+C API. And while it covers a lot of things you need for a roguelike, it doesn’t
 help you much with your UI or state management.</p>
 <p>If that sounds like a decent tradeoff, go try <code class="docutils literal"><span class="pre">libtcod-cffi</span></code> and be happy!
-But there&#8217;s another library,
+But there’s another library,
 <a class="reference external" href="http://foo.wyrd.name/en:bearlibterminal">BearLibTerminal</a>, that only
-handles terminal graphics. It&#8217;s tiny and understandable. Clubsandwich
-builds on BearLibTerminal (BLT...) to add a nice API, state management, easy
+handles terminal graphics. It’s tiny and understandable. Clubsandwich
+builds on BearLibTerminal (BLT…) to add a nice API, state management, easy
 UI, and some other helpful stuff.</p>
 <div class="section" id="features">
 <h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
@@ -211,13 +211,13 @@ expect reasonable API stability!</p>
 <img alt="_images/screenshot2.png" src="_images/screenshot2.png" />
 <div class="section" id="developing">
 <h3>Developing<a class="headerlink" href="#developing" title="Permalink to this headline">¶</a></h3>
-<p>If you want to work on clubsandwich, it&#8217;s really easy to do that while also
+<p>If you want to work on clubsandwich, it’s really easy to do that while also
 developing your game.</p>
 <p>First, fork clubsandwich on GitHub and clone it locally:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">YOURNAME</span><span class="o">/</span><span class="n">clubsandwich</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
-<p>Then install it with pip&#8217;s <code class="docutils literal"><span class="pre">--editable</span></code> flag:</p>
+<p>Then install it with pip’s <code class="docutils literal"><span class="pre">--editable</span></code> flag:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">clubsandwich</span>
 <span class="c1"># assuming you are in a virtualenv! otherwise this will be</span>
 <span class="c1"># global, which you don&#39;t want.</span>
@@ -253,7 +253,7 @@ The <code class="docutils literal"><span class="pre">terminal_read(val)</span></
 </div>
 <div class="section" id="a-scene-manager">
 <h3>A scene manager<a class="headerlink" href="#a-scene-manager" title="Permalink to this headline">¶</a></h3>
-<p>Most games have more than one screen! This simple &#8220;director&#8221; object manages
+<p>Most games have more than one screen! This simple “director” object manages
 them for you in a really obvious way.</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bearlibterminal</span> <span class="k">import</span> <span class="n">terminal</span>
 <span class="kn">from</span> <span class="nn">clubsandwich.director</span> <span class="k">import</span> <span class="n">DirectorLoop</span><span class="p">,</span> <span class="n">Scene</span>
@@ -346,7 +346,7 @@ values.</p>
 </div>
 <div class="section" id="a-uikit-like-user-interface-library">
 <h3>A UIKit-like user interface library<a class="headerlink" href="#a-uikit-like-user-interface-library" title="Permalink to this headline">¶</a></h3>
-<p>This is too sophisticated for a short demo, but here&#8217;s the code for the scene
+<p>This is too sophisticated for a short demo, but here’s the code for the scene
 in the first screenshot:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">clubsandwich.ui</span> <span class="k">import</span> <span class="p">(</span>
 <span class="n">LabelView</span><span class="p">,</span>
@@ -406,9 +406,9 @@ in the first screenshot:</p>
 path. This script does one very simple thing: it runs a command, and when that
 command exits, it runs it again. This repeats until you Ctrl+C the <code class="docutils literal"><span class="pre">babysit</span></code>
 process.</p>
-<p>This is useful when writing games because you don&#8217;t want to have to keep
+<p>This is useful when writing games because you don’t want to have to keep
 switching back to your terminal to run your script. Using <code class="docutils literal"><span class="pre">babysit</span></code>, you can
-just quit your game whenever you make a change and it&#8217;ll start back up again.</p>
+just quit your game whenever you make a change and it’ll start back up again.</p>
 <p>You can try it with the demo script like this:</p>
 <div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">babysit</span> <span class="n">python</span> <span class="n">demo</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
@@ -427,7 +427,7 @@ just quit your game whenever you make a change and it&#8217;ll start back up aga
       &copy;2017 Steve Johnson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

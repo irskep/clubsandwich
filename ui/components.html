@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Views &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>Views &#8212; clubsandwich v0.1.3 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.1a1',
+        VERSION:     '0.1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -125,18 +125,18 @@
 <h1>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="clubsandwich.ui.RectView">
-<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">RectView</code><span class="sig-paren">(</span><em>color_fg='#aaaaaa'</em>, <em>color_bg='#000000'</em>, <em>fill=False</em>, <em>style='single'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.RectView" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">RectView</code><span class="sig-paren">(</span><em>color_fg=’#aaaaaa’</em>, <em>color_bg=’#000000’</em>, <em>fill=False</em>, <em>style=’single’</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.RectView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.view.View</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>color_fg</strong> (<em>str</em>) &#8211; Foreground color</li>
-<li><strong>color_bg</strong> (<em>str</em>) &#8211; Background color (only applies on terminal layer zero)</li>
-<li><strong>fill</strong> (<em>bool</em>) &#8211; If <code class="docutils literal"><span class="pre">True</span></code> (default <code class="docutils literal"><span class="pre">False</span></code>), fill not just the border
+<li><strong>color_fg</strong> (<em>str</em>) – Foreground color</li>
+<li><strong>color_bg</strong> (<em>str</em>) – Background color (only applies on terminal layer zero)</li>
+<li><strong>fill</strong> (<em>bool</em>) – If <code class="docutils literal"><span class="pre">True</span></code> (default <code class="docutils literal"><span class="pre">False</span></code>), fill not just the border
 but also the middle.</li>
-<li><strong>style</strong> (<em>str</em>) &#8211; <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
+<li><strong>style</strong> (<em>str</em>) – <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
 </ul>
 </td>
 </tr>
@@ -160,14 +160,14 @@ but also the middle.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>title</strong> (<em>str</em>) &#8211; Window title</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>title</strong> (<em>str</em>) – Window title</td>
 </tr>
 </tbody>
 </table>
 <p>See <a class="reference internal" href="#clubsandwich.ui.RectView" title="clubsandwich.ui.RectView"><code class="xref py py-class docutils literal"><span class="pre">RectView</span></code></a> for the rest of the init arguments.</p>
 <p>A rectangle with a centered label on the top containing the text <em>title</em>.
-All given subviews are put in an inner view that&#8217;s inset by 1 cell so the
-subview don&#8217;t overlap the border.</p>
+All given subviews are put in an inner view that’s inset by 1 cell so the
+subview don’t overlap the border.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>┌───Hello!───┐
 │            │
 │            │
@@ -178,7 +178,7 @@ subview don&#8217;t overlap the border.</p>
 
 <dl class="class">
 <dt id="clubsandwich.ui.LabelView">
-<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">LabelView</code><span class="sig-paren">(</span><em>text</em>, <em>color_fg='#ffffff'</em>, <em>color_bg='#000000'</em>, <em>align_horz='center'</em>, <em>align_vert='center'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.LabelView" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">LabelView</code><span class="sig-paren">(</span><em>text</em>, <em>color_fg=’#ffffff’</em>, <em>color_bg=’#000000’</em>, <em>align_horz=’center’</em>, <em>align_vert=’center’</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.LabelView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.view.View</span></code></p>
 <p>Draws the given string inside its bounds. Multi-line strings work fine.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -186,11 +186,11 @@ subview don&#8217;t overlap the border.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>text</strong> (<em>str</em>) &#8211; Text to draw</li>
-<li><strong>color_fg</strong> (<em>str</em>) &#8211; Foreground color</li>
-<li><strong>color_bg</strong> (<em>str</em>) &#8211; Background color (only applies on terminal layer zero)</li>
-<li><strong>align_horz</strong> (<em>'center'|'left'|'right'</em>) &#8211; Horizontal alignment</li>
-<li><strong>align_vert</strong> (<em>'center'|'top'|'bottom'</em>) &#8211; Vertical alignment</li>
+<li><strong>text</strong> (<em>str</em>) – Text to draw</li>
+<li><strong>color_fg</strong> (<em>str</em>) – Foreground color</li>
+<li><strong>color_bg</strong> (<em>str</em>) – Background color (only applies on terminal layer zero)</li>
+<li><strong>align_horz</strong> (<em>'center'|'left'|'right'</em>) – Horizontal alignment</li>
+<li><strong>align_vert</strong> (<em>'center'|'top'|'bottom'</em>) – Vertical alignment</li>
 </ul>
 </td>
 </tr>
@@ -201,18 +201,18 @@ subview don&#8217;t overlap the border.</p>
 
 <dl class="class">
 <dt id="clubsandwich.ui.ButtonView">
-<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">ButtonView</code><span class="sig-paren">(</span><em>text</em>, <em>callback</em>, <em>align_horz='center'</em>, <em>align_vert='center'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ButtonView" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">ButtonView</code><span class="sig-paren">(</span><em>text</em>, <em>callback</em>, <em>align_horz=’center’</em>, <em>align_vert=’center’</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.ButtonView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.view.View</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>text</strong> (<em>str</em>) &#8211; Button title</li>
-<li><strong>callback</strong> (<em>func</em>) &#8211; Function to call when button is activated. Takes no
+<li><strong>text</strong> (<em>str</em>) – Button title</li>
+<li><strong>callback</strong> (<em>func</em>) – Function to call when button is activated. Takes no
 arguments.</li>
-<li><strong>align_horz</strong> (<em>str</em>) &#8211; Horizontal alignment. See <a class="reference internal" href="#clubsandwich.ui.LabelView" title="clubsandwich.ui.LabelView"><code class="xref py py-class docutils literal"><span class="pre">LabelView</span></code></a>.</li>
-<li><strong>align_vert</strong> (<em>str</em>) &#8211; Vertical alignment. See <a class="reference internal" href="#clubsandwich.ui.LabelView" title="clubsandwich.ui.LabelView"><code class="xref py py-class docutils literal"><span class="pre">LabelView</span></code></a>.</li>
+<li><strong>align_horz</strong> (<em>str</em>) – Horizontal alignment. See <a class="reference internal" href="#clubsandwich.ui.LabelView" title="clubsandwich.ui.LabelView"><code class="xref py py-class docutils literal"><span class="pre">LabelView</span></code></a>.</li>
+<li><strong>align_vert</strong> (<em>str</em>) – Vertical alignment. See <a class="reference internal" href="#clubsandwich.ui.LabelView" title="clubsandwich.ui.LabelView"><code class="xref py py-class docutils literal"><span class="pre">LabelView</span></code></a>.</li>
 </ul>
 </td>
 </tr>
@@ -236,16 +236,16 @@ responder:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>options</strong> (<em>list</em>) &#8211; List of options, which must be strings</li>
-<li><strong>initial_value</strong> (<em>str</em>) &#8211; Item from <em>options</em> to display first</li>
-<li><strong>callback</strong> (<em>func</em>) &#8211; Function taking one argument, the option that is now
+<li><strong>options</strong> (<em>list</em>) – List of options, which must be strings</li>
+<li><strong>initial_value</strong> (<em>str</em>) – Item from <em>options</em> to display first</li>
+<li><strong>callback</strong> (<em>func</em>) – Function taking one argument, the option that is now
 selected</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Button which, when activated, chooses the &#8220;next&#8221; value in the given list,
+<p>Button which, when activated, chooses the “next” value in the given list,
 calls <code class="docutils literal"><span class="pre">callback(new_value)</span></code>, and updates its text to the new value.</p>
 <p>All values must be strings. If this bothers you, pull requests are welcome.</p>
 </dd></dl>
@@ -259,8 +259,8 @@ calls <code class="docutils literal"><span class="pre">callback(new_value)</span
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>label_control_pairs</strong> (<em>list</em>) &#8211; List like <code class="docutils literal"><span class="pre">[('Label',</span> <span class="pre">ButtonView(...)),</span> <span class="pre">...]</span></code></li>
-<li><strong>value_column_width</strong> (<em>int</em>) &#8211; Number of characters to use for the value
+<li><strong>label_control_pairs</strong> (<em>list</em>) – List like <code class="docutils literal"><span class="pre">[('Label',</span> <span class="pre">ButtonView(...)),</span> <span class="pre">...]</span></code></li>
+<li><strong>value_column_width</strong> (<em>int</em>) – Number of characters to use for the value
 column</li>
 </ul>
 </td>
@@ -270,7 +270,7 @@ column</li>
 <p>See <a class="reference internal" href="concepts.html#clubsandwich.ui.FirstResponderContainerView" title="clubsandwich.ui.FirstResponderContainerView"><code class="xref py py-class docutils literal"><span class="pre">FirstResponderContainerView</span></code></a> for the rest of the constructor
 args.</p>
 <p>Presents a list with labels on the left and controls on the right. Intended
-to be used for &#8220;settings&#8221; of various kinds.</p>
+to be used for “settings” of various kinds.</p>
 <p>The list is surrounded by a border with a scroll bar. The active element is
 kept visible via scrolling.</p>
 <p>The list itself both <em>becomes</em> the first responder (you switch to/from it with
@@ -300,18 +300,18 @@ possible.</p>
 
 <dl class="class">
 <dt id="clubsandwich.ui.SingleLineTextInputView">
-<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">SingleLineTextInputView</code><span class="sig-paren">(</span><em>callback</em>, <em>initial_value=''</em>, <em>color_unselected_fg='#ffffff'</em>, <em>color_unselected_bg=None</em>, <em>color_selected_fg='#ffff00'</em>, <em>color_selected_bg=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.SingleLineTextInputView" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">SingleLineTextInputView</code><span class="sig-paren">(</span><em>callback</em>, <em>initial_value=”</em>, <em>color_unselected_fg=’#ffffff’</em>, <em>color_unselected_bg=’#000000’</em>, <em>color_selected_fg=’#ffff00’</em>, <em>color_selected_bg=’#000000’</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.SingleLineTextInputView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">clubsandwich.ui.view.View</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>callback</strong> (<em>func</em>) &#8211; <code class="docutils literal"><span class="pre">callback(text)</span></code>. Called when focus changes.</li>
-<li><strong>color_unselected_fg</strong> (<em>string</em>) &#8211; </li>
-<li><strong>color_unselected_bg</strong> (<em>string</em>) &#8211; </li>
-<li><strong>color_selected_fg</strong> (<em>string</em>) &#8211; </li>
-<li><strong>color_selected_bg</strong> (<em>string</em>) &#8211; </li>
+<li><strong>callback</strong> (<em>func</em>) – <code class="docutils literal"><span class="pre">callback(text)</span></code>. Called when focus changes.</li>
+<li><strong>color_unselected_fg</strong> (<em>string</em>) – </li>
+<li><strong>color_unselected_bg</strong> (<em>string</em>) – </li>
+<li><strong>color_selected_fg</strong> (<em>string</em>) – </li>
+<li><strong>color_selected_bg</strong> (<em>string</em>) – </li>
 </ul>
 </td>
 </tr>
@@ -330,10 +330,10 @@ possible.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>value</strong> (<em>int</em>) &#8211; Initial value</li>
-<li><strong>callback</strong> (<em>func</em>) &#8211; Called with updated values</li>
-<li><strong>min_value</strong> (<em>int|None</em>) &#8211; Min value or <code class="docutils literal"><span class="pre">None</span></code></li>
-<li><strong>max_value</strong> (<em>int|None</em>) &#8211; Max value or <code class="docutils literal"><span class="pre">None</span></code></li>
+<li><strong>value</strong> (<em>int</em>) – Initial value</li>
+<li><strong>callback</strong> (<em>func</em>) – Called with updated values</li>
+<li><strong>min_value</strong> (<em>int|None</em>) – Min value or <code class="docutils literal"><span class="pre">None</span></code></li>
+<li><strong>max_value</strong> (<em>int|None</em>) – Max value or <code class="docutils literal"><span class="pre">None</span></code></li>
 </ul>
 </td>
 </tr>
@@ -354,7 +354,7 @@ possible.</p>
       &copy;2017 Steve Johnson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>clubsandwich.datastore &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>clubsandwich.datastore &#8212; clubsandwich v0.1.3 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1a1',
+        VERSION:     '0.1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -123,7 +123,7 @@
 <span id="clubsandwich-datastore"></span><h1><code class="docutils literal"><span class="pre">clubsandwich.datastore</span></code><a class="headerlink" href="#module-clubsandwich.datastore" title="Permalink to this headline">¶</a></h1>
 <p>Convenient access to spreadsheet-style game data files. CSV is the only
 included implementation, but writing new readers is trivial.</p>
-<p>Here&#8217;s a simple example:</p>
+<p>Here’s a simple example:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_char</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
   <span class="s2">&quot;Ensure *val* is a one-character string&quot;</span>
   <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -219,7 +219,7 @@ for a basic guide.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reader</strong> (<a class="reference internal" href="#clubsandwich.datastore.Reader" title="clubsandwich.datastore.Reader"><em>Reader</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reader</strong> (<a class="reference internal" href="#clubsandwich.datastore.Reader" title="clubsandwich.datastore.Reader"><em>Reader</em></a>) – </td>
 </tr>
 </tbody>
 </table>
@@ -234,16 +234,16 @@ for a basic guide.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pattern</strong> (<em>str</em>) &#8211; Glob pattern (<a class="reference external" href="https://docs.python.org/3/library/glob.html">docs</a>)</li>
-<li><strong>reader_factory</strong> (<em>function</em>) &#8211; <code class="docutils literal"><span class="pre">reader_factory(path)</span> <span class="pre">-&gt;</span> <span class="pre">Reader</span></code></li>
+<li><strong>pattern</strong> (<em>str</em>) – Glob pattern (<a class="reference external" href="https://docs.python.org/3/library/glob.html">docs</a>)</li>
+<li><strong>reader_factory</strong> (<em>function</em>) – <code class="docutils literal"><span class="pre">reader_factory(path)</span> <span class="pre">-&gt;</span> <span class="pre">Reader</span></code></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Add multiple sources for paths that match the given pattern (glob).
-For example, if you wanted to read all CSV files in your &#8220;monsters&#8221;
-directory, you&#8217;d do this:</p>
+For example, if you wanted to read all CSV files in your “monsters”
+directory, you’d do this:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">data_store</span><span class="o">.</span><span class="n">add_sources_with_glob</span><span class="p">(</span><span class="s1">&#39;data/monsters/*.csv&#39;</span><span class="p">,</span> <span class="n">CSVReader</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -300,8 +300,8 @@ exception messages.</p>
 <dl class="class">
 <dt id="clubsandwich.datastore.Source">
 <em class="property">class </em><code class="descclassname">clubsandwich.datastore.</code><code class="descname">Source</code><span class="sig-paren">(</span><em>reader</em>, <em>row_class</em>, <em>fields</em>, <em>defaults=None</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.datastore.Source" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stores and indexes values from a reader. You shouldn&#8217;t need to worry about
-this class much; it&#8217;s created automatically for you, and sources are accessed
+<dd><p>Stores and indexes values from a reader. You shouldn’t need to worry about
+this class much; it’s created automatically for you, and sources are accessed
 in aggregate via a <a class="reference internal" href="#clubsandwich.datastore.DataStore" title="clubsandwich.datastore.DataStore"><code class="xref py py-class docutils literal"><span class="pre">DataStore</span></code></a>.</p>
 <dl class="attribute">
 <dt id="clubsandwich.datastore.Source.reader">
@@ -324,7 +324,7 @@ in aggregate via a <a class="reference internal" href="#clubsandwich.datastore.D
 <dl class="attribute">
 <dt id="clubsandwich.datastore.Source.defaults">
 <code class="descname">defaults</code><a class="headerlink" href="#clubsandwich.datastore.Source.defaults" title="Permalink to this definition">¶</a></dt>
-<dd><p>Default values for the fields, or <code class="docutils literal"><span class="pre">None</span></code> if you&#8217;re quite sure all values
+<dd><p>Default values for the fields, or <code class="docutils literal"><span class="pre">None</span></code> if you’re quite sure all values
 will be specified</p>
 </dd></dl>
 
@@ -367,7 +367,7 @@ instance</p>
       &copy;2017 Steve Johnson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

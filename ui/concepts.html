@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Concepts and core objects &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>Concepts and core objects &#8212; clubsandwich v0.1.3 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.1a1',
+        VERSION:     '0.1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -152,7 +152,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>views</strong> (<em>list|View</em>) &#8211; One or more subviews of the root view</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>views</strong> (<em>list|View</em>) – One or more subviews of the root view</td>
 </tr>
 </tbody>
 </table>
@@ -167,7 +167,7 @@
 <h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
 <p>Layouts, most of the time, are specified using
 <code class="xref py py-class docutils literal"><span class="pre">LayoutOptions</span></code> objects. These more
-or less follow the UIKit springs-and-struts model. Here&#8217;s a diagram:</p>
+or less follow the UIKit springs-and-struts model. Here’s a diagram:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+----------------------------+</span>
 <span class="o">|</span>             <span class="o">^</span>              <span class="o">|</span>
 <span class="o">|</span>            <span class="n">top</span>             <span class="o">|</span>
@@ -194,16 +194,16 @@ been enforced.</p>
 define some kind of strut:</p>
 <ul class="simple">
 <li>Ints &gt;= 1 are constants.</li>
-<li>Floats from 0 (inclusive) to 1 (exclusive) are fractions of the superview&#8217;s
+<li>Floats from 0 (inclusive) to 1 (exclusive) are fractions of the superview’s
 width or height.</li>
-<li>The string <code class="docutils literal"><span class="pre">intrinsic</span></code> means &#8220;at layout time, take the value from my
-<a class="reference internal" href="#clubsandwich.ui.View.intrinsic_size" title="clubsandwich.ui.View.intrinsic_size"><code class="xref py py-attr docutils literal"><span class="pre">View.intrinsic_size</span></code></a> property.&#8221; This is useful when you don&#8217;t know
+<li>The string <code class="docutils literal"><span class="pre">intrinsic</span></code> means “at layout time, take the value from my
+<a class="reference internal" href="#clubsandwich.ui.View.intrinsic_size" title="clubsandwich.ui.View.intrinsic_size"><code class="xref py py-attr docutils literal"><span class="pre">View.intrinsic_size</span></code></a> property.” This is useful when you don’t know
 in advance how big your content is.</li>
-<li>The string <code class="docutils literal"><span class="pre">frame</span></code> means &#8220;at layout time, take the value from the
-corresponding attribute of my <a class="reference internal" href="#clubsandwich.ui.View.frame" title="clubsandwich.ui.View.frame"><code class="xref py py-attr docutils literal"><span class="pre">View.frame</span></code></a> property.&#8221;</li>
+<li>The string <code class="docutils literal"><span class="pre">frame</span></code> means “at layout time, take the value from the
+corresponding attribute of my <a class="reference internal" href="#clubsandwich.ui.View.frame" title="clubsandwich.ui.View.frame"><code class="xref py py-attr docutils literal"><span class="pre">View.frame</span></code></a> property.”</li>
 </ul>
 <p>So to put something 3 cells from the left that is 50% as wide as its
-superview, you&#8217;d set <code class="docutils literal"><span class="pre">left</span></code> to <code class="docutils literal"><span class="pre">3</span></code> and <code class="docutils literal"><span class="pre">width</span></code> to <code class="docutils literal"><span class="pre">0.5</span></code>. To fill the
+superview, you’d set <code class="docutils literal"><span class="pre">left</span></code> to <code class="docutils literal"><span class="pre">3</span></code> and <code class="docutils literal"><span class="pre">width</span></code> to <code class="docutils literal"><span class="pre">0.5</span></code>. To fill the
 superview (this is the default), set left/right/top/bottom to <code class="docutils literal"><span class="pre">0</span></code> and
 width/height to <code class="docutils literal"><span class="pre">None</span></code>.</p>
 <p>There is a special case: when <code class="docutils literal"><span class="pre">width</span></code> is set but <code class="docutils literal"><span class="pre">left</span></code> and <code class="docutils literal"><span class="pre">right</span></code> are
@@ -218,7 +218,7 @@ methods to make these specs extremely concise.</p>
 values for the attributes of <code class="xref py py-class docutils literal"><span class="pre">LayoutOptions</span></code>.</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">None</span></code>: Do not constrain this value. It is a spring.</li>
-<li><code class="docutils literal"><span class="pre">0.0-1.0</span></code> left-inclusive: Use a fraction of the superview&#8217;s size on the
+<li><code class="docutils literal"><span class="pre">0.0-1.0</span></code> left-inclusive: Use a fraction of the superview’s size on the
 appropriate axis.</li>
 <li><code class="docutils literal"><span class="pre">&gt;=1</span></code>: Use a constant integer</li>
 <li><code class="docutils literal"><span class="pre">'intrinsic'</span></code>: The view defines an <code class="docutils literal"><span class="pre">intrinsic_size</span></code> property; use this
@@ -237,12 +237,12 @@ if you need to change it, you can just change that attribute.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>width</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) &#8211; width spec</li>
-<li><strong>height</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) &#8211; height spec</li>
-<li><strong>top</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) &#8211; top spec</li>
-<li><strong>right</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) &#8211; right spec</li>
-<li><strong>bottom</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) &#8211; bottom spec</li>
-<li><strong>left</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) &#8211; left spec</li>
+<li><strong>width</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) – width spec</li>
+<li><strong>height</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) – height spec</li>
+<li><strong>top</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) – top spec</li>
+<li><strong>right</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) – right spec</li>
+<li><strong>bottom</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) – bottom spec</li>
+<li><strong>left</strong> (<a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><em>LayoutOptionValue</em></a>) – left spec</li>
 </ul>
 </td>
 </tr>
@@ -253,40 +253,40 @@ is undefined.</p>
 <dl class="attribute">
 <dt id="clubsandwich.ui.LayoutOptions.width">
 <code class="descname">width</code><a class="headerlink" href="#clubsandwich.ui.LayoutOptions.width" title="Permalink to this definition">¶</a></dt>
-<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view&#8217;s width (or not).</p>
+<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view’s width (or not).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="clubsandwich.ui.LayoutOptions.height">
 <code class="descname">height</code><a class="headerlink" href="#clubsandwich.ui.LayoutOptions.height" title="Permalink to this definition">¶</a></dt>
-<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view&#8217;s height (or not).</p>
+<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view’s height (or not).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="clubsandwich.ui.LayoutOptions.top">
 <code class="descname">top</code><a class="headerlink" href="#clubsandwich.ui.LayoutOptions.top" title="Permalink to this definition">¶</a></dt>
-<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view&#8217;s distance from the
+<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view’s distance from the
 top of its superview (or not).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="clubsandwich.ui.LayoutOptions.right">
 <code class="descname">right</code><a class="headerlink" href="#clubsandwich.ui.LayoutOptions.right" title="Permalink to this definition">¶</a></dt>
-<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view&#8217;s distance from the
+<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view’s distance from the
 right of its superview (or not).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="clubsandwich.ui.LayoutOptions.bottom">
 <code class="descname">bottom</code><a class="headerlink" href="#clubsandwich.ui.LayoutOptions.bottom" title="Permalink to this definition">¶</a></dt>
-<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view&#8217;s distance from the
+<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view’s distance from the
 bottom of its superview (or not).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="clubsandwich.ui.LayoutOptions.left">
 <code class="descname">left</code><a class="headerlink" href="#clubsandwich.ui.LayoutOptions.left" title="Permalink to this definition">¶</a></dt>
-<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view&#8217;s distance from the
+<dd><p>A <a class="reference internal" href="#clubsandwich.ui.LayoutOptionValue" title="clubsandwich.ui.LayoutOptionValue"><code class="xref py py-class docutils literal"><span class="pre">LayoutOptionValue</span></code></a> constraining this view’s distance from the
 left of its superview (or not).</p>
 </dd></dl>
 
@@ -329,7 +329,7 @@ full-height top row with a constant height.</p>
 <dt id="clubsandwich.ui.layout_options.LayoutOptions.with_updates">
 <code class="descname">with_updates</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.layout_options.LayoutOptions.with_updates" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new <code class="xref py py-class docutils literal"><span class="pre">LayoutOptions</span></code> object with the given changes to
-its attributes. For example, here&#8217;s a view with a constant width, on the
+its attributes. For example, here’s a view with a constant width, on the
 right side of its superview, with half the height of its superview:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># &quot;right column, but only half height&quot;</span>
 <span class="n">LayoutOptions</span><span class="o">.</span><span class="n">column_right</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">with_updates</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -350,11 +350,11 @@ right side of its superview, with half the height of its superview:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>frame</strong> (<a class="reference internal" href="../api_geom.html#clubsandwich.geom.Rect" title="clubsandwich.geom.Rect"><em>Rect</em></a>) &#8211; Rect relative to superview&#8217;s <a class="reference internal" href="#clubsandwich.ui.View.bounds" title="clubsandwich.ui.View.bounds"><code class="xref py py-attr docutils literal"><span class="pre">View.bounds</span></code></a></li>
-<li><strong>subviews</strong> (<em>list</em>) &#8211; List of subviews</li>
-<li><strong>scene</strong> (<a class="reference internal" href="#clubsandwich.ui.UIScene" title="clubsandwich.ui.UIScene"><em>UIScene</em></a>) &#8211; Scene that&#8217;s handling this view</li>
-<li><strong>layout_options</strong> (<a class="reference internal" href="#clubsandwich.ui.layout_options.LayoutOptions" title="clubsandwich.ui.layout_options.LayoutOptions"><em>LayoutOptions</em></a>) &#8211; How to position this view</li>
-<li><strong>clear</strong> (<em>bool</em>) &#8211; If <code class="docutils literal"><span class="pre">True</span></code>, clear bounds each render. (Each individual
+<li><strong>frame</strong> (<a class="reference internal" href="../api_geom.html#clubsandwich.geom.Rect" title="clubsandwich.geom.Rect"><em>Rect</em></a>) – Rect relative to superview’s <a class="reference internal" href="#clubsandwich.ui.View.bounds" title="clubsandwich.ui.View.bounds"><code class="xref py py-attr docutils literal"><span class="pre">View.bounds</span></code></a></li>
+<li><strong>subviews</strong> (<em>list</em>) – List of subviews</li>
+<li><strong>scene</strong> (<a class="reference internal" href="#clubsandwich.ui.UIScene" title="clubsandwich.ui.UIScene"><em>UIScene</em></a>) – Scene that’s handling this view</li>
+<li><strong>layout_options</strong> (<a class="reference internal" href="#clubsandwich.ui.layout_options.LayoutOptions" title="clubsandwich.ui.layout_options.LayoutOptions"><em>LayoutOptions</em></a>) – How to position this view</li>
+<li><strong>clear</strong> (<em>bool</em>) – If <code class="docutils literal"><span class="pre">True</span></code>, clear bounds each render. (Each individual
 view implements this because it depends on color.)</li>
 </ul>
 </td>
@@ -368,14 +368,14 @@ superview.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>subviews</strong> (<em>list</em>) &#8211; List of subviews</li>
-<li><strong>is_hidden</strong> (<em>bool</em>) &#8211; <code class="docutils literal"><span class="pre">True</span></code> iff this view will not be drawn. Feel free to
+<li><strong>subviews</strong> (<em>list</em>) – List of subviews</li>
+<li><strong>is_hidden</strong> (<em>bool</em>) – <code class="docutils literal"><span class="pre">True</span></code> iff this view will not be drawn. Feel free to
 set this yourself.</li>
-<li><strong>layout_options</strong> (<a class="reference internal" href="#clubsandwich.ui.layout_options.LayoutOptions" title="clubsandwich.ui.layout_options.LayoutOptions"><em>LayoutOptions</em></a>) &#8211; </li>
-<li><strong>layout_spec</strong> (<a class="reference internal" href="../api_geom.html#clubsandwich.geom.Rect" title="clubsandwich.geom.Rect"><em>Rect</em></a>) &#8211; A copy of the frame made at init time, used by
+<li><strong>layout_options</strong> (<a class="reference internal" href="#clubsandwich.ui.layout_options.LayoutOptions" title="clubsandwich.ui.layout_options.LayoutOptions"><em>LayoutOptions</em></a>) – </li>
+<li><strong>layout_spec</strong> (<a class="reference internal" href="../api_geom.html#clubsandwich.geom.Rect" title="clubsandwich.geom.Rect"><em>Rect</em></a>) – A copy of the frame made at init time, used by
 <code class="xref py py-class docutils literal"><span class="pre">LayoutOptions</span></code> to derive values during
 layout.</li>
-<li><strong>is_first_responder</strong> (<em>bool</em>) &#8211; <code class="docutils literal"><span class="pre">True</span></code> iff this view is currently the first
+<li><strong>is_first_responder</strong> (<em>bool</em>) – <code class="docutils literal"><span class="pre">True</span></code> iff this view is currently the first
 responder.</li>
 </ul>
 </td>
@@ -389,14 +389,14 @@ responder.</li>
 <dl class="attribute">
 <dt id="clubsandwich.ui.View.bounds">
 <code class="descclassname">View.</code><code class="descname">bounds</code><a class="headerlink" href="#clubsandwich.ui.View.bounds" title="Permalink to this definition">¶</a></dt>
-<dd><p>This view&#8217;s rect from its internal frame of reference. That means
+<dd><p>This view’s rect from its internal frame of reference. That means
 <code class="docutils literal"><span class="pre">self.bounds.origin</span></code> is always <code class="docutils literal"><span class="pre">Point(0,</span> <span class="pre">0)</span></code>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="clubsandwich.ui.View.frame">
 <code class="descclassname">View.</code><code class="descname">frame</code><a class="headerlink" href="#clubsandwich.ui.View.frame" title="Permalink to this definition">¶</a></dt>
-<dd><p>This view&#8217;s rect <em>relative to its superview&#8217;s bounds</em>.</p>
+<dd><p>This view’s rect <em>relative to its superview’s bounds</em>.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -428,11 +428,11 @@ responder.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>subviews</strong> (<em>list</em>) &#8211; List of <a class="reference internal" href="#clubsandwich.ui.View" title="clubsandwich.ui.View"><code class="xref py py-class docutils literal"><span class="pre">View</span></code></a> objects</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>subviews</strong> (<em>list</em>) – List of <a class="reference internal" href="#clubsandwich.ui.View" title="clubsandwich.ui.View"><code class="xref py py-class docutils literal"><span class="pre">View</span></code></a> objects</td>
 </tr>
 </tbody>
 </table>
-<p>Append to this view&#8217;s subviews</p>
+<p>Append to this view’s subviews</p>
 </dd></dl>
 
 <dl class="method">
@@ -442,7 +442,7 @@ responder.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>subviews</strong> (<em>list</em>) &#8211; List of <a class="reference internal" href="#clubsandwich.ui.View" title="clubsandwich.ui.View"><code class="xref py py-class docutils literal"><span class="pre">View</span></code></a> objects</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>subviews</strong> (<em>list</em>) – List of <a class="reference internal" href="#clubsandwich.ui.View" title="clubsandwich.ui.View"><code class="xref py py-class docutils literal"><span class="pre">View</span></code></a> objects</td>
 </tr>
 </tbody>
 </table>
@@ -459,14 +459,14 @@ responder.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>val</strong> (<em>bool</em>) &#8211; If <code class="docutils literal"><span class="pre">True</span></code>, view needs to be redrawn. (default <code class="docutils literal"><span class="pre">True</span></code>)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>val</strong> (<em>bool</em>) – If <code class="docutils literal"><span class="pre">True</span></code>, view needs to be redrawn. (default <code class="docutils literal"><span class="pre">True</span></code>)</td>
 </tr>
 </tbody>
 </table>
-<p>Call this if the view&#8217;s <a class="reference internal" href="#clubsandwich.ui.View.frame" title="clubsandwich.ui.View.frame"><code class="xref py py-meth docutils literal"><span class="pre">frame()</span></code></a> or content
+<p>Call this if the view’s <a class="reference internal" href="#clubsandwich.ui.View.frame" title="clubsandwich.ui.View.frame"><code class="xref py py-meth docutils literal"><span class="pre">frame()</span></code></a> or content
 changes. <a class="reference internal" href="#clubsandwich.ui.View.draw" title="clubsandwich.ui.View.draw"><code class="xref py py-meth docutils literal"><span class="pre">draw()</span></code></a> is only called if this was called first.</p>
-<p>Note that if you&#8217;re changing either <code class="xref py py-attr docutils literal"><span class="pre">View.layout_options</span></code> or
-changing something that affects the view&#8217;s springs-and-struts layout
+<p>Note that if you’re changing either <code class="xref py py-attr docutils literal"><span class="pre">View.layout_options</span></code> or
+changing something that affects the view’s springs-and-struts layout
 metrics, you may need to call <code class="docutils literal"><span class="pre">self.superview.set_needs_layout()</span></code> to
 have the layout algorithm re-run on your view.</p>
 </dd></dl>
@@ -475,9 +475,9 @@ have the layout algorithm re-run on your view.</p>
 <dt id="clubsandwich.ui.View.layout_subviews">
 <code class="descclassname">View.</code><code class="descname">layout_subviews</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.View.layout_subviews" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the frames of all subviews relative to <code class="docutils literal"><span class="pre">self.bounds</span></code>. By default,
-applies the springs-and-struts algorithm using each view&#8217;s
+applies the springs-and-struts algorithm using each view’s
 <code class="docutils literal"><span class="pre">layout_options</span></code> and <code class="docutils literal"><span class="pre">layout_spec</span></code> properties.</p>
-<p>You shouldn&#8217;t need to override this unless <code class="xref py py-class docutils literal"><span class="pre">LayoutOptions</span></code> isn&#8217;t
+<p>You shouldn’t need to override this unless <code class="xref py py-class docutils literal"><span class="pre">LayoutOptions</span></code> isn’t
 expressive enough for you.</p>
 </dd></dl>
 
@@ -491,12 +491,12 @@ expressive enough for you.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ctx</strong> (<a class="reference internal" href="../blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><em>BearLibTerminalContext</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ctx</strong> (<a class="reference internal" href="../blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><em>BearLibTerminalContext</em></a>) – </td>
 </tr>
 </tbody>
 </table>
 <p>Draw this view. <em>ctx</em> is a full copy of the BearLibTerminal API moved into
-this view&#8217;s frame of reference, so you can use (0, 0) as the upper left
+this view’s frame of reference, so you can use (0, 0) as the upper left
 corner.</p>
 <p>This method will not be called if <code class="xref py py-attr docutils literal"><span class="pre">View.is_hidden</span></code> is <code class="docutils literal"><span class="pre">True</span></code>.</p>
 </dd></dl>
@@ -513,7 +513,7 @@ before diving into this section.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>val</strong> &#8211; Return value of <code class="docutils literal"><span class="pre">terminal_read()</span></code></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>val</strong> – Return value of <code class="docutils literal"><span class="pre">terminal_read()</span></code></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">bool (<code class="docutils literal"><span class="pre">True</span></code> if you handled the event)</td>
 </tr>
@@ -525,7 +525,7 @@ before diving into this section.</p>
 <li>The first responder is a descendant, and no other descendants have
 already handled this event</li>
 </ul>
-<p>You <strong>must</strong> return a truthy value if you handled the event so it doesn&#8217;t get
+<p>You <strong>must</strong> return a truthy value if you handled the event so it doesn’t get
 handled twice.</p>
 </dd></dl>
 
@@ -549,7 +549,7 @@ handle user input.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>view</strong> (<a class="reference internal" href="#clubsandwich.ui.View" title="clubsandwich.ui.View"><em>View</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>view</strong> (<a class="reference internal" href="#clubsandwich.ui.View" title="clubsandwich.ui.View"><em>View</em></a>) – </td>
 </tr>
 </tbody>
 </table>
@@ -577,7 +577,7 @@ focus away. It should be rare to need this.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>view</strong> (<a class="reference internal" href="#clubsandwich.ui.View" title="clubsandwich.ui.View"><em>View</em></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>view</strong> (<a class="reference internal" href="#clubsandwich.ui.View" title="clubsandwich.ui.View"><em>View</em></a>) – </td>
 </tr>
 </tbody>
 </table>
@@ -628,7 +628,7 @@ view is visited after all its subviews.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>predicate</strong> (<em>func</em>) &#8211; <code class="docutils literal"><span class="pre">predicate(View)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>predicate</strong> (<em>func</em>) – <code class="docutils literal"><span class="pre">predicate(View)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -658,12 +658,12 @@ stdout</p>
 <dl class="class">
 <dt id="clubsandwich.ui.FirstResponderContainerView">
 <em class="property">class </em><code class="descclassname">clubsandwich.ui.</code><code class="descname">FirstResponderContainerView</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.ui.FirstResponderContainerView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Manages the &#8220;first responder&#8221; system. The control that receives
+<dd><p>Manages the “first responder” system. The control that receives
 BearLibTerminal events at a given time is the first responder.</p>
-<p>This container view listens for the tab key. When it&#8217;s pressed, the subview
+<p>This container view listens for the tab key. When it’s pressed, the subview
 tree is walked until another candidate is found, or there are no others.
 That new subview is the new first responder.</p>
-<p>You don&#8217;t need to create this class yourself. <a class="reference internal" href="#clubsandwich.ui.UIScene" title="clubsandwich.ui.UIScene"><code class="xref py py-class docutils literal"><span class="pre">UIScene</span></code></a> makes it
+<p>You don’t need to create this class yourself. <a class="reference internal" href="#clubsandwich.ui.UIScene" title="clubsandwich.ui.UIScene"><code class="xref py py-class docutils literal"><span class="pre">UIScene</span></code></a> makes it
 for you.</p>
 <p>If you want to write a control that handles input, read the source of the
 <a class="reference internal" href="components.html#clubsandwich.ui.ButtonView" title="clubsandwich.ui.ButtonView"><code class="xref py py-class docutils literal"><span class="pre">ButtonView</span></code></a> class.</p>
@@ -693,8 +693,8 @@ for you.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>val</strong> (<em>int</em>) &#8211; Return value of <code class="docutils literal"><span class="pre">terminal_read()</span></code></li>
-<li><strong>can_resign</strong> (<em>bool</em>) &#8211; <code class="docutils literal"><span class="pre">True</span></code> iff there is an active first responder
+<li><strong>val</strong> (<em>int</em>) – Return value of <code class="docutils literal"><span class="pre">terminal_read()</span></code></li>
+<li><strong>can_resign</strong> (<em>bool</em>) – <code class="docutils literal"><span class="pre">True</span></code> iff there is an active first responder
 that can resign</li>
 </ul>
 </td>
@@ -721,7 +721,7 @@ want to use the arrows to change the first responder.</p>
       &copy;2017 Steve Johnson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

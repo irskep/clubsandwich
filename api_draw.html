@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>clubsandwich.draw &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>clubsandwich.draw &#8212; clubsandwich v0.1.3 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1a1',
+        VERSION:     '0.1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -121,20 +121,20 @@
             
   <div class="section" id="module-clubsandwich.draw">
 <span id="clubsandwich-draw"></span><h1><code class="docutils literal"><span class="pre">clubsandwich.draw</span></code><a class="headerlink" href="#module-clubsandwich.draw" title="Permalink to this headline">¶</a></h1>
-<p>Assorted functions that draw shapes to the terminal. Right now it&#8217;s just lines
+<p>Assorted functions that draw shapes to the terminal. Right now it’s just lines
 and rectangles.</p>
 <dl class="function">
 <dt id="clubsandwich.draw.draw_line_horz">
-<code class="descclassname">clubsandwich.draw.</code><code class="descname">draw_line_horz</code><span class="sig-paren">(</span><em>origin</em>, <em>length</em>, <em>ctx=&lt;clubsandwich.blt.nice_terminal.NiceTerminal object&gt;</em>, <em>style='single'</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.draw.draw_line_horz" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">clubsandwich.draw.</code><code class="descname">draw_line_horz</code><span class="sig-paren">(</span><em>origin</em>, <em>length</em>, <em>ctx=&lt;clubsandwich.blt.nice_terminal.NiceTerminal object&gt;</em>, <em>style=’single’</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.draw.draw_line_horz" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>origin</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </li>
-<li><strong>length</strong> (<em>int</em>) &#8211; </li>
-<li><strong>ctx</strong> (<a class="reference internal" href="blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><em>BearLibTerminalContext</em></a>) &#8211; </li>
-<li><strong>style</strong> (<em>str</em>) &#8211; Either <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
+<li><strong>origin</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) – </li>
+<li><strong>length</strong> (<em>int</em>) – </li>
+<li><strong>ctx</strong> (<a class="reference internal" href="blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><em>BearLibTerminalContext</em></a>) – </li>
+<li><strong>style</strong> (<em>str</em>) – Either <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
 </ul>
 </td>
 </tr>
@@ -145,16 +145,16 @@ and rectangles.</p>
 
 <dl class="function">
 <dt id="clubsandwich.draw.draw_line_vert">
-<code class="descclassname">clubsandwich.draw.</code><code class="descname">draw_line_vert</code><span class="sig-paren">(</span><em>origin</em>, <em>length</em>, <em>ctx=&lt;clubsandwich.blt.nice_terminal.NiceTerminal object&gt;</em>, <em>style='single'</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.draw.draw_line_vert" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">clubsandwich.draw.</code><code class="descname">draw_line_vert</code><span class="sig-paren">(</span><em>origin</em>, <em>length</em>, <em>ctx=&lt;clubsandwich.blt.nice_terminal.NiceTerminal object&gt;</em>, <em>style=’single’</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.draw.draw_line_vert" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>origin</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) &#8211; </li>
-<li><strong>length</strong> (<em>int</em>) &#8211; </li>
-<li><strong>ctx</strong> (<a class="reference internal" href="blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><em>BearLibTerminalContext</em></a>) &#8211; </li>
-<li><strong>style</strong> (<em>str</em>) &#8211; Either <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
+<li><strong>origin</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>Point</em></a>) – </li>
+<li><strong>length</strong> (<em>int</em>) – </li>
+<li><strong>ctx</strong> (<a class="reference internal" href="blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><em>BearLibTerminalContext</em></a>) – </li>
+<li><strong>style</strong> (<em>str</em>) – Either <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
 </ul>
 </td>
 </tr>
@@ -165,15 +165,15 @@ and rectangles.</p>
 
 <dl class="function">
 <dt id="clubsandwich.draw.draw_rect">
-<code class="descclassname">clubsandwich.draw.</code><code class="descname">draw_rect</code><span class="sig-paren">(</span><em>rect</em>, <em>ctx=&lt;clubsandwich.blt.nice_terminal.NiceTerminal object&gt;</em>, <em>style='single'</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.draw.draw_rect" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">clubsandwich.draw.</code><code class="descname">draw_rect</code><span class="sig-paren">(</span><em>rect</em>, <em>ctx=&lt;clubsandwich.blt.nice_terminal.NiceTerminal object&gt;</em>, <em>style=’single’</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.draw.draw_rect" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>rect</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Rect" title="clubsandwich.geom.Rect"><em>Rect</em></a>) &#8211; </li>
-<li><strong>ctx</strong> (<a class="reference internal" href="blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><em>BearLibTerminalContext</em></a>) &#8211; </li>
-<li><strong>style</strong> (<em>str</em>) &#8211; Either <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
+<li><strong>rect</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Rect" title="clubsandwich.geom.Rect"><em>Rect</em></a>) – </li>
+<li><strong>ctx</strong> (<a class="reference internal" href="blt/api_blt_context.html#clubsandwich.blt.context.BearLibTerminalContext" title="clubsandwich.blt.context.BearLibTerminalContext"><em>BearLibTerminalContext</em></a>) – </li>
+<li><strong>style</strong> (<em>str</em>) – Either <code class="docutils literal"><span class="pre">'single'</span></code> or <code class="docutils literal"><span class="pre">'double'</span></code></li>
 </ul>
 </td>
 </tr>
@@ -194,7 +194,7 @@ and rectangles.</p>
       &copy;2017 Steve Johnson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

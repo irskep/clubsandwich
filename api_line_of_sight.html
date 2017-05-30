@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>clubsandwich.line_of_sight &#8212; clubsandwich v0.1a1 docs - roguelike framework for Python</title>
+    <title>clubsandwich.line_of_sight &#8212; clubsandwich v0.1.3 docs - roguelike framework for Python</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1a1',
+        VERSION:     '0.1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -125,9 +125,19 @@
 <dl class="function">
 <dt id="clubsandwich.line_of_sight.get_visible_points">
 <code class="descclassname">clubsandwich.line_of_sight.</code><code class="descname">get_visible_points</code><span class="sig-paren">(</span><em>vantage_point</em>, <em>get_allows_light</em>, <em>max_distance=30</em><span class="sig-paren">)</span><a class="headerlink" href="#clubsandwich.line_of_sight.get_visible_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>:param <a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><code class="xref py py-class docutils literal"><span class="pre">clubsandwich.geom.Point</span></code></a> vantage_point:
-:param function get_allows_light: <code class="docutils literal"><span class="pre">get_allows_light(point)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code>
-:param int max_distance:</p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vantage_point</strong> (<a class="reference internal" href="api_geom.html#clubsandwich.geom.Point" title="clubsandwich.geom.Point"><em>clubsandwich.geom.Point</em></a>) – </li>
+<li><strong>get_allows_light</strong> (<em>function</em>) – <code class="docutils literal"><span class="pre">get_allows_light(point)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code></li>
+<li><strong>max_distance</strong> (<em>int</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <p>Returns a set of all points visible from the given vantage point.</p>
 <p>Adapted from <a class="reference external" href="http://www.roguebasin.com/index.php?title=Python_shadowcasting_implementation">this RogueBasin article</a>.</p>
 </dd></dl>
@@ -144,7 +154,7 @@
       &copy;2017 Steve Johnson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
