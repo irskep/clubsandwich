@@ -38,6 +38,7 @@ class MainMenuScene(UIScene):
                 layout_options=LayoutOptions.centered('intrinsic', 'intrinsic')),
             ButtonView(
                 text="Play", callback=self.play,
+                color_bg='#000000', color_fg='#00ff00',
                 layout_options=LayoutOptions.row_bottom(4).with_updates(
                     left=0.2, width=0.2, right=None)),
             ButtonView(
@@ -45,7 +46,9 @@ class MainMenuScene(UIScene):
                 layout_options=LayoutOptions.row_bottom(4).with_updates(
                     left=0.4, width=0.2, right=None)),
             ButtonView(
-                text="Quit", callback=lambda: self.director.pop_scene(),
+                text="[color=red]Quit",
+                callback=lambda: self.director.pop_scene(),
+                size=Size(4, 1),  # [color=red] messes up auto size calculations
                 layout_options=LayoutOptions.row_bottom(4).with_updates(
                     left=0.6, width=0.2, right=None)),
         ]

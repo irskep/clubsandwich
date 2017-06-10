@@ -80,22 +80,28 @@ class LabelView(View):
   :param str color_bg: Background color (only applies on terminal layer zero)
   :param 'center'|'left'|'right' align_horz: Horizontal alignment
   :param 'center'|'top'|'bottom' align_vert: Vertical alignment
+  :param Point|None size: Override intrinsic size. Size is hard to compute; see
+                          `the BearLibTerminal docs`_.
+                          .. _the BearLibTerminal docs: http://foo.wyrd.name/en:bearlibterminal:reference#measure
 
   See :py:class:`View` for the rest of the init arguments.
   """
   def __init__(
       self, text, color_fg='#ffffff', color_bg='#000000',
       align_horz='center', align_vert='center',
-      *args, **kwargs):
+      size=None, *args, **kwargs):
     super().__init__(*args, **kwargs)
     self.align_horz = align_horz
     self.align_vert = align_vert
     self.text = text
     self.color_fg = color_fg
     self.color_bg = color_bg
+    self._explicit_size = size
 
   @property
   def intrinsic_size(self):
+    if self._explicit_size:
+      return self._explicit_size
     height = 0
     width = 0
     for line in self.text.splitlines():
@@ -133,6 +139,14 @@ class ButtonView(View):
                         arguments.
   :param str align_horz: Horizontal alignment. See :py:class:`LabelView`.
   :param str align_vert: Vertical alignment. See :py:class:`LabelView`.
+  :param str color_fg: Foreground color of the button. When it is active,
+                       this becomes the background color.
+  :param str color_bg: Background color of the button. When it is active, this
+                       becomes the foreground color. (Only works at terminal
+                       layer 0.)
+  :param Point|None size: Override intrinsic size of the label. Size is
+                          hard to compute; see `the BearLibTerminal docs`_.
+                          .. _the BearLibTerminal docs: http://foo.wyrd.name/en:bearlibterminal:reference#measure
 
   See :py:class:`View` for the rest of the init arguments.
 
@@ -144,9 +158,14 @@ class ButtonView(View):
   """
   def __init__(
       self, text, callback, align_horz='center', align_vert='center',
-      *args, **kwargs):
-    self.label_view = LabelView(text, align_horz=align_horz, align_vert=align_vert)
+      color_fg='#ffffff', color_bg='#000000', size=None, *args, **kwargs):
+    self.label_view = LabelView(
+      text, align_horz=align_horz, align_vert=align_vert, size=size,
+      color_fg=color_fg, color_bg=color_bg)
     super().__init__(subviews=[self.label_view], *args, **kwargs)
+
+    self.color_fg = color_fg
+    self.color_bg = color_bg
     self.callback = callback
 
   def set_needs_layout(self, val):
@@ -154,12 +173,12 @@ class ButtonView(View):
     self.label_view.set_needs_layout(val)
 
   def did_become_first_responder(self):
-      self.label_view.color_fg = '#000000'
-      self.label_view.color_bg = '#ffffff'
+      self.label_view.color_fg = self.color_bg
+      self.label_view.color_bg = self.color_fg
 
   def did_resign_first_responder(self):
-      self.label_view.color_fg = '#ffffff'
-      self.label_view.color_bg = '#000000'
+      self.label_view.color_fg = self.color_fg
+      self.label_view.color_bg = self.color_bg
 
   def draw(self, ctx):
     if self.clear:
