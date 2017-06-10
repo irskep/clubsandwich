@@ -17,7 +17,7 @@ terminal.open()
 terminal.set("""
 font: {}, size=10x10;
 window.size=40x40;
-input.fiilter=[keyboard, mouse];
+input.filter=[keyboard, mouse];
 """.format(str(examples_dir / 'assets' / 'cp437_10x10.png')))
 
 image = REXPaintImage(str(examples_dir / 'assets' / 'xptest.xp'))

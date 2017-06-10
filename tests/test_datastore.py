@@ -9,7 +9,7 @@ from clubsandwich.datastore import (
   ValidationException,
 )
 
-root = pathlib.Path(__file__).parent.parent
+from .utils import fixtures_root
 
 StringyRow = namedtuple('StringyRow', ('f1', 'f2', 'f3', 'f4'))
 ALPHABET_VALUE = [
@@ -34,18 +34,18 @@ class FakeReader:
 class CSVReaderTestCase(unittest.TestCase):
   def test_reads_alphabet_default(self):
     r = CSVReader(
-      str(root / 'tests' / 'fixtures' / 'alphabet.csv'))
+      str(fixtures_root / 'tests' / 'fixtures' / 'alphabet.csv'))
     self.assertListEqual(list(r.read()), ALPHABET_VALUE[1:])
 
   def test_reads_alphabet_skip(self):
     r = CSVReader(
-      str(root / 'tests' / 'fixtures' / 'alphabet.csv'),
+      str(fixtures_root / 'tests' / 'fixtures' / 'alphabet.csv'),
       skip_first_line=True)
     self.assertListEqual(list(r.read()), ALPHABET_VALUE[1:])
 
   def test_reads_alphabet_noskip(self):
     r = CSVReader(
-      str(root / 'tests' / 'fixtures' / 'alphabet.csv'),
+      str(fixtures_root / 'tests' / 'fixtures' / 'alphabet.csv'),
       skip_first_line=False)
     self.assertListEqual(list(r.read()), ALPHABET_VALUE)
 
@@ -61,7 +61,7 @@ class SourceTestCase(unittest.TestCase):
 
   def test_basically_works(self):
     r = CSVReader(
-      str(root / 'tests' / 'fixtures' / 'alphabet.csv'),
+      str(fixtures_root / 'tests' / 'fixtures' / 'alphabet.csv'),
       skip_first_line=False)
     source = self._source(r)
     source.reload()
@@ -103,7 +103,7 @@ class DataStoreTestCase(unittest.TestCase):
   def test_multiple_sources(self):
     ds = self._datastore();
     ds.add_sources_with_glob(
-      str(root / 'tests' / 'fixtures' / '*.csv'),
+      str(fixtures_root / 'tests' / 'fixtures' / '*.csv'),
       lambda path: CSVReader(path))
     self.assertListEqual(list(ds.keys()), ['e', 'i', '5', '9'])
     self.assertEqual(ds['e'], ds.row_class('e', 'f', 'g', 'h'))
@@ -115,7 +115,7 @@ class DataStoreTestCase(unittest.TestCase):
   def test_dislikes_duplicate_keys(self):
     ds = self._datastore()
     ds.add_sources_with_glob(
-      str(root / 'tests' / 'fixtures' / '*.csv'),
+      str(fixtures_root / 'tests' / 'fixtures' / '*.csv'),
       lambda path: CSVReader(path))
 
     def _add_duplicates():
