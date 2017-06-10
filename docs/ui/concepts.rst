@@ -8,8 +8,9 @@ The Scene
 
 To render a UI, you need to use a :py:class:`UIScene`::
 
-  from clubsandwich.director import DirectorLoop, Scene
+  from clubsandwich.director import DirectorLoop
   from clubsandwich.ui import (
+      UIScene,
       ButtonView,
   )
   class MainMenuScene(UIScene):
