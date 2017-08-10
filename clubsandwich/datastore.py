@@ -63,247 +63,250 @@ from uuid import uuid4
 
 
 class ValidationException(Exception):
-  """
-  Thrown when a row does not match the mapping in your :py:class:`DataStore`
-  instance
-  """
-  pass
+    """
+    Thrown when a row does not match the mapping in your :py:class:`DataStore`
+    instance
+    """
+    pass
 
 
 class Reader:
-  """
-  Abstract base class for a reader. You can subclass this for your own readers
-  if you want, but duck typing is probably less verbose.
-
-  .. py:attribute:: identifier
-
-    String identifier for this reader. Only used to provide helpful
-    exception messages.
-  """
-
-  def read(self):
     """
-    Iterator of sequences or dicts from the file or data structure. Like
-    ``('a', 'b', 'c')`` or ``{'f1': 'a', 'f2': 'b', 'f3': 'c'}``.
+    Abstract base class for a reader. You can subclass this for your own readers
+    if you want, but duck typing is probably less verbose.
+
+    .. py:attribute:: identifier
+
+      String identifier for this reader. Only used to provide helpful
+      exception messages.
     """
+
+    def read(self):
+        """
+        Iterator of sequences or dicts from the file or data structure. Like
+        ``('a', 'b', 'c')`` or ``{'f1': 'a', 'f2': 'b', 'f3': 'c'}``.
+        """
 
 
 class CSVReader:
-  """
-  Returns the lines from a single CSV file. If your first line is just column
-  labels, you can skip it (this is the default behavior).
-
-  .. py:attribute:: path
-
-    Path to the file
-
-  .. py:attribute:: identifier
-
-    See :py:attr:`Reader.identifier`
-
-  .. py:attribute:: skip_first_line
-
-    If ``True`` (default), always skip the first line of the file.
-  """
-  def __init__(self, path, skip_first_line=True):
     """
-    """
-    self.path = path
-    self.skip_first_line = skip_first_line
-    self.identifier = path
+    Returns the lines from a single CSV file. If your first line is just column
+    labels, you can skip it (this is the default behavior).
 
-  def read(self):
-    """Iterator of CSV values. Values are lists."""
-    with open(self.path) as f:
-      reader = csv.reader(f)
-      skip_next_line = self.skip_first_line
-      for line in reader:
-        if skip_next_line:
-          skip_next_line = False
-          continue
-        yield line
+    .. py:attribute:: path
+
+      Path to the file
+
+    .. py:attribute:: identifier
+
+      See :py:attr:`Reader.identifier`
+
+    .. py:attribute:: skip_first_line
+
+      If ``True`` (default), always skip the first line of the file.
+    """
+
+    def __init__(self, path, skip_first_line=True):
+        """
+        """
+        self.path = path
+        self.skip_first_line = skip_first_line
+        self.identifier = path
+
+    def read(self):
+        """Iterator of CSV values. Values are lists."""
+        with open(self.path) as f:
+            reader = csv.reader(f)
+            skip_next_line = self.skip_first_line
+            for line in reader:
+                if skip_next_line:
+                    skip_next_line = False
+                    continue
+                yield line
 
 
 def _read_row(row_class, fields, defaults, values):
-  if isinstance(values, dict):
-    kwargs = {}
-    for k, v in fields:
-      if k in values:
-        kwargs[k] = v(values[k])
-      else:
-        kwargs[k] = defaults[k] 
-    return row_class(**kwargs)
-  else:
-    return row_class(**{
-      k: fn(v) for (k, fn), v in zip(fields, values)})
+    if isinstance(values, dict):
+        kwargs = {}
+        for k, v in fields:
+            if k in values:
+                kwargs[k] = v(values[k])
+            else:
+                kwargs[k] = defaults[k]
+        return row_class(**kwargs)
+    else:
+        return row_class(**{
+            k: fn(v) for (k, fn), v in zip(fields, values)})
 
 
 class Source:
-  """
-  Stores and indexes values from a reader. You shouldn't need to worry about
-  this class much; it's created automatically for you, and sources are accessed
-  in aggregate via a :py:class:`DataStore`.
+    """
+    Stores and indexes values from a reader. You shouldn't need to worry about
+    this class much; it's created automatically for you, and sources are accessed
+    in aggregate via a :py:class:`DataStore`.
 
-  .. py:attribute:: reader
+    .. py:attribute:: reader
 
-    Some :py:class:`Reader` subclass or duck-typed class.
+      Some :py:class:`Reader` subclass or duck-typed class.
 
-  .. py:attribute:: row_class
+    .. py:attribute:: row_class
 
-    Class to instantiate for each row
+      Class to instantiate for each row
 
-  .. py:attribute:: fields
+    .. py:attribute:: fields
 
-    Sequence of pairs mapping field name to value factory
-  
-  .. py:attribute::  defaults
+      Sequence of pairs mapping field name to value factory
 
-    Default values for the fields, or ``None`` if you're quite sure all values
-    will be specified
+    .. py:attribute::  defaults
 
-  .. py:attribute:: items
+      Default values for the fields, or ``None`` if you're quite sure all values
+      will be specified
 
-    List of items read from the source
-  """
-  def __init__(self, reader, row_class, fields, defaults=None):
-    self.reader = reader
-    self.row_class = row_class
-    self.fields = fields
-    self.defaults = defaults
-    self._items_by_key = {}
-    self.items = []
+    .. py:attribute:: items
 
-  def reload(self):
-    """Run the reader again; replace all stored items"""
-    self._items_by_key = {}
-    self.items = []
-    for values in self.reader.read():
-      try:
-        item = _read_row(self.row_class, self.fields, self.defaults, values)
-      except:
-        raise ValidationException(
-          "Validation error in reader {} for class {}: row does not match schema: {!r}".format(
-            self.reader.identifier, self.row_class.__name__, values))
-      self.items.append(item)
-      if item[0] in self._items_by_key:
-        raise ValueError(
-          "Duplicate key {!r} in {}".format(item[0], self.reader.identifier))
-      self._items_by_key[item[0]] = item
+      List of items read from the source
+    """
 
-  def keys(self):
-    """Iterator of all keys in this source"""
-    # strong assumption: first field is unique id
-    return [i[0] for i in self.items]
+    def __init__(self, reader, row_class, fields, defaults=None):
+        self.reader = reader
+        self.row_class = row_class
+        self.fields = fields
+        self.defaults = defaults
+        self._items_by_key = {}
+        self.items = []
 
-  def __contains__(self, k):
-    return k in self._items_by_key
+    def reload(self):
+        """Run the reader again; replace all stored items"""
+        self._items_by_key = {}
+        self.items = []
+        for values in self.reader.read():
+            try:
+                item = _read_row(self.row_class, self.fields, self.defaults, values)
+            except:
+                raise ValidationException(
+                    "Validation error in reader {} for class {}: row does not match schema: {!r}".format(
+                        self.reader.identifier, self.row_class.__name__, values))
+            self.items.append(item)
+            if item[0] in self._items_by_key:
+                raise ValueError(
+                    "Duplicate key {!r} in {}".format(item[0], self.reader.identifier))
+            self._items_by_key[item[0]] = item
 
-  def __getitem__(self, k):
-    return self._items_by_key[k]
+    def keys(self):
+        """Iterator of all keys in this source"""
+        # strong assumption: first field is unique id
+        return [i[0] for i in self.items]
+
+    def __contains__(self, k):
+        return k in self._items_by_key
+
+    def __getitem__(self, k):
+        return self._items_by_key[k]
 
 
 class DataStore:
-  """
-  Collection of data sources for convenient access. See example in module docs
-  for a basic guide.
-  """
-  def __init__(self, type_name, fields, defaults=None):
     """
-    :param str type_name: Name of the class to create for values
-    :param [(name, factory), ...] fields: Sequence mapping field name to a
-                                          function that converts a string to
-                                          the field's value
-    :param dict|None defaults: Default values for fields, or ``None`` if
-                               irrelevant.
-
-    The class creation stuff merits some explanation. The idea is that you'll
-    have one data store per type, and having to separately specify the class
-    would add unnecessary boilerplate.
-
-    So what you do instead is to pass a class name and a field mapping. This
-    is turned into a ``namedtuple``, and each field is run through the mapping
-    function when the data is parsed from a file.
+    Collection of data sources for convenient access. See example in module docs
+    for a basic guide.
     """
-    self.row_class = namedtuple(type_name, [f[0] for f in fields])
-    self.fields = fields
-    self.defaults = defaults
-    self.sources = []
 
-  def _add_source(self, reader):
-    source = Source(reader, self.row_class, self.fields, self.defaults)
-    self.sources.append(source)
-    source.reload()
+    def __init__(self, type_name, fields, defaults=None):
+        """
+        :param str type_name: Name of the class to create for values
+        :param [(name, factory), ...] fields: Sequence mapping field name to a
+                                              function that converts a string to
+                                              the field's value
+        :param dict|None defaults: Default values for fields, or ``None`` if
+                                   irrelevant.
 
-  def add_source(self, reader):
-    """
-    :param Reader reader:
+        The class creation stuff merits some explanation. The idea is that you'll
+        have one data store per type, and having to separately specify the class
+        would add unnecessary boilerplate.
 
-    Add a source that reads from the given reader.
-    """
-    self._add_source(reader)
-    self.validate()
+        So what you do instead is to pass a class name and a field mapping. This
+        is turned into a ``namedtuple``, and each field is run through the mapping
+        function when the data is parsed from a file.
+        """
+        self.row_class = namedtuple(type_name, [f[0] for f in fields])
+        self.fields = fields
+        self.defaults = defaults
+        self.sources = []
 
-  def add_sources_with_glob(self, pattern, reader_factory):
-    """
-    :param str pattern: Glob pattern (`docs <https://docs.python.org/3/library/glob.html>`_)
-    :param function reader_factory: ``reader_factory(path) -> Reader``
+    def _add_source(self, reader):
+        source = Source(reader, self.row_class, self.fields, self.defaults)
+        self.sources.append(source)
+        source.reload()
 
-    Add multiple sources for paths that match the given pattern (glob).
-    For example, if you wanted to read all CSV files in your "monsters"
-    directory, you'd do this::
+    def add_source(self, reader):
+        """
+        :param Reader reader:
 
-      data_store.add_sources_with_glob('data/monsters/*.csv', CSVReader)
-    """
-    for path in glob.glob(pattern, recursive=True):
-      self._add_source(reader_factory(path))
-    self.validate()
+        Add a source that reads from the given reader.
+        """
+        self._add_source(reader)
+        self.validate()
 
-  def validate(self):
-    for key in self.keys():
-      sources = [source for source in self.sources if key in source]
-      if len(sources) > 1:
-          raise ValueError("Duplicate key {!r} in ".format(
-            key, [s.reader.identifier for s in sources]))
+    def add_sources_with_glob(self, pattern, reader_factory):
+        """
+        :param str pattern: Glob pattern (`docs <https://docs.python.org/3/library/glob.html>`_)
+        :param function reader_factory: ``reader_factory(path) -> Reader``
 
-  def reload(self):
-    """
-    Reload all sources. Does not pick up new files if you used a glob. To
-    handle that case, call :py:meth:`unload` and then re-add all your sources.
-    """
-    for source in self.sources:
-      source.reload()
+        Add multiple sources for paths that match the given pattern (glob).
+        For example, if you wanted to read all CSV files in your "monsters"
+        directory, you'd do this::
 
-  def unload(self):
-    """
-    Remove all sources.
-    """
-    self.sources = []
+          data_store.add_sources_with_glob('data/monsters/*.csv', CSVReader)
+        """
+        for path in glob.glob(pattern, recursive=True):
+            self._add_source(reader_factory(path))
+        self.validate()
 
-  def keys(self):
-    """Iterator of all item identifiers"""
-    for source in self.sources:
-      yield from source.keys()
+    def validate(self):
+        for key in self.keys():
+            sources = [source for source in self.sources if key in source]
+            if len(sources) > 1:
+                raise ValueError("Duplicate key {!r} in ".format(
+                    key, [s.reader.identifier for s in sources]))
 
-  @property
-  def items(self):
-    """Iterator of all items"""
-    for source in self.sources:
-      yield from source.items
+    def reload(self):
+        """
+        Reload all sources. Does not pick up new files if you used a glob. To
+        handle that case, call :py:meth:`unload` and then re-add all your sources.
+        """
+        for source in self.sources:
+            source.reload()
 
-  def __contains__(self, k):
-    return any(k in source for source in self.sources)
+    def unload(self):
+        """
+        Remove all sources.
+        """
+        self.sources = []
 
-  def __getitem__(self, k):
-    for source in self.sources:
-      if k in source:
-        return source[k]
-    raise KeyError(k)
+    def keys(self):
+        """Iterator of all item identifiers"""
+        for source in self.sources:
+            yield from source.keys()
 
-  def __getattr__(self, k):
-    try:
-      object.__getattr__(self, k)
-    except AttributeError:
-      if k.startswith('r_'):
-        return self[k[2:]]
-      else:
-        return self[k]
+    @property
+    def items(self):
+        """Iterator of all items"""
+        for source in self.sources:
+            yield from source.items
+
+    def __contains__(self, k):
+        return any(k in source for source in self.sources)
+
+    def __getitem__(self, k):
+        for source in self.sources:
+            if k in source:
+                return source[k]
+        raise KeyError(k)
+
+    def __getattr__(self, k):
+        try:
+            object.__getattr__(self, k)
+        except AttributeError:
+            if k.startswith('r_'):
+                return self[k[2:]]
+            else:
+                return self[k]
