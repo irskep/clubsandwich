@@ -3,7 +3,6 @@ from clubsandwich.geom import Point, Size
 from clubsandwich.ui.layout_options import LayoutOptions
 from clubsandwich.ui.view import View
 from clubsandwich.ui import LabelView
-import os
 
 
 class ScrollingTextView(View):
@@ -16,7 +15,7 @@ class ScrollingTextView(View):
     See :py:class:`View` for the rest of the init arguments.
     """
 
-    def __init__(self, lines_to_display, *args, **kwargs):
+    def __init__(self, lines_to_display, chars_per_line, *args, **kwargs):
         self.top_line_index = 0
         self.list_of_strings = []
         options = kwargs.get("layout_options")
@@ -27,7 +26,7 @@ class ScrollingTextView(View):
             layout_options=options)
         super().__init__(subviews=[self.label_view], *args, **kwargs)
         self.lines_to_display = lines_to_display
-        self.chars_to_display = 60
+        self.chars_to_display = chars_per_line
 
     @property
     def can_become_first_responder(self):
