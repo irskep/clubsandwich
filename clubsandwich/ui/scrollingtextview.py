@@ -16,7 +16,7 @@ class ScrollingTextView(View):
     See :py:class:`View` for the rest of the init arguments.
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, lines_to_display, *args, **kwargs):
         self.top_line_index = 0
         self.list_of_strings = []
         options = kwargs.get("layout_options")
@@ -26,18 +26,39 @@ class ScrollingTextView(View):
             str("Wat"), align_horz='left', align_vert='top',
             layout_options=options)
         super().__init__(subviews=[self.label_view], *args, **kwargs)
-        self.height = self.label_view.intrinsic_size.height + 1
+        self.lines_to_display = lines_to_display
+        self.chars_to_display = 60
 
     @property
     def can_become_first_responder(self):
         return True
 
+    def recursive_wrap_lines(self, line, width, lines=None):
+        if lines is None:
+            lines = []
+
+        if len(line) > width:
+            last_space = line[0:width].rfind(" ")
+            if last_space:
+                lines.append(line[0:last_space])
+                return self.recursive_wrap_lines(line[last_space::], width, lines)
+            else:
+                lines.append(line[0:width])
+                return self.recursive_wrap_lines(line[width::], width, lines)
+        else:
+            lines.append(line)
+        return lines
+
     def add_lines(self, lines_string):
-        lines = lines_string.split("\n")
-        self.list_of_strings.extend(lines)
-        lines_added = len(lines)
-        if self.top_line_index + self.height < self.top_line_index + lines_added:
-            self.focus_on_line(self.height - lines_added)
+        unwrapped_lines = lines_string.split("\n")
+        wrapped_lines = []
+        for line in unwrapped_lines:
+            wrapped_lines.extend(self.recursive_wrap_lines(line, self.chars_to_display))
+
+        self.list_of_strings.extend(wrapped_lines)
+        lines_added = len(wrapped_lines)
+        if self.top_line_index + self.lines_to_display < self.top_line_index + lines_added:
+            self.focus_on_line(self.lines_to_display - lines_added)
         else:
             self._refocus()
 
@@ -51,12 +72,12 @@ class ScrollingTextView(View):
             self._refocus()
 
     def scroll_down(self):
-        if self.top_line_index + self.height < len(self.list_of_strings):
+        if self.top_line_index + self.lines_to_display < len(self.list_of_strings):
             self.top_line_index += 1
             self._refocus()
 
     def _refocus(self):
-        lines_we_should_show = self.height
+        lines_we_should_show = self.lines_to_display
         new_view_lines = "\n".join(self.list_of_strings[self.top_line_index:self.top_line_index + lines_we_should_show])
         print("Focused on lines {} to {}".format(self.top_line_index, self.top_line_index + lines_we_should_show))
         self.label_view.text = new_view_lines
@@ -85,8 +106,8 @@ class ScrollingTextView(View):
             color_bg = '#ffffff'
         ctx.color(color_fg)
         ctx.bkcolor(color_bg)
-        ctx.print(Point(self.bounds.width - 2, 0), '↑ ')
-        ctx.print(Point(self.bounds.width - 2, self.bounds.height - 4), ' ↓')
+        ctx.print(Point(self.bounds.width, 2), '↑')
+        ctx.print(Point(self.bounds.width, self.bounds.height), '↓')
 
     def terminal_read(self, val):
         if val == terminal.TK_UP:
