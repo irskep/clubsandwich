@@ -24,15 +24,15 @@ image = REXPaintImage(str(examples_dir / 'assets' / 'xptest.xp'))
 image.draw(Point(0, 0), layer=0)
 image.draw(Point(0, 10), layer=1)
 for i in range(image.num_layers):
-  terminal.layer(i)
-  image.draw(Point(15, 15), layer=i)
+    terminal.layer(i)
+    image.draw(Point(15, 15), layer=i)
 
 terminal.refresh()
 
 while True:
-  val = terminal.read()
-  if val == terminal.TK_CLOSE:
-    break
-  elif val == terminal.TK_MOUSE_MOVE:
-    print(terminal.pick(terminal.state(terminal.TK_MOUSE_X), terminal.state(terminal.TK_MOUSE_Y)))
+    val = terminal.read()
+    if val == terminal.TK_CLOSE:
+        break
+    elif val == terminal.TK_MOUSE_MOVE:
+        print(terminal.pick(terminal.state(terminal.TK_MOUSE_X), terminal.state(terminal.TK_MOUSE_Y)))
 terminal.close()

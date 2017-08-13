@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
 
+
 def readme():
     with open('Readme.rst') as f:
         return f.read()
+
 
 setup(
     name='clubsandwich',
@@ -22,7 +24,7 @@ setup(
     entry_points='''
         [console_scripts]
         babysit=clubsandwich.babysit:cli
-    ''',
+        ''',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
