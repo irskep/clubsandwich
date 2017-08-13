@@ -1,5 +1,6 @@
 from clubsandwich.director import DirectorLoop
 from clubsandwich.ui import UIScene, ScrollingTextView, LayoutOptions, WindowView
+from bearlibterminal import terminal
 
 
 class BasicScene(UIScene):
@@ -18,6 +19,11 @@ class BasicScene(UIScene):
                                    "This, however\n"
                                    "Needs to break up\n"
                                    "as expected.")
+
+    def terminal_read(self, val):
+        super().terminal_read(val)
+        if val == terminal.TK_ENTER:
+            self.lets_scroll.add_lines("Adding a new line.\n")
 
 
 class DemoLoop(DirectorLoop):

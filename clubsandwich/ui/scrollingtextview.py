@@ -44,8 +44,13 @@ class ScrollingTextView(View):
 
         self.list_of_strings.extend(wrapped_lines)
         lines_added = len(wrapped_lines)
-        if self.top_line_index + self.lines_to_display < self.top_line_index + lines_added:
-            self.focus_on_line(self.lines_to_display - lines_added)
+        if self.top_line_index + self.lines_to_display <= len(self.list_of_strings) - lines_added:
+            if lines_added > self.lines_to_display:
+                focus_substract = lines_added
+            else:
+                focus_substract = self.lines_to_display - lines_added
+
+            self.focus_on_line(len(self.list_of_strings) - focus_substract - 1)
         else:
             self._refocus()
 
