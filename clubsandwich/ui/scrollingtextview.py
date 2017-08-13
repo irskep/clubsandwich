@@ -22,7 +22,7 @@ class ScrollingTextView(View):
         if not options:
             options = LayoutOptions().with_updates(left=2, right=2)
         self.label_view = LabelView(
-            str("Wat"), align_horz='left', align_vert='top',
+            str(" "), align_horz='left', align_vert='top',
             layout_options=options)
         super().__init__(subviews=[self.label_view], *args, **kwargs)
         self.lines_to_display = lines_to_display
