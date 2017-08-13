@@ -1,8 +1,10 @@
+import textwrap
+
 from clubsandwich.blt.nice_terminal import terminal
 from clubsandwich.geom import Point, Size
+from clubsandwich.ui import LabelView
 from clubsandwich.ui.layout_options import LayoutOptions
 from clubsandwich.ui.view import View
-from clubsandwich.ui import LabelView
 
 
 class ScrollingTextView(View):
@@ -32,27 +34,13 @@ class ScrollingTextView(View):
     def can_become_first_responder(self):
         return True
 
-    def recursive_wrap_lines(self, line, width, lines=None):
-        if lines is None:
-            lines = []
-
-        if len(line) > width:
-            last_space = line[0:width].rfind(" ")
-            if last_space:
-                lines.append(line[0:last_space])
-                return self.recursive_wrap_lines(line[last_space::], width, lines)
-            else:
-                lines.append(line[0:width])
-                return self.recursive_wrap_lines(line[width::], width, lines)
-        else:
-            lines.append(line)
-        return lines
-
     def add_lines(self, lines_string):
-        unwrapped_lines = lines_string.split("\n")
+        unwrapped_lines = lines_string.splitlines(keepends=True)
         wrapped_lines = []
         for line in unwrapped_lines:
-            wrapped_lines.extend(self.recursive_wrap_lines(line, self.chars_to_display))
+            wrapped_lines.extend(
+                textwrap.wrap(line, width=self.chars_to_display)
+            )
 
         self.list_of_strings.extend(wrapped_lines)
         lines_added = len(wrapped_lines)
@@ -76,9 +64,9 @@ class ScrollingTextView(View):
             self._refocus()
 
     def _refocus(self):
-        lines_we_should_show = self.lines_to_display
-        new_view_lines = "\n".join(self.list_of_strings[self.top_line_index:self.top_line_index + lines_we_should_show])
-        print("Focused on lines {} to {}".format(self.top_line_index, self.top_line_index + lines_we_should_show))
+        new_view_lines = "\n".join(
+            self.list_of_strings[self.top_line_index:self.top_line_index + self.lines_to_display]
+        )
         self.label_view.text = new_view_lines
 
     @property

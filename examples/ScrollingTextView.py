@@ -5,16 +5,19 @@ from clubsandwich.ui import UIScene, ScrollingTextView, LayoutOptions, WindowVie
 class BasicScene(UIScene):
     def __init__(self):
         self.lets_scroll = ScrollingTextView(
-            lines_to_display=5, chars_per_line=70,
-            layout_options=LayoutOptions(left=0, width=0.9, height=0.3, right=None, bottom=0.1, top=None))
+            lines_to_display=4, chars_per_line=60,
+            layout_options=LayoutOptions(left=0.05, width=0.85, height=0.3, right=None, bottom=0.1, top=None))
         super().__init__(WindowView("Scrolling Text", subviews=[self.lets_scroll]))
-        self.lets_scroll.add_lines("Sometimes this scrolling view\ncan come quite handy right?\n"
+        self.lets_scroll.add_lines("Sometimes this scrolling view can come quite handy right?\n"
                                    "I mean often we need to scroll through logs of action\n"
                                    "to make sure we get everything visible and nice to read things.\n"
+                                   "\n"
                                    "Maybe you should stop reading all this and\n"
-                                   "\n"
-                                   "\n"
-                                   "Use the scrolling text view into your own game?")
+                                   "Use the scrolling text view into your own game?\n"
+                                   "Just making sure this is nicely wrapped.\n"
+                                   "This, however\n"
+                                   "Needs to break up\n"
+                                   "as expected.")
 
 
 class DemoLoop(DirectorLoop):
