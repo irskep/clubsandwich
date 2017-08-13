@@ -17,12 +17,17 @@ from bearlibterminal import terminal
 class _TerminalState:
     pass
 
+
 for constant_key in (c for c in dir(terminal) if c.startswith('TK_')):
     def getter(k):
         constant_value = getattr(terminal, k)
+
         def get(self):
             return terminal.state(constant_value)
+
         return get
+
+
     constant_name = constant_key[3:].lower()
     attr_name = 'num_{}'.format(constant_name) if constant_name[0].isdigit() else constant_name
     setattr(
