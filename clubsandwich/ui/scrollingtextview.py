@@ -9,10 +9,8 @@ from clubsandwich.ui.view import View
 
 class ScrollingTextView(View):
   """
-  :param int value: Initial value
-  :param func callback: Called with updated values
-  :param int|None min_value: Min value or ``None``
-  :param int|None max_value: Max value or ``None``
+  :param int lines_to_display: How many lines to display at once (will not adjust the layout)
+  :param int chars_per_line: Maximum amount of characters per line,  for text wrapping.
 
   See :py:class:`View` for the rest of the init arguments.
   """
