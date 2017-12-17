@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
 
+
 def readme():
     with open('Readme.rst') as f:
         return f.read()
+
 
 setup(
     name='clubsandwich',

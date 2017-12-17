@@ -3,6 +3,8 @@ from clubsandwich.blt.loop import BearLibTerminalEventLoop
 
 i = 0
 j = 0
+
+
 class MyDemo(BearLibTerminalEventLoop):
     def __init__(self):
         super().__init__()
@@ -21,5 +23,6 @@ class MyDemo(BearLibTerminalEventLoop):
         i = (i + 1) % 10
         j = (j + 1) % 11
         return not self.should_exit
+
 
 MyDemo().run()
