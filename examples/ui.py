@@ -48,7 +48,8 @@ class MainMenuScene(UIScene):
             ButtonView(
                 text="[color=red]Quit",
                 callback=lambda: self.director.pop_scene(),
-                size=Size(4, 1),  # [color=red] messes up auto size calculations
+                # [color=red] messes up auto size calculations
+                size=Size(4, 1),
                 layout_options=LayoutOptions.row_bottom(4).with_updates(
                     left=0.6, width=0.2, right=None)),
         ]
@@ -70,18 +71,20 @@ class CharacterCreationScene(UIScene):
             'Character',
             layout_options=LayoutOptions(top=7, right=10, bottom=7, left=10),
             subviews=[
-                LabelView('Name:', layout_options=LayoutOptions(height=1, top=1, bottom=None)),
+                LabelView('Name:', layout_options=LayoutOptions(
+                    height=1, top=1, bottom=None)),
                 SingleLineTextInputView(
                     callback=self.print_name,
                     layout_options=LayoutOptions
-                        .centered('intrinsic', 'intrinsic')
-                        .with_updates(top=2, bottom=None)),
-                LabelView('Strength:', layout_options=LayoutOptions(height=1, top=4, bottom=None)),
+                    .centered('intrinsic', 'intrinsic')
+                    .with_updates(top=2, bottom=None)),
+                LabelView('Strength:', layout_options=LayoutOptions(
+                    height=1, top=4, bottom=None)),
                 IntStepperView(
                     value=10, min_value=1, max_value=20, callback=lambda x: print(x),
                     layout_options=LayoutOptions
-                        .centered('intrinsic', 'intrinsic')
-                        .with_updates(top=5)),
+                    .centered('intrinsic', 'intrinsic')
+                    .with_updates(top=5)),
                 ButtonView(
                     text='Cancel', callback=lambda: self.director.pop_scene(),
                     layout_options=LayoutOptions.row_bottom(3)),
@@ -119,7 +122,8 @@ class SettingsScene(UIScene):
             subviews=[
                 SettingsListView(
                     [
-                        (k, CyclingButtonView(v, v[0], callback=lambda _: None, align_horz='left'))
+                        (k, CyclingButtonView(
+                            v, v[0], callback=lambda _: None, align_horz='left'))
                         for k, v in sorted(SettingsScene.OPTIONS.items())
                     ],
                     value_column_width=20,
