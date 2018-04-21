@@ -120,7 +120,7 @@ The ``terminal_read(val)`` method is called whenever events are in the queue.
 
 .. code:: python
 
-    from clubsandwich.loop import BearLibTerminalEventLoop
+    from clubsandwich.blt.loop import BearLibTerminalEventLoop
 
     class BasicLoop(BearLibTerminalEventLoop):
         def terminal_read(self, val):
@@ -128,7 +128,7 @@ The ``terminal_read(val)`` method is called whenever events are in the queue.
 
         def terminal_update(self):
             # this is called every frame
-            self.draw()
+            return True
 
 
     if __name__ == '__main__':
@@ -150,7 +150,7 @@ them for you in a really obvious way.
             return MainMenuScene()
 
     class MainMenuScene(Scene):
-        def terminal_update(self):
+        def terminal_update(self, is_active=False):
             print(0, 0, "Press Enter to begin game, Esc to quit")
 
         def terminal_read(self, val):
@@ -160,7 +160,7 @@ them for you in a really obvious way.
                 self.director.pop_scene()
 
     class GameScene(Scene):
-        def terminal_update(self):
+        def terminal_update(self, is_active=False):
             print(
                 0, 0,
                 "You are playing the game, it is so fun!" +
@@ -243,17 +243,27 @@ in the first screenshot:
 
 .. code:: python
 
+    from clubsandwich.director import DirectorLoop
     from clubsandwich.ui import (
-    LabelView,
-    ButtonView,
-    UIScene,
+        LabelView,
+        ButtonView,
+        UIScene,
+        LayoutOptions
     )
+
     LOGO = """
-      _______     __     ____             __       _     __ 
-     / ___/ /_ __/ /    / __/__ ____  ___/ /    __(_)___/ / 
+      _______     __     ____             __       _     __
+     / ___/ /_ __/ /    / __/__ ____  ___/ /    __(_)___/ /
     / /__/ / // / _ \  _\ \/ _ `/ _ \/ _  / |/|/ / / __/ _ \\
     \___/_/\_,_/_.__/ /___/\_,_/_//_/\_,_/|__,__/_/\__/_//_/
     """
+
+
+    class BasicLoop(DirectorLoop):
+        def get_initial_scene(self):
+            return MainMenuScene()
+
+
     class MainMenuScene(UIScene):
         def __init__(self, *args, **kwargs):
             views = [
@@ -292,6 +302,11 @@ in the first screenshot:
 
         def show_settings(self):
             self.director.push_scene(SettingsScene())
+
+
+    if __name__ == '__main__':
+        BasicLoop().run()
+
 
 Script runner
 ~~~~~~~~~~~~~
