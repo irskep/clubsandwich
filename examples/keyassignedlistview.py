@@ -6,7 +6,7 @@ class BasicScene(UIScene):
     def __init__(self):
         button_generator = (ButtonView(
             text="Item {}".format(i),
-            callback=lambda: print("Called Item {}".format(i)))
+            callback=lambda x=i: print("Called Item {}".format(x)))
             for i in range(0, 100)
         )
         self.key_assign = KeyAssignedListView(
