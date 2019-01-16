@@ -158,20 +158,37 @@ class SettingsListView(FirstResponderContainerView):
             self.find_next_responder()
             return True
         # pageup/<
-        elif val == terminal.TK_PAGEUP or val == terminal.TK_COMMA and blt_state.shift:
+        elif (val == terminal.TK_PAGEUP
+              or val == terminal.TK_COMMA
+              and blt_state.shift):
             self.min_row = max(0, self.min_row - self.inner_height)
             self.set_first_responder_in_visible_area()
             return True
         # pagedown/>
-        elif val == terminal.TK_PAGEDOWN or val == terminal.TK_PERIOD and blt_state.shift:
+        elif (val == terminal.TK_PAGEDOWN
+              or val == terminal.TK_PERIOD
+              and blt_state.shift):
             self.min_row = min(
-                len(self.labels) - self.inner_height - 1, self.min_row + self.inner_height)
+                len(self.labels) - self.inner_height - 1,
+                self.min_row + self.inner_height)
             self.set_first_responder_in_visible_area()
             return True
 
 
 class KeyAssignedListView(SettingsListView):
-    CHARACTER_SET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"#$%?&*()_+^:'.|{}[]@"
+    """ ListView element where each item is assigned to a input value on the
+    keyboard.
+    
+    :param value_controls: list of items which will be assigned a specific
+    character as their input key.
+    :param value_column_width: int width for a List Item string.
+    :param args:
+    :param kwargs:
+    """
+    CHARACTER_SET = (
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz"
+        "0123456789!\"#$%?&*()_+^:'.|{}[]@")
 
     def __init__(self, value_controls, value_column_width=16, *args, **kwargs):
         symbols = (symbol for symbol in self.CHARACTER_SET)
@@ -179,7 +196,10 @@ class KeyAssignedListView(SettingsListView):
         for value_control in value_controls:
             label_control_pairs.append((next(symbols, " "), value_control))
 
-        super().__init__(label_control_pairs, value_column_width=16, *args, **kwargs)
+        super().__init__(label_control_pairs,
+                         value_column_width=16,
+                         *args,
+                         **kwargs)
 
     def terminal_read(self, val):
         super().terminal_read(val)

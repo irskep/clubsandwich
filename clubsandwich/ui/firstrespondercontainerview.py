@@ -37,7 +37,8 @@ class FirstResponderContainerView(View):
 
     def _first_responder_traversal(self, v):
         if v.contains_first_responders:
-            # this view may always become the first responder because it will manage
+            # this view may always become the first responder
+            # because it will manage
             # inner first responders, but do not try to look inside it.
             yield v
             return
