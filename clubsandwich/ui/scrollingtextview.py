@@ -33,6 +33,10 @@ class ScrollingTextView(View):
         return True
 
     def add_lines(self, lines_string):
+        """
+        Add additional lines of text to this view and refocus if needed.
+        :param lines_string: New lines to add.
+        """
         unwrapped_lines = lines_string.splitlines(keepends=True)
         wrapped_lines = []
         for line in unwrapped_lines:
@@ -42,7 +46,8 @@ class ScrollingTextView(View):
 
         self.list_of_strings.extend(wrapped_lines)
         lines_added = len(wrapped_lines)
-        if self.top_line_index + self.lines_to_display <= len(self.list_of_strings) - lines_added:
+        if (self.top_line_index + self.lines_to_display <= len(
+                self.list_of_strings) - lines_added):
             if lines_added > self.lines_to_display:
                 focus_substract = lines_added
             else:
@@ -53,20 +58,36 @@ class ScrollingTextView(View):
             self._refocus()
 
     def focus_on_line(self, line_index):
+        """
+        Move the selected line index to the top of the view area. Which sets
+        the viewable buffer to line_index + lines.
+        :param line_index: Index (int) of line to focus. Negative values
+        will default to first line.
+        """
         self.top_line_index = line_index if line_index >= 0 else 0
         self._refocus()
 
     def scroll_up(self):
+        """
+        Shifts the viewable lines buffer up by one line.
+        """
         if self.top_line_index > 0:
             self.top_line_index -= 1
             self._refocus()
 
     def scroll_down(self):
+        """
+        Shifts the viewable lines buffer down by one line.
+        """
         if self.top_line_index + self.lines_to_display < len(self.list_of_strings):
             self.top_line_index += 1
             self._refocus()
 
     def _refocus(self):
+        """
+        Updates the label text to show the lines between self.top_line_index
+        and self.lines_to_display.
+        """
         new_view_lines = "\n".join(
             self.list_of_strings[self.top_line_index:
                                  self.top_line_index + self.lines_to_display]
@@ -75,10 +96,12 @@ class ScrollingTextView(View):
 
     @property
     def intrinsic_size(self):
+
         # add space for arrows
         return self.label_view.intrinsic_size + Size(4, 0)
 
     def set_needs_layout(self, val=True):
+        """ See `:py:class:`View` for details. """
         super().set_needs_layout(val)
         self.label_view.set_needs_layout(val)
 
