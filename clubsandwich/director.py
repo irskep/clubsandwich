@@ -73,8 +73,8 @@ class DirectorLoop(BearLibTerminalEventLoop):
         If truthy, the loop will exit at the end of the frame.
     """
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, fps=80):
+        super().__init__(fps)
         self.should_exit = False
         self.scene_stack = []
         self.ctx = BearLibTerminalContext()

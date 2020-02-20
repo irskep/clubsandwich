@@ -38,7 +38,7 @@ class BearLibTerminalEventLoop:
         MyDemo().run()
     """
 
-    def __init__(self, fps=72):
+    def __init__(self, fps=80):
         super().__init__()
         self.fps = fps
 
@@ -89,7 +89,7 @@ class BearLibTerminalEventLoop:
             has_run_one_loop = False
             while self.run_loop_iteration():
                 has_run_one_loop = True
-                time.sleep(1 / 80)
+                time.sleep(1 / self.fps)
             if not has_run_one_loop:
                 print(
                     "Exited after only one loop iteration. Did you forget to" +
