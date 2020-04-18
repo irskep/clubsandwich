@@ -422,11 +422,11 @@ class Rect:
         """Returns ``True`` iff ``self`` and ``other`` share any points"""
         if self.x > other.x2:
             return False
-        if other.x2 > self.x:
+        if other.x > self.x2:
             return False
         if self.y > other.y2:
             return False
-        if other.y2 > self.y:
+        if other.y > self.y2:
             return False
         return True
 
