@@ -55,7 +55,7 @@ expect reasonable API stability!
 
 .. code:: python
 
-    pip install -e 'git://github.com/irskep/clubsandwich.git@master#egg=clubsandwich'
+    pip install -e git://github.com/irskep/clubsandwich.git@master#egg=clubsandwich
 
 
 .. image:: readme_images/screenshot1.png
