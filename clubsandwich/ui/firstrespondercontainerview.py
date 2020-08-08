@@ -55,7 +55,7 @@ class FirstResponderContainerView(View):
     def remove_subviews(self, subviews):
         super().remove_subviews(subviews)
         for v in subviews:
-            for sv in self.first_responder_traversal(v):
+            for sv in self._first_responder_traversal(v):
                 if sv == self.first_responder:
                     self.set_first_responder(None)
                     self.find_next_responder()
