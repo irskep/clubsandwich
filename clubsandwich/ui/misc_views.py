@@ -131,8 +131,9 @@ class LabelView(View):
 
         ctx.print(Point(x, y).floored, self.text)
 
+    @property
     def debug_string(self):
-        return super().debug_string() + ' ' + repr(self.text)
+        return super().debug_string + ' ' + repr(self.text)
 
 
 class ButtonView(View):
