@@ -450,20 +450,27 @@ class Rect:
             randint(self.origin.x, self.origin.x + self.size.width - 1),
             randint(self.origin.y, self.origin.y + self.size.height - 1))
 
-    def get_random_rect(self, min_size=Size(1, 1)):
+    def get_random_rect(self, min_size=Size(1, 1), max_size=None):
         """
         :param Size min_size:
+        :param Size max_size:
         :returns: :py:class:`Rect`
 
-        Returns a random rect inside ``self`` with the given minimum size. Returns
-        ``self`` unmodified if size won't fit.
+        Returns a random rect inside ``self`` with the given minimum and optional maximum size. 
+        Returns ``self`` unmodified if size won't fit.
         """
+        if max_size is None:
+            max_size = self.size
+        if max_size.width > self.width:
+            max_size.width = self.width
+        if max_size.height > self.height:
+            max_size.height = self.height
         if self.width <= min_size.width:
             return self
         if self.height <= min_size.height:
             return self
-        width = randint(min_size.width, self.width)
-        height = randint(min_size.height, self.height)
+        width = randint(min_size.width, max_size.width)
+        height = randint(min_size.height, max_size.height)
         x = self.origin.x + randint(0, self.size.width - width)
         y = self.origin.y + randint(0, self.size.height - height)
         if width == 0 or height == 0:
