@@ -14,7 +14,7 @@ class BearLibTerminalEventLoop:
                      :py:class:`BearLibTerminalEventLoop` waits ``1/fps``
                      seconds before checking for input and updating again.
 
-    Simple wrapper around BearLibTerminal and ``asyncio``.
+    Simple wrapper around BearLibTerminal.
 
     Subclass :py:meth:`terminal_init`, :py:meth:`terminal_read`, and
     :py:meth:`terminal_update`. Instantiate your class and call its

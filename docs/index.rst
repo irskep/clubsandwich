@@ -42,7 +42,7 @@ Scroll down for examples.
 Dependencies
 ~~~~~~~~~~~~
 
-* Python 3.5+ (Probably works on 3.4, and on 3.3 if you install ``asyncio``)
+* Python 3.5+
 * And BearLibTerminal, of course
 
 Table of contents
@@ -112,11 +112,8 @@ Feature examples
 An event loop
 ~~~~~~~~~~~~~
 
-clubsandwich uses the `asyncio`_ library to run an asynchronous update loop.
-The ``terminal_read(val)`` method is called whenever events are in the queue.
-``terminal_update()`` is called every frame.
-
-.. _asyncio: https://docs.python.org/3/library/asyncio.html
+``terminal_update()`` is called every frame.  The ``terminal_read(val)`` method
+is called whenever events are in the queue.
 
 .. code:: python
 
